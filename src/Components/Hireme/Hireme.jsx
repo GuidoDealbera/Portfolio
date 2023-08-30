@@ -1,4 +1,4 @@
-import hireMe from '../../assets/home.png'
+import hireMe from "../../assets/guidoslack.png";
 
 const Hireme = () => {
   return (
@@ -14,12 +14,12 @@ const Hireme = () => {
           <h2 className="text-2xl font-semibold">¿Tenés un trabajo para mí?</h2>
           <p className="max-w-lg text-sm mt-4 text-gray-200 leading-6 lg:text-left text-justify">
             Como Fullstack Developer{" "}
-            <span className="text-cyan-600 font-semibold">Junior</span>, poseo un sólido
-            conocimiento en desarrollo web utilizando tecnologías claves. Mi
-            experiencia abarca la creación de interfaces interactivas con React
-            y Next, así como la implementación de herramientas de gestión de
-            estados como Redux y Redux Toolkit. Además, he trabajado en proyectos
-            que requerían metodologías ágiles y SCRUM, lo que me ha
+            <span className="text-cyan-600 font-semibold">Junior</span>, poseo
+            un sólido conocimiento en desarrollo web utilizando tecnologías
+            claves. Mi experiencia abarca la creación de interfaces interactivas
+            con React y Next, así como la implementación de herramientas de
+            gestión de estados como Redux y Redux Toolkit. Además, he trabajado
+            en proyectos que requerían metodologías ágiles y SCRUM, lo que me ha
             proporcionado una comprensión de las mejores prácticas de trabajo en
             equipo y colaboración. En el ámbito del backend, he adquirido
             habilidades en Node.js, PostgreSQL y Sequelize para la gestión de
@@ -31,7 +31,11 @@ const Hireme = () => {
           </p>
           <button className="btn-primary mt-10">Saluda</button>
         </div>
-        <img src={hireMe} alt="" className='lg:h-[25rem] h-80 lg:absolute bottom-0 -right-3 object-cover'/>
+        <img
+          src={hireMe}
+          alt=""
+          className="lg:h-[25rem] hidden lg:block h-80 lg:absolute bottom-0 right-0 rounded-br-2xl object-cover"
+        />
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import home from "../../assets/home.png";
+import home from "../../assets/home(sin fondo).png";
 
 const Home = () => {
   const social_media = [
@@ -16,7 +16,7 @@ const Home = () => {
         <img
           src={home}
           alt=""
-          className="md:w-11/12 -translate-x-16 h-full object-cover"
+          className="md:w-11/12 h-full object-cover"
         />
       </div>
       <div className="flex-1">
