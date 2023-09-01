@@ -1,6 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import project1 from "../../assets/project-1.png";
-import project_person from '../../assets/project.png'
+import pf from "../../assets/PF-landing.png";
+import pi from "../../assets/PI-home.jpg";
+import rym from "../../assets/R&M-home.jpg";
+import ecommerce from "../../assets/Progress.png"
+import project_person from '../../assets/Guido4.1.png'
 import "swiper/css";
 import "swiper/css/pagination";
 import {Pagination, Autoplay} from 'swiper/modules'
@@ -9,32 +12,32 @@ const Projects = () => {
   const projects = [
     {
       name: "Aquí Estoy Admin",
-      image: project1,
+      image: pf,
       github: "https://github.com/GuidoDealbera/aqui-estoy",
-      deploy: false
+      deploy: "https://adminaquiestoy.up.railway.app/"
     },
     {
       name: "PI Foods",
-      image: project1,
+      image: pi,
       github: "https://github.com/GuidoDealbera/PI-Food-main",
       deploy: "https://pi-foods-guido.vercel.app/"
     },
     {
       name: "Rick and Morty App",
-      image: project1,
+      image: rym,
       github: "https://github.com/GuidoDealbera/Rick-and-Morty",
       deploy: false
     },
     {
       name: "E-Commerce",
-      image: project1,
+      image: ecommerce,
       github: "https://github.com/GuidoDealbera/E-commerce",
       deploy: false
     }
 
   ]
   return (
-    <section id="projects" className="py-10 text-white">
+    <section id="projects" className="py-[4.5rem] text-white">
       <div className="text-center">
         <h3 className="text-4xl font-semibold">
           Mis <span className="text-cyan-600">Proyectos</span>
@@ -42,10 +45,10 @@ const Projects = () => {
         <p className="text-gray-400 mt-3 text-lg">Mis trabajos</p>
       </div>
       <br />
-      <div className="flex max-w-6xl px-5 mx-auto items-center relative">
+      <div className="flex max-w-6xl px-5 mx-auto items-center gap-5">
         <div className="lg:w-2/3 w-full">
         <Swiper
-            slidesPerview={1.2}
+            slidesperview={1.2}
             spaceBetween={20}
             breakpoints={{
               768: {
@@ -80,7 +83,7 @@ const Projects = () => {
           </Swiper>
         </div>
         <div>
-          <img src={project_person} alt="" className="h-96 drop-shadow-xl"/>
+          <img src={project_person} alt="" className="h-96 min-w-full bg-cyan-600 rounded-xl"/>
         </div>
       </div>
     </section>

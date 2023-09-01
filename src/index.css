@@ -15,10 +15,6 @@ body{
   @apply bg-cyan-600 font-semibold text-white md:mx-0 mx-auto rounded-full py-3 px-6 flex items-center gap-2
 }
 
-.aboutImg::after {
-  @apply content-[''] w-4/5 left-0 top-0 rounded-xl rotate-[25deg] h-full absolute bg-gray-600 -z-10 lg:-translate-y-16 translate-x-8 scale-75;
-}
-
 .swiper-pagination-bullet {
   @apply bg-white;
 }

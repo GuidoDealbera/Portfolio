@@ -7,11 +7,11 @@ const Modal = ({ open, close, className }) => {
   };
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center"
+      className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-[8px] flex justify-center items-center z-[999]"
       id="outside"
       onClick={handleClose}
     >
-      <div className="w-[600px] flex flex-col relative">
+      <div className="w-[600px] flex flex-col relative z-[999]">
         <div className="bg-gray-900/80 text-white px-4 py-2 rounded-xl">
           <h3 className="text-4xl py-4 text-center uppercase">
             Gracias por ver mi <span className="text-cyan-600">Portfolio</span>

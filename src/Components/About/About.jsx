@@ -1,4 +1,4 @@
-import aboutImg from "../../assets/project.png";
+import aboutImg from "../../assets/Guido5.1.png";
 
 const About = () => {
   const info = [
@@ -50,11 +50,11 @@ const About = () => {
             </div>
           </div>
           <div className="flex-1 md:mt-0 mt-6 flex justify-center items-center">
-            <div className="lg:w-96 h-full relative sm:w-10/12 w-11/12 max-w-full aboutImg">
+            <div className="lg:w-96 h-full relative sm:w-10/12 w-11/12 max-w-full">
               <img
                 src={aboutImg}
                 alt=""
-                className="w-full object-cover h-full rounded-xl lg:-translate-y-16"
+                className="w-full object-cover h-full rounded-xl lg:-translate-y-16 bg-cyan-600"
               />
             </div>
           </div>
