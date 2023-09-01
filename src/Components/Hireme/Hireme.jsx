@@ -1,6 +1,6 @@
 import hireMe from "../../assets/guidoslack.png";
 
-const Hireme = () => {
+const Hireme = ({openModal}) => {
   return (
     <section id="hireme" className="py-10 px-3 text-white">
       <div className="text-center">
@@ -29,7 +29,7 @@ const Hireme = () => {
             contribuir con mi entusiasmo y conocimiento, y aprender de manera
             continua en un equipo dinámico y en constante crecimiento.
           </p>
-          <button className="btn-primary mt-10">Saluda</button>
+          <button onClick={openModal} className="btn-primary mt-10">Mira lo que hay aquí</button>
         </div>
         <img
           src={hireMe}

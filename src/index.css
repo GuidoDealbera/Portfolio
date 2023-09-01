@@ -34,3 +34,11 @@ textarea {
 ::selection {
   @apply bg-cyan-600;
 }
+
+.buttons{
+  display: flex;
+  gap: 0.75rem
+}
+.buttons a{
+  @apply text-cyan-600 bg-gray-900 py-1 px-2 inline-block rounded-[4px]
+}

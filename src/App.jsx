@@ -7,8 +7,11 @@ import Projects from "./Components/Projects/Projects";
 import Skills from "./Components/Skills/Skills";
 import Bot from "./Components/Bot/Bot";
 import Hireme from "./Components/Hireme/Hireme";
+import { useState } from "react";
+import Modal from "./Components/Modal/Modal";
 
 export default function App() {
+  const [showModal, setShowModal] = useState(false)
   return (
     <div>
       <NavBar />
@@ -16,7 +19,8 @@ export default function App() {
       <Home />
       <About/>
       <Skills/>
-      <Hireme/>
+      <Hireme openModal={() => setShowModal(true)}/>
+      <Modal open={showModal} close={() => setShowModal(false)}/>
       <Projects/>
       <Contact/>
       <Footer/>
