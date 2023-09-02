@@ -16,6 +16,7 @@
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-loader-spinner": "^5.4.5",
+    "sonner": "^0.7.0",
     "swiper": "^10.2.0"
   },
   "devDependencies": {
