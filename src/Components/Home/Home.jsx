@@ -29,7 +29,7 @@ const Home = () => {
             <span>Mi nombre es</span> <span>Guido Dealbera</span>
           </h1>
           <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">Fullstack Web Developer</h4>
-          <button className="btn-primary mt-8 duration-300 hover:bg-cyan-700">Contáctame</button>
+          <a href="#contact" className="btn-primary mt-8 w-fit duration-300 hover:bg-cyan-700">Contáctame</a>
           <div className="mt-8 text-3xl flex items-center md:justify-start justify-center gap-3">
           {social_media?.map((red) => (
               <div
