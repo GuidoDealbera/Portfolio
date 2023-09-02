@@ -5,7 +5,7 @@ const Hireme = ({openModal}) => {
     <section id="hireme" className="py-10 px-3 text-white">
       <div className="text-center">
         <h3 className="text-4xl font-semibold">
-          Contrátame <span className="text-cyan-600">YA</span>
+          ¡Estoy <span className="text-cyan-600">Listo!</span>
         </h3>
         <p className="text-gray-400 mt-3 text-lg">¿Tenés algún trabajo?</p>
       </div>
