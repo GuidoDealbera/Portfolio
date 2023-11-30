@@ -12,11 +12,11 @@ body{
 }
 
 .btn-primary{
-  @apply bg-cyan-600 font-semibold text-white md:mx-0 mx-auto rounded-full py-3 px-6 flex items-center gap-2
+  @apply bg-cyan-600 font-semibold text-white md:mx-0 mx-auto rounded-full hover:bg-cyan-700 transition-all duration-200 active:bg-cyan-500 py-3 px-6 flex items-center gap-2
 }
 
 .swiper-pagination-bullet {
-  @apply bg-white;
+  @apply bg-white translate-y-3;
 }
 
 input,
