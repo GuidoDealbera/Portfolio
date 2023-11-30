@@ -93,7 +93,7 @@ const Contact = () => {
           </form>
           <div className="flex flex-col gap-7">
             {contact_info.map((info, i) => (
-              <div key={i} className="flex gap-4 w-fit items-center">
+              <div key={i} className="flex gap-4 items-center">
                 <a
                   href={info.link}
                   target="_blank"
@@ -103,7 +103,7 @@ const Contact = () => {
                     <ion-icon name={info.logo}></ion-icon>
                   </div>
                 </a>
-                <p className="text-base">{info.text}</p>
+                <p className="text-base truncate">{info.text}</p>
               </div>
             ))}
           </div>

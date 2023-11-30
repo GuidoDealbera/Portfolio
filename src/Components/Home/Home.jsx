@@ -34,7 +34,7 @@ const Home = () => {
           {social_media?.map((red) => (
               <div
                 key={red.logo}
-                className="text-gray-600 hover:text-white cursor-pointer "
+                className="text-gray-600 hover:text-white cursor-pointer transition-all duration-150"
               >
                 <a href={red.url} target="_blank"><ion-icon name={red.logo}></ion-icon></a>
               </div>
