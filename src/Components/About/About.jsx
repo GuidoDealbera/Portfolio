@@ -2,8 +2,8 @@ import aboutImg from "../../assets/Guido5.1.png";
 
 const About = () => {
   const info = [
-    { text: "Meses de experiencia", count: "10" },
-    { text: "Proyectos completados", count: "03" },
+    { text: "Años de experiencia", count: "01" },
+    { text: "Proyectos completados", count: "04" },
   ];
   return (
     <section id="about" className="py-10 text-white">
