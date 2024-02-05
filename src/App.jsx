@@ -7,12 +7,19 @@ import Projects from "./Components/Projects/Projects";
 import Skills from "./Components/Skills/Skills";
 import Bot from "./Components/Bot/Bot";
 import Hireme from "./Components/Hireme/Hireme";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "./Components/Modal/Modal";
+import Loader from "./Components/Loader/Loader";
 
 export default function App() {
   const [showModal, setShowModal] = useState(false)
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 2000)
+  })
+  return !isLoading ? (
     <div>
       <NavBar />
       <Bot/>
@@ -25,5 +32,7 @@ export default function App() {
       <Contact/>
       <Footer/>
     </div>
+  ) : (
+    <Loader/>
   );
 }

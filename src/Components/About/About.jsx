@@ -5,6 +5,13 @@ const About = () => {
     { text: "Años de experiencia", count: "01" },
     { text: "Proyectos completados", count: "04" },
   ];
+
+  const downloadCv = () => {
+    const btn = document.getElementById('btn');
+    if(btn){
+      btn.click();
+    };
+  };
   return (
     <section id="about" className="py-10 text-white">
       <div className="text-center mt-8">
@@ -44,9 +51,9 @@ const About = () => {
                   </div>
                 ))}
               </div>
-              <a href="/CV Guido.pdf" download>
-                <button className="btn-primary mt-8">Descargar CV</button>
-              </a>
+              <button className="btn-primary mt-8" onClick={downloadCv}>
+                <a href="/CV Guido.pdf" download id="btn">Descargar CV</a>
+              </button>
             </div>
           </div>
           <div className="flex-1 md:mt-0 mt-6 flex justify-center items-center">
