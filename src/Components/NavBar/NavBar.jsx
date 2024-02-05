@@ -18,7 +18,7 @@ const NavBar = () => {
     })
   }, [])
   return (
-    <nav className={`fixed w-full left-0 top-0 z-[999] ${sticky ? "bg-white/60 text-gray-900" : "text-white"} transition-all duration-200`}>
+    <nav className={`fixed w-full left-0 top-0 z-[999] ${sticky ? "bg-neutral-300 text-gray-900" : "text-white"}`}>
       <div className="flex items-center justify-between">
       <div className="mx-7">
         <h4 className="text-4xl uppercase font-bold">
@@ -29,8 +29,8 @@ const NavBar = () => {
         <ul className="flex items-center gap-1 py-2 text-lg">
           {
             menuLinks?.map((menu, i) => (
-              <li key={i} className="px-[0.65rem] md/lg:px-6 hover:text-cyan-600">
-                <a href={menu.link}>{menu.name}</a>
+              <li key={i} className="px-[0.65rem] md/lg:px-6 hover:text-cyan-600 transition-all">
+                <a className="links" href={menu.link}>{menu.name}</a>
               </li>
             ))}
         </ul>
