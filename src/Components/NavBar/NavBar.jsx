@@ -57,7 +57,7 @@ const NavBar = () => {
           )}
         </div>
         <div
-          className={`md:hidden text-gray-900 absolute w-2/3 h-screen px-7 py-2 bg-white top-0 duration-300 ${
+          className={`md:hidden text-gray-900 absolute w-screen max-w-[350px] h-screen px-7 py-2 bg-white top-0 duration-300 ${
             showMenu ? "right-0" : "right-[-100%]"
           }`}
         >
@@ -68,7 +68,7 @@ const NavBar = () => {
                 className="px-6 hover:text-cyan-600"
                 onClick={() => setShowMenu(false)}
               >
-                <a href={menu.link}>{menu.name}</a>
+                <a href={menu.link} className="links w-max">{menu.name}</a>
               </li>
             ))}
           </ul>
