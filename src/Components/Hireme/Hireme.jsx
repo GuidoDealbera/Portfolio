@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import hireMe from "../../assets/guidoslack.png";
 
 const Hireme = ({openModal}) => {

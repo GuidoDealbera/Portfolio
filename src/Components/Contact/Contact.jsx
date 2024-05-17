@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
 
@@ -96,6 +96,7 @@ const Contact = () => {
               <div key={i} className="flex gap-4 items-center">
                 <a
                   href={info.link}
+                  rel="noreferrer"
                   target="_blank"
                   className="flex justify-center items-center hover:cursor-pointer"
                 >

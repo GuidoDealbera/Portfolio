@@ -36,7 +36,7 @@ const Home = () => {
                 key={red.logo}
                 className="text-gray-600 hover:text-white cursor-pointer transition-all duration-150"
               >
-                <a href={red.url} target="_blank"><ion-icon name={red.logo}></ion-icon></a>
+                <a href={red.url} rel="noreferrer" target="_blank"><ion-icon name={red.logo}></ion-icon></a>
               </div>
             ))}
           </div>

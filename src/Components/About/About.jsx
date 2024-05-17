@@ -10,7 +10,7 @@ const About = () => {
     const btn = document.getElementById('btn');
     if(btn){
       btn.click();
-    };
+    }
   };
   return (
     <section id="about" className="py-10 text-white">
@@ -33,6 +33,7 @@ const About = () => {
                 <a
                   className="font-semibold text-white duration-150 hover:text-cyan-600 hover:underline cursor-pointer"
                   href="https://www.soyhenry.com/"
+                  rel="noreferrer"
                   target="_blank"
                 >
                   SoyHenry

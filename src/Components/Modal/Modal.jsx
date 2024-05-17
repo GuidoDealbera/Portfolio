@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { ArrowDownRight } from "react-feather";
 
-const Modal = ({ open, close, className }) => {
+const Modal = ({ open, close }) => {
   if (!open) return null;
   const handleClose = (event) => {
     if (event.target.id === "outside") close();

@@ -1,8 +1,18 @@
 import { IoLogoHtml5, IoLogoCss3 } from "react-icons/io";
 import { IoLogoReact } from "react-icons/io5";
 import { FaNodeJs } from "react-icons/fa";
-import { BiLogoTypescript, BiLogoPostgresql, BiLogoRedux } from "react-icons/bi";
-import { SiTailwindcss, SiNextdotjs, SiMui, SiExpress, SiSequelize } from "react-icons/si";
+import {
+  BiLogoTypescript,
+  BiLogoPostgresql,
+  BiLogoRedux,
+} from "react-icons/bi";
+import {
+  SiTailwindcss,
+  SiNextdotjs,
+  SiMui,
+  SiExpress,
+  SiSequelize,
+} from "react-icons/si";
 import { useState } from "react";
 
 const Skills = () => {
@@ -32,7 +42,7 @@ const Skills = () => {
       name: "Tailwind Css",
     },
     {
-      logo: <SiMui/>,
+      logo: <SiMui />,
       name: "Material UI",
     },
     {
@@ -40,26 +50,40 @@ const Skills = () => {
       name: "Next Js",
     },
     {
-      logo: <BiLogoRedux/>,
+      logo: <BiLogoRedux />,
       name: "Redux",
     },
     {
-      logo: <SiExpress/>,
+      logo: <SiExpress />,
       name: "Express",
     },
     {
-      logo: <BiLogoPostgresql/>,
+      logo: <BiLogoPostgresql />,
       name: "PostgreSQL",
     },
     {
-      logo: <SiSequelize/>,
+      logo: <SiSequelize />,
       name: "Sequelize",
     },
   ];
   const [sliceSkills, setSliceSkills] = useState(false);
-  if(!sliceSkills){
-    skills = skills.slice(0,4);
+  const [loading, setLoading] = useState(false);
+  if (!sliceSkills) {
+    skills = skills.slice(0, 4);
   }
+
+  const clickButton = () => {
+    if (sliceSkills) {
+      setSliceSkills(false);
+    } else {
+      setLoading(true);
+      const time = setTimeout(() => {
+        setSliceSkills(true);
+        setLoading(false);
+      }, 1500);
+      return () => clearTimeout(time);
+    }
+  };
   return (
     <section id="skills" className="py-10 bg-gray-800 relative scroll-smooth">
       <div className="mt-8 text-gray-100 text-center">
@@ -74,9 +98,7 @@ const Skills = () => {
                 key={i}
                 className="border-2 group border-cyan-600 relative min-w-[10rem] max-w-[16rem] bg-gray-900 p-10 rounded-xl"
               >
-                <div
-                  className="w-32 h-32 flex items-center justify-center rounded-full bg-gray-800 group-hover:bg-cyan-600 transition-all duration-300"
-                >
+                <div className="w-32 h-32 flex items-center justify-center rounded-full bg-gray-800 group-hover:bg-cyan-600 transition-all duration-300">
                   <div className="text-6xl w-28 h-28 group-hover:text-cyan-600 group-hover:scale-110 transition-all duration-300 bg-gray-900 rounded-full flex items-center justify-center">
                     {skill.logo}
                   </div>
@@ -86,7 +108,12 @@ const Skills = () => {
             ))}
           </div>
           <a href={!sliceSkills ? "#skills" : null}>
-          <button onClick={() => setSliceSkills(!sliceSkills)} className="bg-cyan-600 font-medium text-white hover:bg-cyan-700 active:bg-cyan-500 transition-all duration-150 py-2 px-6 rounded-full mt-4">{sliceSkills ? "Ver menos" : "Ver más"}</button>
+            <button
+              onClick={clickButton}
+              className="bg-cyan-600 font-medium flex justify-center items-center text-white hover:bg-cyan-700 active:bg-cyan-500 transition-all duration-150 h-11 w-32 rounded-full mt-4"
+            >
+              {!loading && sliceSkills ? "Ver menos" : loading ? <div className="w-full h-full flex justify-center items-center"><div className="loading"></div></div> : "Ver más"}
+            </button>
           </a>
         </div>
       </div>
