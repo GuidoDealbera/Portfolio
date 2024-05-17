@@ -68,6 +68,7 @@ const Skills = () => {
   ];
   const [sliceSkills, setSliceSkills] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [loadTime, setLoadTime] = useState(1500);
   if (!sliceSkills) {
     skills = skills.slice(0, 4);
   }
@@ -80,7 +81,8 @@ const Skills = () => {
       const time = setTimeout(() => {
         setSliceSkills(true);
         setLoading(false);
-      }, 1500);
+        setLoadTime(300)
+      }, loadTime);
       return () => clearTimeout(time);
     }
   };
@@ -107,7 +109,7 @@ const Skills = () => {
               </div>
             ))}
           </div>
-          <a href={!sliceSkills ? "#skills" : null}>
+          <a href={!loading && !sliceSkills ? "#skills" : null}>
             <button
               onClick={clickButton}
               className="bg-cyan-600 font-medium flex justify-center items-center text-white hover:bg-cyan-700 active:bg-cyan-500 transition-all duration-150 h-11 w-32 rounded-full mt-4"
