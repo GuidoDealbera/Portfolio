@@ -6,6 +6,7 @@ import ecommerce from "../../assets/Progress.png";
 import project_person from "../../assets/Guido4.1.png";
 import novogas from "../../assets/novogas.png";
 import grupooeste from "../../assets/grupoesteseguros.png";
+import portfolio from '../../assets/portfolio.png'
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
@@ -23,6 +24,12 @@ const Projects = () => {
       image: novogas,
       github: false,
       deploy: false,
+    },
+    {
+      name: "Portfolio",
+      image: portfolio,
+      github: "https://github.com/GuidoDealbera/Portfolio",
+      deploy: "https://guidodealbera-dev.vercel.app/"
     },
     {
       name: "Aquí Estoy Admin",
@@ -87,7 +94,7 @@ const Projects = () => {
                   <div
                     className={`buttons ${
                       i === projects.length - 1 && "pb-1"
-                    } ${i === 0 && "pb-[0.8rem]"} ${i === 2 && "pb-1"}`}
+                    } ${i === 0 && "pb-[0.8rem]"} ${i === 3 && "pb-1"} ${i === 2 && "pb-3"}`}
                   >
                     {info.github ? (
                       <a href={info.github}>GitHub</a>
