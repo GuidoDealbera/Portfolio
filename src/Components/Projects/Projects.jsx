@@ -5,12 +5,19 @@ import rym from "../../assets/R&M-home.jpg";
 import ecommerce from "../../assets/Progress.png";
 import project_person from "../../assets/Guido4.1.png";
 import novogas from "../../assets/novogas.png";
+import grupooeste from "../../assets/grupoesteseguros.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
 
 const Projects = () => {
   const projects = [
+    {
+      name: "Grupo Oeste Seguros",
+      image: grupooeste,
+      github: "https://github.com/GuidoDealbera/seguros-front",
+      deploy: false,
+    },
     {
       name: "NovoGas Empresa",
       image: novogas,
@@ -77,8 +84,18 @@ const Projects = () => {
                     className="rounded-lg"
                   />
                   <h3 className="text-xl my-4">{info.name}</h3>
-                  <div className={`buttons ${i === projects.length - 1 && "pb-1"} ${i === 1 && "pb-[0.25rem]"}`}>
-                    {info.github ? <a href={info.github}>GitHub</a> : <p className="text-neutral-500 pb-[0.8rem] text-sm">Este proyecto es privado</p>}
+                  <div
+                    className={`buttons ${
+                      i === projects.length - 1 && "pb-1"
+                    } ${i === 0 && "pb-[0.8rem]"} ${i === 2 && "pb-1"}`}
+                  >
+                    {info.github ? (
+                      <a href={info.github}>GitHub</a>
+                    ) : (
+                      <p className="text-neutral-500 pb-[0.8rem] text-sm">
+                        Este proyecto es privado
+                      </p>
+                    )}
                     {info.deploy && <a href={info.deploy}>Deploy</a>}
                   </div>
                 </div>

@@ -88,7 +88,7 @@ const Contact = () => {
           <form ref={form} onSubmit={sendEmail} className="flex flex-col flex-1 gap-5">
             <input type="text" value={input.user_name} placeholder="Tu Nombre" name="user_name" onChange={handleInputChange} required/>
             <input type="email" value={input.user_email} placeholder="Tu Correo Electrónico" name="user_email" onChange={handleInputChange} required/>
-            <textarea value={input.message} placeholder="Tu Mensaje" rows={10} name="message" onChange={handleInputChange} required/>
+            <textarea className="resize-none" value={input.message} placeholder="Tu Mensaje" rows={10} name="message" onChange={handleInputChange} required/>
             <button type="submit" className="btn-primary w-fit">Enviar mensaje</button>
           </form>
           <div className="flex flex-col gap-7">

@@ -2,7 +2,7 @@ import aboutImg from "../../assets/Guido5.1.png";
 
 const About = () => {
   const info = [
-    { text: "Años de experiencia", count: "01" },
+    { text: "Año de experiencia", count: "01" },
     { text: "Proyectos completados", count: "04" },
   ];
 
