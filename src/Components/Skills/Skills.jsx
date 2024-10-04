@@ -13,6 +13,7 @@ import {
   SiExpress,
   SiSequelize,
 } from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
 import { useState } from "react";
 
 const Skills = () => {
@@ -28,6 +29,10 @@ const Skills = () => {
     {
       logo: <IoLogoReact />,
       name: "React Js",
+    },
+    {
+      logo: <TbBrandReactNative/>,
+      name: "React Native"
     },
     {
       logo: <FaNodeJs />,
