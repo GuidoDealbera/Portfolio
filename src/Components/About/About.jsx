@@ -2,8 +2,8 @@ import aboutImg from "../../assets/Guido5.1.png";
 
 const About = () => {
   const info = [
-    { text: "Año de experiencia", count: "01" },
-    { text: "Proyectos completados", count: "04" },
+    { text: "Años de experiencia", count: "02" },
+    { text: "Proyectos completados", count: "07" },
   ];
 
   const downloadCv = () => {
@@ -23,9 +23,9 @@ const About = () => {
           <div className="p-2">
             <div className="text-gray-300 my-3">
               <p className="text-justify leading-7 w-11/12 mx-auto">
-                Soy Guido, un estudiante de 28 años de edad, dedicado a obtener
-                mi título de Profesor Universitario en Matemáticas. Durante los
-                últimos meses, me he enamorado del fascinante mundo de la
+                Soy Guido, un estudiante de 29 años de edad, dedicado a obtener
+                mi título de <span className="font-semibold text-white">Profesor Universitario en Matemáticas</span>. Durante los
+                últimos 2 años, me he enamorado del fascinante mundo de la
                 programación y he decidido enfocar mi capacitación en el
                 desarrollo{" "}
                 <span className="font-semibold text-white">Fullstack</span>,
