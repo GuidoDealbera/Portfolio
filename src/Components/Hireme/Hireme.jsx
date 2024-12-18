@@ -14,8 +14,7 @@ const Hireme = ({openModal}) => {
         <div>
           <h2 className="text-2xl font-semibold">¿Tenés un trabajo para mí?</h2>
           <p className="max-w-lg text-sm mt-4 text-gray-200 leading-6 lg:text-left text-justify">
-            Como Fullstack Developer{" "}
-            <span className="text-cyan-600 font-semibold">Junior</span>, poseo
+            Como <span className="text-cyan-600 font-medium">Fullstack Developer</span> poseo
             un sólido conocimiento en desarrollo web utilizando tecnologías
             claves. Mi experiencia abarca la creación de interfaces interactivas
             con React y Next, así como la implementación de herramientas de

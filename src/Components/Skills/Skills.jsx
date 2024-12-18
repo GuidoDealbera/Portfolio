@@ -12,6 +12,7 @@ import {
   SiMui,
   SiExpress,
   SiSequelize,
+  SiNestjs
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import { useState } from "react";
@@ -57,6 +58,10 @@ const Skills = () => {
     {
       logo: <BiLogoRedux />,
       name: "Redux",
+    },
+    {
+      logo: <SiNestjs />,
+      name: "Nest Js",
     },
     {
       logo: <SiExpress />,

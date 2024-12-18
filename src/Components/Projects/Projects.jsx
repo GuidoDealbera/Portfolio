@@ -88,13 +88,11 @@ const Projects = () => {
                   <img
                     src={info.image}
                     alt={info.name}
-                    className="rounded-lg"
+                    className="rounded-lg h-40"
                   />
                   <h3 className="text-xl my-4">{info.name}</h3>
                   <div
-                    className={`buttons ${
-                      i === projects.length - 1 && "pb-1"
-                    } ${i === 0 && "pb-[0.8rem]"} ${i === 3 && "pb-1"} ${i === 2 && "pb-3"}`}
+                    className={`buttons`}
                   >
                     {info.github ? (
                       <a href={info.github}>GitHub</a>
