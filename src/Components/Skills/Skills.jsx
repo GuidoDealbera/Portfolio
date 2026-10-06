@@ -18,7 +18,7 @@ import { TbBrandReactNative } from "react-icons/tb";
 import { useState } from "react";
 
 const Skills = () => {
-  let skills = [
+  const skills = [
     {
       logo: <IoLogoHtml5 />,
       name: "HTML",
@@ -76,26 +76,8 @@ const Skills = () => {
       name: "Sequelize",
     },
   ];
-  const [sliceSkills, setSliceSkills] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [loadTime, setLoadTime] = useState(1500);
-  if (!sliceSkills) {
-    skills = skills.slice(0, 4);
-  }
-
-  const clickButton = () => {
-    if (sliceSkills) {
-      setSliceSkills(false);
-    } else {
-      setLoading(true);
-      const time = setTimeout(() => {
-        setSliceSkills(true);
-        setLoading(false);
-        setLoadTime(300)
-      }, loadTime);
-      return () => clearTimeout(time);
-    }
-  };
+  const [showAll, setShowAll] = useState(false);
+  const visibleSkills = showAll ? skills : skills.slice(0, 4);
   return (
     <section id="skills" className="py-10 bg-gray-800 relative scroll-smooth">
       <div className="mt-8 text-gray-100 text-center">
@@ -105,7 +87,7 @@ const Skills = () => {
         <p className="text-gray-400 mt-3 text-lg">Mis conocimientos</p>
         <div className="grid mt-12 place-items-center">
           <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 transition-all duration-300">
-            {skills.map((skill, i) => (
+            {visibleSkills.map((skill, i) => (
               <div
                 key={i}
                 className="border-2 group border-cyan-600 relative min-w-[10rem] max-w-[16rem] bg-gray-900 p-10 rounded-xl"
@@ -119,14 +101,14 @@ const Skills = () => {
               </div>
             ))}
           </div>
-          <a href={!loading && !sliceSkills ? "#skills" : null}>
-            <button
-              onClick={clickButton}
-              className="bg-cyan-600 font-medium flex justify-center items-center text-white hover:bg-cyan-700 active:bg-cyan-500 transition-all duration-150 h-11 w-32 rounded-full mt-4"
-            >
-              {!loading && sliceSkills ? "Ver menos" : loading ? <div className="w-full h-full flex justify-center items-center"><div className="loading"></div></div> : "Ver más"}
-            </button>
-          </a>
+          <button
+            type="button"
+            onClick={() => setShowAll((prev) => !prev)}
+            aria-expanded={showAll}
+            className="bg-cyan-600 font-medium flex justify-center items-center text-white hover:bg-cyan-700 active:bg-cyan-500 transition-all duration-150 h-11 w-32 rounded-full mt-4"
+          >
+            {showAll ? "Ver menos" : "Ver más"}
+          </button>
         </div>
       </div>
     </section>

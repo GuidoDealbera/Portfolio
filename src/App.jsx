@@ -7,32 +7,24 @@ import Projects from "./Components/Projects/Projects";
 import Skills from "./Components/Skills/Skills";
 import Bot from "./Components/Bot/Bot";
 import Hireme from "./Components/Hireme/Hireme";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Modal from "./Components/Modal/Modal";
-import Loader from "./Components/Loader/Loader";
 
 export default function App() {
-  const [showModal, setShowModal] = useState(false)
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 2000)
-  })
-  return !isLoading ? (
+  const [showModal, setShowModal] = useState(false);
+
+  return (
     <div>
       <NavBar />
-      <Bot/>
+      <Bot />
       <Home />
-      <About/>
-      <Skills/>
-      <Hireme openModal={() => setShowModal(true)}/>
-      <Modal open={showModal} close={() => setShowModal(false)}/>
-      <Projects/>
-      <Contact/>
-      <Footer/>
+      <About />
+      <Skills />
+      <Hireme openModal={() => setShowModal(true)} />
+      <Modal open={showModal} close={() => setShowModal(false)} />
+      <Projects />
+      <Contact />
+      <Footer />
     </div>
-  ) : (
-    <Loader/>
   );
 }

@@ -15,7 +15,7 @@ const Home = () => {
       <div className="flex-1 flex items-center justify-center h-full">
         <img
           src={home}
-          alt=""
+          alt="Guido Dealbera"
           className="md:w-11/12 h-full object-cover"
         />
       </div>
@@ -28,13 +28,13 @@ const Home = () => {
             </span>
             <span>Mi nombre es</span> <span>Guido Dealbera</span>
           </h1>
-          <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">Fullstack Web Developer</h4>
+          <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-400">Fullstack Web Developer</h4>
           <a href="#contact" className="btn-primary mt-8 w-fit duration-300 hover:bg-cyan-700">Contáctame</a>
           <div className="mt-8 text-3xl flex items-center md:justify-start justify-center gap-3">
           {social_media?.map((red) => (
               <div
                 key={red.logo}
-                className="text-gray-600 hover:text-white cursor-pointer transition-all duration-150"
+                className="text-gray-400 hover:text-white cursor-pointer transition-all duration-150"
               >
                 <a href={red.url} rel="noreferrer" target="_blank"><ion-icon name={red.logo}></ion-icon></a>
               </div>

@@ -68,7 +68,7 @@ const Projects = () => {
       <div className="flex max-w-6xl px-5 mx-auto items-center gap-5">
         <div className="lg:w-2/3 w-full">
           <Swiper
-            slidesperview={1.2}
+            slidesPerView={1.2}
             spaceBetween={20}
             breakpoints={{
               768: {
@@ -79,6 +79,7 @@ const Projects = () => {
             autoplay={{
               delay: 3500,
               disableOnInteraction: false,
+              pauseOnMouseEnter: true,
             }}
             modules={[Autoplay]}
           >
@@ -111,7 +112,7 @@ const Projects = () => {
         <div>
           <img
             src={project_person}
-            alt=""
+            alt="Guido Dealbera"
             className="h-96 min-w-full bg-cyan-600 rounded-xl"
           />
         </div>

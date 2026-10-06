@@ -19,42 +19,46 @@ const NavBar = () => {
   );
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      window.scrollY > 0 ? setSticky(true) : setSticky(false);
-    });
+    const handleScroll = () => setSticky(window.scrollY > 0);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    const handleClickOutside = (event) => {
-      if (!menuRef.current) return;
-      if (
-        !showMenu ||
-        menuRef.current.contains(event.target) ||
-        trigger.current.contains(event.target)
-      )
-        return;
+  useEffect(() => {
+    // Los atajos sólo viven mientras el menú está abierto: capturarlos siempre
+    // dejaba a la página entera sin scroll por teclado.
+    if (!showMenu) return;
+
+    const closeMenu = () => {
       setShowMenu(false);
       setSelectedOption(null);
     };
 
+    const handleClickOutside = (event) => {
+      if (menuRef.current?.contains(event.target)) return;
+      if (trigger.current?.contains(event.target)) return;
+      closeMenu();
+    };
+
     const handleKey = (event) => {
-      if (event.key === "Escape" || event.key === "ArrowRight") {
+      if (event.key === "Escape") {
         event.preventDefault();
-        setShowMenu(false);
-        setSelectedOption(null);
-      } else if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        setSelectedOption(0)
-        setShowMenu(true);
+        closeMenu();
+        trigger.current?.focus();
       } else if (event.key === "ArrowDown") {
         event.preventDefault();
-        setSelectedOption((prevOption) => (prevOption + 1) % menuLinks.length);
+        setSelectedOption((prev) =>
+          prev === null ? 0 : (prev + 1) % menuLinks.length
+        );
       } else if (event.key === "ArrowUp") {
         event.preventDefault();
-        setSelectedOption((prevOption) =>
-          prevOption === 0 ? menuLinks.length - 1 : prevOption - 1
+        setSelectedOption((prev) =>
+          prev === null || prev === 0 ? menuLinks.length - 1 : prev - 1
         );
-      } else if (event.key === "Enter") {
+      } else if (event.key === "Enter" && selectedOption !== null) {
         event.preventDefault();
-        setShowMenu(false);
+        closeMenu();
         window.location.href = menuLinks[selectedOption].link;
       }
     };
@@ -67,6 +71,7 @@ const NavBar = () => {
       document.removeEventListener("keydown", handleKey);
     };
   }, [menuLinks, selectedOption, showMenu]);
+
   return (
     <nav
       className={`fixed w-full left-0 top-0 z-[999] ${
@@ -97,17 +102,20 @@ const NavBar = () => {
             ))}
           </ul>
         </div>
-        <div
+        <button
+          type="button"
           ref={trigger}
-          className={`z-[999] md:hidden m-5 cursor-pointer`}
-          onClick={() => setShowMenu(!showMenu)}
+          aria-label={showMenu ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={showMenu}
+          className="z-[999] md:hidden m-5 cursor-pointer bg-transparent border-0 p-0"
+          onClick={() => setShowMenu((prev) => !prev)}
         >
           {showMenu ? (
             <X size={30} className="text-gray-900" />
           ) : (
             <Menu size={30} className="text-gray-100" />
           )}
-        </div>
+        </button>
         <div
           ref={menuRef}
           className={`md:hidden text-gray-900 absolute w-screen max-w-[350px] h-screen px-7 py-2 bg-white top-0 duration-300 ${

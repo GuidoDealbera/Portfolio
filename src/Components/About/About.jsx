@@ -6,12 +6,6 @@ const About = () => {
     { text: "Proyectos completados", count: "07" },
   ];
 
-  const downloadCv = () => {
-    const btn = document.getElementById('btn');
-    if(btn){
-      btn.click();
-    }
-  };
   return (
     <section id="about" className="py-10 text-white">
       <div className="text-center mt-8">
@@ -52,16 +46,16 @@ const About = () => {
                   </div>
                 ))}
               </div>
-              <button className="btn-primary mt-8" onClick={downloadCv}>
-                <a href="/CV Guido.pdf" download id="btn">Descargar CV</a>
-              </button>
+              <a className="btn-primary mt-8 w-fit" href="/CV Guido.pdf" download>
+                Descargar CV
+              </a>
             </div>
           </div>
           <div className="flex-1 md:mt-0 mt-6 flex justify-center items-center">
             <div className="lg:w-96 h-full relative sm:w-10/12 w-11/12 max-w-full">
               <img
                 src={aboutImg}
-                alt=""
+                alt="Guido Dealbera"
                 className="w-full object-cover h-full rounded-xl lg:-translate-y-16 bg-cyan-600"
               />
             </div>
