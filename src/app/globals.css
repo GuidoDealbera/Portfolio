@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/*
+ * Chalk — grafito + tiza amarilla.
+ * El sitio es un pizarrón, así que los tokens llevan nombres de pizarrón:
+ * board (fondo), chalk (texto), dust (texto secundario), line (bordes).
+ *
+ * Contrastes WCAG medidos sobre board:
+ *   chalk  12.03:1  AAA
+ *   dust    6.09:1  AA
+ *   accent  9.42:1  AAA   (on-accent sobre accent: 9.42:1)
+ */
+@theme {
+  --color-board: #23272c;
+  --color-surface: #2a2f35;
+  --color-raised: #333942;
+  --color-line: #3d444d;
+  --color-line-strong: #515a65;
+
+  --color-chalk: #e9e6dc;
+  --color-dust: #a3a69f;
+  --color-accent: #f0c86a;
+  --color-on-accent: #23272c;
+
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --ease-chalk: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-ping-soft: ping-soft 2.4s var(--ease-chalk) infinite;
+  --animate-marquee: marquee 34s linear infinite;
+
+  @keyframes ping-soft {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.9;
+    }
+    70%,
+    100% {
+      transform: scale(1.9);
+      opacity: 0;
+    }
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-board font-sans text-chalk antialiased;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  ::selection {
+    @apply bg-accent text-on-accent;
+  }
+
+  :focus-visible {
+    @apply rounded-[3px] outline-2 outline-offset-4 outline-accent;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .soft-accent {
+    background-color: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  }
+
+  /* La grilla de papel milimetrado del fondo. */
+  .graph-paper {
+    background-image:
+      linear-gradient(rgb(233 230 220 / 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(233 230 220 / 0.055) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 120% 80% at 50% 30%, #000 30%, transparent 78%);
+  }
+
+  .fade-edges {
+    mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  }
+}
+
+/*
+ * Motion pinta el estado inicial (opacidad 0, blur) como estilo inline desde
+ * el servidor. Con reduced motion —y sin JS, vía el <noscript> del layout—
+ * esta regla lo pisa para que el contenido nunca quede invisible.
+ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
