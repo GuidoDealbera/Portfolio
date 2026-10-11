@@ -95,6 +95,24 @@ export const en: Dictionary = {
   contact: {
     title: "Have something to build?",
     body: "Tell me what you need and we'll see if I can help.",
+    direct: "Or write to me directly",
+    form: {
+      name: "Name",
+      email: "Email",
+      message: "Message",
+      submit: "Send message",
+      sending: "Sending…",
+      successTitle: "Message sent.",
+      successBody: "Thanks for writing. I'll read it and reply by email.",
+      failed: (email: string) =>
+        `The message couldn't be sent. Try again in a while, or write to me directly at ${email}.`,
+      errors: {
+        required: "Please fill in this field.",
+        invalid: "Check the email address: it looks incomplete.",
+        tooShort: (min: number) => `Tell me a bit more: write at least ${min} characters.`,
+        tooLong: "This is too long.",
+      },
+    },
   },
 
   footer: {

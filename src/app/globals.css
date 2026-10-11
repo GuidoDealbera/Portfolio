@@ -21,6 +21,8 @@
   --color-dust: #a3a69f;
   --color-accent: #f0c86a;
   --color-on-accent: #23272c;
+  /* Errores de formulario: 5.77:1 sobre board, 5.18:1 sobre surface (AA). */
+  --color-danger: #f08078;
 
   --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-nunito), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;

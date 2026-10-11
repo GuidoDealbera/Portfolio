@@ -99,6 +99,24 @@ export const es = {
   contact: {
     title: "¿Tenés algo para construir?",
     body: "Contame qué necesitás y vemos si puedo ayudarte.",
+    direct: "O escribime directo",
+    form: {
+      name: "Nombre",
+      email: "Email",
+      message: "Mensaje",
+      submit: "Enviar mensaje",
+      sending: "Enviando…",
+      successTitle: "Mensaje enviado.",
+      successBody: "Gracias por escribirme. Lo leo y te respondo por email.",
+      failed: (email: string) =>
+        `No se pudo enviar el mensaje. Probá de nuevo en un rato o escribime directo a ${email}.`,
+      errors: {
+        required: "Completá este campo.",
+        invalid: "Revisá el email: parece incompleto.",
+        tooShort: (min: number) => `Contame un poco más: escribí al menos ${min} caracteres.`,
+        tooLong: "Es demasiado largo.",
+      },
+    },
   },
 
   footer: {

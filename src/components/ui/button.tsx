@@ -14,6 +14,19 @@ export const buttonVariants = {
 
 export type ButtonVariant = keyof typeof buttonVariants;
 
+type ButtonProps = ComponentProps<"button"> & { variant?: ButtonVariant };
+
+/** El mismo botón, para acciones reales (enviar un formulario) en lugar de navegar. */
+export function Button({ variant = "primary", className, type = "button", ...props }: ButtonProps) {
+  return (
+    <button
+      type={type}
+      className={cn(base, buttonVariants[variant], "disabled:cursor-not-allowed disabled:opacity-60", className)}
+      {...props}
+    />
+  );
+}
+
 type ButtonLinkProps = Omit<ComponentProps<"a">, "href"> & {
   href: string;
   variant?: ButtonVariant;

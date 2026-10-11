@@ -28,7 +28,7 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] Header: logo, navegación, blur al scrollear, selector de idioma, menú móvil accesible (disclosure, cierra con Escape)
 - [x] Footer con año dinámico — con `cacheComponents`, `new Date()` rompe el build: va con `'use cache'` + `cacheLife('days')`
 - [x] `ButtonLink` (primario, secundario, texto)
-- [ ] `Button` para `<button>` real — se suma con el formulario
+- [x] `Button` para `<button>` real
 - [x] Página 404 (por idioma)
 - [x] Enlace "saltar al contenido" para teclado
 
@@ -49,7 +49,7 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [ ] Trabajo seleccionado: grilla + cards con inclinación 3D — **bloqueado por el MD**. Hoy hay una sección provisoria que enlaza a GitHub, para reemplazar
 - [x] Sobre mí: texto, contador de años con decimales por idioma, stack agrupado
 - [x] Recorrido: línea de tiempo que se dibuja con el scroll
-- [x] Contacto v1: canales directos (mail, WhatsApp, LinkedIn). El formulario va en la sección 5
+- [x] Contacto: formulario más canales directos (mail, WhatsApp, LinkedIn)
 
 ## 4. Casos de estudio
 
@@ -60,10 +60,17 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 
 ## 5. Formulario de contacto
 
-- [ ] Server Action + Resend + validación con Zod
-- [ ] Cuenta de Resend y API key cargada en Vercel
-- [ ] Protección antispam: honeypot + límite de envíos
-- [ ] Estados visibles: enviando, enviado, error con instrucción de qué hacer
+- [x] Server Action con validación en Zod (`src/features/contact/`)
+- [x] Envío con Resend, aislado en `mailer.ts`: cambiar de proveedor es reescribir ese único archivo
+- [x] Campo trampa contra bots (honeypot)
+- [x] Estados visibles: enviando, enviado, error con instrucción de qué hacer, y el foco va al primer campo con error
+- [x] Variables de entorno: `.env.local` (tuyo, ignorado por Git) y `.env.example` (documentado)
+- [x] Cuenta de Resend creada y variables cargadas en `.env.local`
+- [ ] **Probar un envío real**: `npm run dev`, mandar un mensaje desde el formulario y confirmar que llega. `CONTACT_TO_EMAIL` tiene que ser el email con el que creaste la cuenta de Resend
+- [ ] Cargar las 3 variables en Vercel (Project Settings → Environment Variables) antes de publicar: `.env.local` no viaja
+- [ ] Opcional: verificar un dominio en Resend para enviar desde un remitente propio. Hoy se envía desde `onboarding@resend.dev` hacia tu propio email, que alcanza para un formulario de contacto
+- [ ] Límite de envíos por visitante: necesita un almacén compartido (por ejemplo Upstash), porque la memoria del servidor no sirve en Vercel. Hoy el tope lo pone el plan de Resend
+- [ ] Cuando `main` pase al sitio nuevo, desactivar o regenerar las claves de EmailJS: el id del servicio, el de la plantilla y la public key están en el historial público del repo
 
 ## 6. SEO y compartir
 
@@ -116,3 +123,4 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] Header, footer, 404, hero, marquesina, sobre mí, recorrido y contacto v1
 - [x] Canales de contacto como dato único: agregar una red social es una línea en `site.ts`
 - [x] Cero colores fuera de los tokens (salvo el `theme-color` de la meta tag, que no puede leer CSS)
+- [x] Formulario de contacto probado de punta a punta contra el servidor, en español e inglés: validación, valores conservados, trampa para bots, éxito, y rechazo del proveedor
