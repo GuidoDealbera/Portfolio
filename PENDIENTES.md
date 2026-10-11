@@ -74,11 +74,13 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 
 ## 6. SEO y compartir
 
-- [ ] Imagen Open Graph generada con `opengraph-image.tsx`, en estética Chalk
-- [ ] `sitemap.ts` (con las dos versiones de idioma y sus alternates) y `robots.ts`
-- [ ] Datos estructurados JSON-LD de tipo `Person`
-- [ ] Favicon y `apple-icon` propios (hoy está el de Next)
-- [ ] Logo nuevo en SVG real (el `logo.svg` actual es una imagen raster de 38 KB)
+- [x] Imagen Open Graph por idioma, generada en el build con la estética Chalk (los colores salen de `globals.css`, no están duplicados)
+- [x] `sitemap.xml` con las dos versiones de idioma y sus `hreflang`, y `robots.txt`
+- [x] Datos estructurados JSON-LD de tipo `Person`
+- [x] Favicon (32 px) y `apple-icon` (180 px) propios con el monograma GD; se eliminó el de Next
+- [ ] Probar cómo se ve el link al compartirlo en LinkedIn y WhatsApp una vez publicado (cachean la imagen: se refresca con sus depuradores de links)
+- [ ] Logo nuevo en SVG real: el `logo.svg` y el `logo.png` de `public/` son del sitio viejo y ya no se usan; borrarlos o reemplazarlos
+- [ ] `lastModified` en el sitemap: hoy se omite porque `new Date()` no corre en el prerender; se puede sumar con una fecha fija por proyecto cuando existan
 
 ## 7. Calidad
 

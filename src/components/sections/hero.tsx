@@ -12,15 +12,15 @@ export async function Hero() {
 
   const stack = new Intl.ListFormat(locale, { style: "long", type: "conjunction" }).format(site.stack.core);
   const years = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 }).format(site.yearsOfExperience);
-  const facts = [site.location, hero.remote(site.timezone), hero.languages, hero.degree];
+  const facts = [`${site.place.city}, ${site.place.region}`, hero.remote(site.timezone), hero.languages, hero.degree];
 
   return (
     <section aria-labelledby="hero-title" className="pt-[clamp(112px,18vh,180px)] pb-section">
       <Container>
         {site.availableForFreelance && (
           <Reveal y={10}>
-            <span className="soft-accent inline-flex items-center gap-2.5 rounded-full border border-accent/30 px-3.5 py-1.5 text-xs font-semibold tracking-[0.1em] text-accent uppercase">
-              <span aria-hidden="true" className="relative block size-[7px] rounded-full bg-accent">
+            <span className="soft-accent inline-flex items-center gap-2.5 rounded-full border border-accent/30 px-3.5 py-1.5 text-xs font-semibold tracking-widest text-accent uppercase">
+              <span aria-hidden="true" className="relative block size-1.75 rounded-full bg-accent">
                 <span className="absolute -inset-1 animate-ping-soft rounded-full border border-accent" />
               </span>
               {hero.availability}

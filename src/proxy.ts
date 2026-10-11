@@ -35,6 +35,7 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Se saltea _next, api y cualquier ruta con extensión (cv .pdf, imágenes, favicon, sitemap.xml…).
-  matcher: ["/((?!_next|api|.*\\..*).*)"],
+  // Se saltea _next, api, los íconos generados (/icon y /apple-icon, que no tienen extensión)
+  // y cualquier ruta con extensión (cv .pdf, imágenes, sitemap.xml, robots.txt…).
+  matcher: ["/((?!_next|api|icon|apple-icon|.*\\..*).*)"],
 };

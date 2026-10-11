@@ -11,8 +11,7 @@ export const site = {
   name: "Guido Dealbera",
   fullName: "Guido José Dealbera",
   initials: { first: "G", second: "D" },
-  location: "Villa María, Córdoba",
-  country: "Argentina",
+  place: { city: "Villa María", region: "Córdoba", country: "Argentina", countryCode: "AR" },
   timezone: "GMT−3",
 
   // Años de experiencia, tal como los declaró Guido (octubre 2026).
