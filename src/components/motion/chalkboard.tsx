@@ -21,6 +21,7 @@ const STEPS = 620; // segmentos de una vuelta completa de la curva
 const DRAW_SPEED = 3.2; // segmentos por frame
 const FADE_START = 560; // frame en que la curva empieza a borrarse
 const LIFESPAN = 790; // frame en que se reemplaza por otra
+const HEAD = 90; // segmentos de la punta, que brillan y tiemblan en cada cuadro
 
 function hexToRgb(hex: string): [number, number, number] {
   let h = hex.replace("#", "").trim();
@@ -33,6 +34,10 @@ function hexToRgb(hex: string): [number, number, number] {
  * dibuja sola, se borra y vuelve con otros parámetros. El trazo lleva jitter por
  * segmento para que parezca tiza y no un vector limpio.
  * Se pausa con la pestaña oculta y no corre con reduced motion.
+ *
+ * Costo: el rastro ya dibujado no cambia, así que se acumula una sola vez en un lienzo auxiliar y cada
+ * cuadro sólo se vuelca y se redibuja la punta (90 segmentos en lugar de los ~620 de la curva entera).
+ * El lienzo va a resolución 1×: son líneas y partículas tenues, la nitidez retina no se nota y cuesta 4× en pantallas 2×.
  */
 export function Chalkboard() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -47,10 +52,16 @@ export function Chalkboard() {
     const [r, g, b] = hexToRgb(accent || "#f0c86a");
     const chalk = (alpha: number) => `rgba(${r},${g},${b},${alpha})`;
 
+    // Rastro acumulado de la curva: lo que ya se dibujó no se vuelve a trazar.
+    const trail = document.createElement("canvas");
+    const trailCtx = trail.getContext("2d");
+    if (!trailCtx) return;
+
     let width = 0;
     let height = 0;
     let dust: Mote[] = [];
     let curve: Curve;
+    let trailDrawn = 0; // segmentos de la curva que ya están en el rastro
     let frame = 0;
     let running = !document.hidden;
 
@@ -80,16 +91,21 @@ export function Chalkboard() {
       };
     };
 
+    /** Empieza una curva nueva y vacía el rastro de la anterior. */
+    const startCurve = () => {
+      curve = newCurve();
+      trailDrawn = 0;
+      trailCtx.clearRect(0, 0, width, height);
+    };
+
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       width = window.innerWidth;
       height = window.innerHeight;
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      canvas.width = trail.width = width;
+      canvas.height = trail.height = height;
       const count = Math.round(Math.min((width * height) / 26000, 78));
       dust = Array.from({ length: count }, () => mote(true));
-      curve = newCurve();
+      startCurve();
     };
 
     const point = (step: number) => {
@@ -97,25 +113,46 @@ export function Chalkboard() {
       return [Math.sin(curve.a * t + curve.seed) * curve.sx, Math.sin(curve.b * t) * curve.sy];
     };
 
+    /** Un tramo de la curva con jitter, para que parezca tiza y no un vector limpio. */
+    const segment = (target: CanvasRenderingContext2D, i: number) => {
+      const [x0, y0] = point(i);
+      const [x1, y1] = point(i + 1);
+      target.lineWidth = 1 + Math.random() * 1.3;
+      target.beginPath();
+      target.moveTo(x0 + Math.random() - 0.5, y0 + Math.random() - 0.5);
+      target.lineTo(x1 + Math.random() - 0.5, y1 + Math.random() - 0.5);
+      target.stroke();
+    };
+
+    const placeCurve = (target: CanvasRenderingContext2D) => {
+      target.translate(curve.ox, curve.oy);
+      target.rotate(curve.rot);
+      target.lineCap = "round";
+    };
+
     const drawCurve = () => {
       const steps = Math.floor(curve.drawn);
       if (steps < 2) return;
       const fade = curve.life > FADE_START ? Math.max(0, 1 - (curve.life - FADE_START) / (LIFESPAN - FADE_START)) : 1;
 
+      // 1) Los segmentos nuevos se suman, una sola vez, al rastro acumulado.
+      trailCtx.save();
+      placeCurve(trailCtx);
+      trailCtx.strokeStyle = chalk(0.05);
+      for (let i = Math.max(1, trailDrawn); i < steps; i++) segment(trailCtx, i);
+      trailCtx.restore();
+      trailDrawn = steps;
+
+      // 2) Se vuelca el rastro con el desvanecimiento, y encima se redibuja sólo la punta, que brilla más.
+      ctx.globalAlpha = fade;
+      ctx.drawImage(trail, 0, 0);
+      ctx.globalAlpha = 1;
+
       ctx.save();
-      ctx.translate(curve.ox, curve.oy);
-      ctx.rotate(curve.rot);
-      ctx.lineCap = "round";
-      for (let i = 1; i < steps; i++) {
-        const [x0, y0] = point(i);
-        const [x1, y1] = point(i + 1);
-        const head = Math.max(0, 1 - (steps - i) / 90); // la punta del trazo brilla más
-        ctx.strokeStyle = chalk((0.05 + head * 0.16) * fade);
-        ctx.lineWidth = 1 + Math.random() * 1.3;
-        ctx.beginPath();
-        ctx.moveTo(x0 + Math.random() - 0.5, y0 + Math.random() - 0.5);
-        ctx.lineTo(x1 + Math.random() - 0.5, y1 + Math.random() - 0.5);
-        ctx.stroke();
+      placeCurve(ctx);
+      for (let i = Math.max(1, steps - HEAD); i < steps; i++) {
+        ctx.strokeStyle = chalk((1 - (steps - i) / HEAD) * 0.16 * fade);
+        segment(ctx, i);
       }
       ctx.restore();
     };
@@ -139,7 +176,7 @@ export function Chalkboard() {
 
       curve.life++;
       if (curve.drawn < STEPS) curve.drawn += DRAW_SPEED;
-      if (curve.life > LIFESPAN) curve = newCurve();
+      if (curve.life > LIFESPAN) startCurve();
       drawCurve();
     };
 
