@@ -15,7 +15,6 @@ export async function Header() {
         openMenu: dict.a11y.openMenu,
         closeMenu: dict.a11y.closeMenu,
         language: dict.a11y.language,
-        switchTo: dict.a11y.switchTo,
       }}
     />
   );

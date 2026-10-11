@@ -18,7 +18,6 @@ export const es = {
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
     language: "Idioma",
-    switchTo: { es: "Cambiar a español", en: "Cambiar a inglés" },
     backToTop: "Volver arriba",
   },
 

@@ -14,7 +14,6 @@ export const en: Dictionary = {
     openMenu: "Open menu",
     closeMenu: "Close menu",
     language: "Language",
-    switchTo: { es: "Cambiar a español", en: "Switch to English" },
     backToTop: "Back to top",
   },
 

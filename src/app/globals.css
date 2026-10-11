@@ -27,10 +27,29 @@
   --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-nunito), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
+  /* Ritmo vertical único de todas las secciones. En el tema, Tailwind genera py-section, pb-section, mt-section… */
+  --spacing-section: clamp(72px, 13vh, 128px);
+
   --ease-chalk: cubic-bezier(0.16, 1, 0.3, 1);
 
   --animate-ping-soft: ping-soft 2.4s var(--ease-chalk) infinite;
   --animate-marquee: marquee 34s linear infinite;
+  /* Entrada de la primera pantalla: CSS puro, arranca con la hoja de estilos sin esperar a que JavaScript
+     hidrate. `both` mantiene el estado inicial (invisible) durante el retraso y el final al terminar. */
+  --animate-chalk-in: chalk-in 0.82s var(--ease-chalk) both;
+
+  @keyframes chalk-in {
+    from {
+      opacity: 0;
+      filter: blur(12px);
+      transform: translateY(var(--rise, 0.42em)) rotate(var(--tilt, 0deg));
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: none;
+    }
+  }
 
   @keyframes ping-soft {
     0% {
@@ -55,6 +74,9 @@
   html {
     color-scheme: dark;
     scroll-behavior: smooth;
+    /* El header es fijo: este margen vale para anclas (#work) y para el scroll al enfocar con Tab,
+       así nada queda tapado por la barra (WCAG 2.2, "foco no oculto"). */
+    scroll-padding-top: 5rem;
   }
 
   body {
@@ -76,16 +98,6 @@
   h3 {
     text-wrap: balance;
   }
-
-  /* El header es fijo: sin esto, saltar a un ancla deja el título tapado. */
-  section[id] {
-    scroll-margin-top: 4.5rem;
-  }
-}
-
-/* Ritmo vertical único de todas las secciones. */
-@utility py-section {
-  padding-block: clamp(72px, 13vh, 128px);
 }
 
 @layer utilities {
@@ -127,6 +139,8 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    /* Sin esto, una entrada con retraso queda invisible hasta que el retraso pasa. */
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }

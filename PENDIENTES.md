@@ -90,9 +90,16 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 
 ## 7. Calidad
 
-- [ ] Probar en celulares reales: rendimiento del canvas y que lo magnético no se active en táctil
-- [ ] Auditoría de accesibilidad: teclado, lector de pantalla, foco visible
-- [ ] Lighthouse ≥ 95 en las cuatro categorías
+- [x] Auditoría automatizada con axe-core (WCAG 2.2 AA) en la home en español e inglés, el caso y el 404: 0 violaciones
+- [x] Teclado: el primer Tab cae en "Saltar al contenido", el orden es lógico, todo tiene anillo de foco visible y no hay trampas; el header ya no tapa lo enfocado (`scroll-padding-top`)
+- [x] Objetivos táctiles de al menos 40 px de alto (logo, selector de idioma, footer, "volver")
+- [x] Menú móvil, selector de idioma, `prefers-reduced-motion` y sin JavaScript verificados en navegador real (Edge y Chrome), y navegación por toque en celular emulado
+- [x] La primera pantalla se ve completa al cargar, sin scrollear, en 720, 768, 900 y 1080 px de alto y en celular
+- [x] Lighthouse: Accesibilidad 100, Buenas prácticas 100 y SEO 100 en las cuatro páginas; rendimiento 100 en escritorio
+- [ ] **Lighthouse en celular simulado: rendimiento 93–94 (la meta era ≥ 95) con un LCP simulado de 3,1 s**, constante entre corridas. El LCP que mide el navegador sin simulación es de 0,2 s. No pude determinar qué fija el número simulado; probé quitar la dependencia de la hidratación en la entrada del hero y optimizar el canvas, y no lo movieron. Ver si vale la pena seguir o aceptarlo
+- [ ] **Escuchar el sitio con un lector de pantalla real** (NVDA o VoiceOver): lo automático detecta reglas, no si resulta entendible
+- [ ] **Probar en un teléfono real**: cómo se siente el canvas y por qué, en la emulación de celular, el navegador deja tres precargas duplicadas que nunca cierran (y se cancelan con `ERR_ABORTED` al volver al tope). La navegación funciona igual y no hay errores del servidor, pero no pude fijar la causa
+- [ ] El contraste de texto lo midió axe con el canvas y la cuadrícula del fondo ocultos (son decorativos, de opacidad ≤ 20%), porque con ellos axe no puede calcular el fondo. Los pares de colores de la paleta sí están calculados a mano
 - [ ] Vercel Analytics + Speed Insights
 - [ ] README nuevo (se borró el del template de Vite)
 - [ ] Revisar `npm audit` cuando salga una versión nueva de `eslint-config-next` (hoy hay 5 alertas, todas en herramientas de desarrollo; ninguna llega al sitio)
@@ -132,3 +139,8 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] Canales de contacto como dato único: agregar una red social es una línea en `site.ts`
 - [x] Cero colores fuera de los tokens (salvo el `theme-color` de la meta tag, que no puede leer CSS)
 - [x] Formulario de contacto probado de punta a punta contra el servidor, en español e inglés: validación, valores conservados, trampa para bots, éxito, y rechazo del proveedor
+- [x] SEO: imagen para compartir por idioma, sitemap con `hreflang`, robots, JSON-LD, íconos propios
+- [x] Estructura de proyectos (un archivo por caso, dos idiomas obligatorios), página del caso y primer caso
+- [x] 404 con código HTTP real y página propia bilingüe
+- [x] Auditoría en navegador real: 5 defectos encontrados y corregidos que ninguna herramienta automática había mostrado (botones del hero invisibles en notebooks de 768 px, hero sin aire inferior, título sin espacios al copiarlo, íconos redirigidos por el proxy, foco tapado por el header)
+- [x] Canvas del pizarrón optimizado: con la CPU 4× más lenta, el JavaScript en reposo bajó de 13,7% a 7,7% del hilo principal

@@ -3,7 +3,8 @@ import { Container } from "@/components/ui/container";
 import { channelsFor, site } from "@/content/site";
 import { getDictionary } from "@/i18n/dictionaries";
 
-const linkClass = "rounded transition-colors duration-300 hover:text-accent";
+// min-h-10: el texto mide 21 px de alto; el resto es área tocable.
+const linkClass = "inline-flex min-h-10 items-center rounded transition-colors duration-300 hover:text-accent";
 
 export async function Footer() {
   // `new Date()` no puede correr en el prerender: se cachea y el año se renueva una vez por día.
@@ -21,13 +22,13 @@ export async function Footer() {
           <span>{dict.footer.tagline}</span>
         </div>
 
-        <div className="flex items-center gap-6 font-bold">
+        <div className="flex items-center gap-4 font-bold">
           {channelsFor("footer").map((channel) => (
             <a key={channel.id} href={channel.href} target="_blank" rel="noreferrer" className={linkClass}>
               {channel.label}
             </a>
           ))}
-          <a href="#main" aria-label={dict.a11y.backToTop} className={`${linkClass} text-base`}>
+          <a href="#main" aria-label={dict.a11y.backToTop} className={`${linkClass} min-w-10 justify-center text-base`}>
             <span aria-hidden="true">↑</span>
           </a>
         </div>

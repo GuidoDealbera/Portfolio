@@ -17,7 +17,6 @@ type SiteHeaderProps = {
     openMenu: string;
     closeMenu: string;
     language: string;
-    switchTo: Record<Locale, string>;
   };
 };
 
@@ -59,7 +58,10 @@ export function SiteHeader({ locale, initials, items, labels }: SiteHeaderProps)
       )}
     >
       <Container className="flex items-center justify-between gap-6 py-4">
-        <Link href={`/${locale}`} className="font-display text-[21px] leading-none font-bold tracking-[-0.03em]">
+        <Link
+          href={`/${locale}`}
+          className="-mx-2 inline-flex min-h-10 items-center px-2 font-display text-[21px] leading-none font-bold tracking-[-0.03em]"
+        >
           {initials[0]}
           <span className="text-accent">{initials[1]}</span>
         </Link>
@@ -78,7 +80,7 @@ export function SiteHeader({ locale, initials, items, labels }: SiteHeaderProps)
             </ul>
           </nav>
 
-          <LanguageSwitcher locale={locale} label={labels.language} switchTo={labels.switchTo} />
+          <LanguageSwitcher locale={locale} label={labels.language} />
 
           <button
             type="button"

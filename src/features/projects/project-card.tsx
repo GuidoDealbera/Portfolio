@@ -22,7 +22,7 @@ export function ProjectCard({ project, locale, labels, featured = false, delay =
   return (
     <Reveal as="article" delay={delay} className={cn("group", featured && "md:col-span-2")}>
       <TiltCard className="h-full">
-        <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,box-shadow] duration-500 group-hover:border-accent/40 group-hover:shadow-[0_24px_60px_-34px_rgb(0_0_0/0.75)] has-focus-visible:border-accent/60">
+        <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,box-shadow] duration-500 group-hover:border-accent/40 group-hover:shadow-[0_24px_60px_-34px_rgb(0_0_0/0.75)] has-focus-visible:outline-2 has-focus-visible:outline-offset-4 has-focus-visible:outline-accent">
           <ProjectCover project={project} locale={locale} featured={featured} />
 
           <div className="flex flex-1 flex-col p-6">

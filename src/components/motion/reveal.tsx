@@ -36,7 +36,9 @@ export function Reveal({ children, as = "div", delay = 0, y = 30, className }: R
       className={className}
       initial={{ opacity: 0, filter: "blur(14px)", y }}
       whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -12% 0px", amount: 0.12 }}
+      // Sin margen inferior: un margen deja sin revelar lo que ya está en pantalla pero cerca del borde
+      // de abajo (en un monitor de 800 px, los botones del hero), y la primera pantalla tiene que verse completa.
+      viewport={{ once: true, amount: 0.12 }}
       transition={{ duration: 0.95, ease: chalkEase, delay }}
     >
       {children}

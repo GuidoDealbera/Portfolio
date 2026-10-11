@@ -1,14 +1,12 @@
-"use client";
-
-import { motion } from "motion/react";
+import { Fragment, type CSSProperties } from "react";
 import { cn } from "@/lib/cn";
-import { chalkEase } from "./ease";
 
 type Segment = { text: string; className?: string };
 
 type SplitTextProps = {
   segments: readonly Segment[];
-  as?: "h1" | "h2" | "p";
+  /** Sólo encabezados: `aria-label` no es válido en un `<p>`. */
+  as?: "h1" | "h2" | "h3";
   id?: string;
   className?: string;
   /** Segundos antes de la primera letra. */
@@ -35,9 +33,15 @@ function toWords(segments: readonly Segment[]): Word[] {
 }
 
 /**
- * Entrada letra por letra: cada carácter llega desenfocado y con una rotación
- * mínima. Las palabras no se cortan al hacer wrap. El lector de pantalla lee
- * el texto entero una sola vez, no letra por letra.
+ * Entrada letra por letra: cada carácter llega desenfocado y con una rotación mínima. Las palabras no se
+ * cortan al hacer wrap.
+ *
+ * Es CSS puro y se renderiza en el servidor (como <Intro>): arranca con la hoja de estilos, sin esperar a
+ * que JavaScript hidrate, que es lo que retrasaba el LCP casi 2 s en celular.
+ *
+ * Accesibilidad y texto real: las letras son `aria-hidden` y el encabezado se nombra con `aria-label`, así
+ * el lector de pantalla lo dice una sola vez. Entre palabras va un espacio de verdad (no un margen): si no,
+ * copiar el título da "Construyoproductosweb" y Ctrl+F no encuentra "productos web".
  */
 export function SplitText({
   segments,
@@ -51,24 +55,23 @@ export function SplitText({
   const fullText = segments.map((s) => s.text).join(" ");
 
   return (
-    <Tag id={id} className={className}>
-      <span className="sr-only">{fullText}</span>
+    <Tag id={id} className={className} aria-label={fullText}>
       <span aria-hidden="true">
-        {words.map((word) => (
-          <span key={word.key} className={cn("mr-[0.26em] inline-block whitespace-nowrap", word.className)}>
-            {word.chars.map(({ char, index }) => (
-              <motion.span
-                key={index}
-                data-reveal
-                className="inline-block"
-                initial={{ opacity: 0, filter: "blur(12px)", y: "0.42em", rotate: 2 }}
-                animate={{ opacity: 1, filter: "blur(0px)", y: 0, rotate: 0 }}
-                transition={{ duration: 0.82, ease: chalkEase, delay: delay + index * step }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </span>
+        {words.map((word, wordIndex) => (
+          <Fragment key={word.key}>
+            {wordIndex > 0 && " "}
+            <span className={cn("inline-block whitespace-nowrap", word.className)}>
+              {word.chars.map(({ char, index }) => (
+                <span
+                  key={index}
+                  className="inline-block animate-chalk-in"
+                  style={{ animationDelay: `${(delay + index * step).toFixed(3)}s`, "--tilt": "2deg" } as CSSProperties}
+                >
+                  {char}
+                </span>
+              ))}
+            </span>
+          </Fragment>
         ))}
       </span>
     </Tag>

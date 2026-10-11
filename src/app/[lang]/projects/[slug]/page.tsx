@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Intro } from "@/components/motion/intro";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitText } from "@/components/motion/split-text";
 import { ButtonLink } from "@/components/ui/button";
@@ -71,15 +72,15 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
       <article>
         <header className="pt-[clamp(112px,16vh,160px)] pb-[clamp(40px,7vh,72px)]">
           <Container>
-            <Reveal y={10}>
+            <Intro rise="10px">
               <Link
                 href={`/${locale}#work`}
-                className="inline-flex items-center gap-2 text-sm text-dust transition-colors duration-300 hover:text-accent"
+                className="inline-flex min-h-10 items-center gap-2 text-sm text-dust transition-colors duration-300 hover:text-accent"
               >
                 <span aria-hidden="true">←</span>
                 {labels.back}
               </Link>
-            </Reveal>
+            </Intro>
 
             <p className="mt-8 flex items-center gap-3 text-xs font-bold tracking-[0.16em] text-accent uppercase before:h-px before:w-7 before:bg-accent/60">
               <span className="tabular-nums">{project.year}</span>
@@ -94,11 +95,11 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
               segments={[{ text: copy.title }]}
             />
 
-            <Reveal delay={0.4}>
+            <Intro delay={0.4}>
               <p className="mt-6 max-w-[56ch] text-[clamp(17px,1.8vw,21px)] leading-[1.65] text-dust">{copy.summary}</p>
-            </Reveal>
+            </Intro>
 
-            <Reveal delay={0.55} className="mt-8 flex flex-wrap items-center gap-3">
+            <Intro delay={0.55} className="mt-8 flex flex-wrap items-center gap-3">
               {project.links.live && (
                 <ButtonLink href={project.links.live} target="_blank" rel="noreferrer" arrow>
                   {labels.live}
@@ -111,9 +112,9 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
               ) : (
                 <p className="text-sm text-dust">{labels.privateRepo}</p>
               )}
-            </Reveal>
+            </Intro>
 
-            <Reveal delay={0.65}>
+            <Intro delay={0.65}>
               <ul aria-label={labels.stack} className="mt-8 flex flex-wrap gap-2">
                 {project.stack.map((tech) => (
                   <li key={tech} className="rounded-md border border-line px-2.5 py-1 text-[13px] font-semibold">
@@ -121,7 +122,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
                   </li>
                 ))}
               </ul>
-            </Reveal>
+            </Intro>
           </Container>
         </header>
 
