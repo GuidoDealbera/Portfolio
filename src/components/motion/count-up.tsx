@@ -1,40 +1,48 @@
 "use client";
 
-import { animate, useInView } from "motion/react";
-import { useEffect, useRef } from "react";
+import { animate, motion, useInView, useMotionValue, useReducedMotion, useTransform } from "motion/react";
+import { useEffect, useMemo, useRef } from "react";
 
 type CountUpProps = {
   to: number;
+  /** Cantidad de decimales a mostrar. */
+  decimals?: number;
+  /** Idioma del formato numérico: 3,5 en "es", 3.5 en "en". */
+  locale: string;
   /** Segundos. */
   duration?: number;
 };
 
 /**
  * Cuenta desde cero cuando entra en pantalla, una sola vez.
- * El servidor ya renderiza el valor final: sin JS, o para un buscador, el número es el correcto.
+ * El servidor renderiza el valor final: sin JS, con reduced motion o para un
+ * buscador, el número que se lee es el correcto. Sólo con JS se rebobina a 0.
  */
-export function CountUp({ to, duration = 1.1 }: CountUpProps) {
+export function CountUp({ to, decimals = 0, locale, duration = 1.1 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
+  const reduceMotion = useReducedMotion();
+
+  const format = useMemo(
+    () => new Intl.NumberFormat(locale, { minimumFractionDigits: decimals, maximumFractionDigits: decimals }),
+    [locale, decimals],
+  );
+  const value = useMotionValue(to);
+  const text = useTransform(value, (current) => format.format(current));
 
   useEffect(() => {
-    const node = ref.current;
-    if (!inView || !node) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!reduceMotion) value.set(0);
+  }, [reduceMotion, value]);
 
-    const controls = animate(0, to, {
-      duration,
-      ease: "easeOut",
-      onUpdate: (value) => {
-        node.textContent = String(Math.round(value));
-      },
-    });
+  useEffect(() => {
+    if (!inView || reduceMotion) return;
+    const controls = animate(value, to, { duration, ease: "easeOut" });
     return () => controls.stop();
-  }, [inView, to, duration]);
+  }, [inView, reduceMotion, value, to, duration]);
 
   return (
-    <span ref={ref} className="tabular-nums">
-      {to}
-    </span>
+    <motion.span ref={ref} className="tabular-nums">
+      {text}
+    </motion.span>
   );
 }

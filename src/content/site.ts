@@ -1,74 +1,123 @@
 /**
- * Fuente única de los datos del perfil. Todo lo que aparece en más de un
- * lugar (hero, footer, metadata, imagen OG, contacto) se lee de acá.
+ * Fuente única de los datos del perfil que NO dependen del idioma: nombres,
+ * fechas, stack, links. Los textos van en src/dictionaries.
  *
  * Los campos marcados PENDIENTE son supuestos que hay que confirmar.
  */
 
 export const site = {
+  // El sitio sigue en el subdominio gratuito hasta tener guidodealbera.dev.
   url: "https://guidodealbera-dev.vercel.app",
   name: "Guido Dealbera",
   fullName: "Guido José Dealbera",
   initials: { first: "G", second: "D" },
-  role: "Desarrollador Fullstack",
   location: "Villa María, Córdoba",
   country: "Argentina",
   timezone: "GMT−3",
-  languages: "Español / Inglés",
 
-  // PENDIENTE: confirmar. En 2023 el sitio decía "2+ años".
-  yearsOfExperience: 5,
+  // Años de experiencia, tal como los declaró Guido (octubre 2026).
+  // Es un número fijo: hay que actualizarlo a mano.
+  yearsOfExperience: 3.5,
 
-  // PENDIENTE: confirmar empleador actual y si la agenda freelance está abierta.
-  currentRole: { company: "Mecantronic", since: null as number | null },
+  // La agenda freelance está siempre abierta.
   availableForFreelance: true,
 
-  headline: {
-    lead: "Construyo productos web que la gente",
-    highlight: "usa todos los días.",
+  // Fechas en formato ISO. Los textos legibles viven en los diccionarios.
+  career: {
+    company: { name: "Mecantronic", since: "2025-04" },
+    freelance: { since: "2023-05-30" },
+    bootcamp: {
+      name: "SoyHenry",
+      program: "Full Stack Developer",
+      from: "2023-01-30",
+      to: "2023-05-15",
+      url: "https://www.soyhenry.com/",
+    },
+    degree: { since: "2015", expected: "2026-12" },
   },
 
-  description:
-    "Desarrollador Fullstack en Villa María, Córdoba. React, Next.js, NestJS y PostgreSQL. Disponible para proyectos freelance y trabajo remoto.",
-
+  // Stack agrupado por uso real, tal como figuraba en el sitio anterior.
   stack: {
     core: ["React", "Next.js", "NestJS", "PostgreSQL"],
-    all: [
+    groups: {
+      frontend: ["React", "Next.js", "TypeScript", "Redux", "Tailwind CSS", "Material UI", "HTML", "CSS"],
+      backend: ["Node.js", "NestJS", "Express"],
+      data: ["PostgreSQL", "Sequelize"],
+      mobile: ["React Native"],
+    },
+    // Lo que desfila en la marquesina.
+    marquee: [
       "React",
       "Next.js",
       "TypeScript",
       "NestJS",
       "PostgreSQL",
       "Node.js",
-      "Express",
-      "Sequelize",
-      "Tailwind",
+      "Tailwind CSS",
       "React Native",
       "Redux",
+      "Express",
+      "Sequelize",
       "Material UI",
     ],
   },
 
-  education: {
-    degree: "Profesorado en Matemáticas",
-    bootcamp: { name: "SoyHenry", year: 2023, url: "https://www.soyhenry.com/" },
-  },
-
   cv: "/cv-guido-dealbera.pdf",
 
-  contact: {
-    email: "guidojdealbera@gmail.com",
-    whatsapp: { display: "+54 3775 432263", url: "https://wa.me/543775432263" },
-  },
-
-  social: {
-    github: "https://github.com/GuidoDealbera",
-    linkedin: "https://www.linkedin.com/in/guido-jos%C3%A9-dealbera-5433a0261/",
-  },
+  email: "guidojdealbera@gmail.com",
 } as const;
 
-export const nav = [
-  { label: "Trabajo", href: "#trabajo" },
-  { label: "Sobre mí", href: "#sobre" },
-  { label: "Contacto", href: "#contacto" },
-] as const;
+type Placement = "contact" | "footer";
+
+export type Channel = {
+  id: string;
+  label: string;
+  href: string;
+  external: boolean;
+  /** En qué partes de la página aparece. El primero de "contact" es el botón principal. */
+  placements: readonly Placement[];
+};
+
+/**
+ * Todos los canales de contacto y redes, en un solo lugar. Para sumar uno
+ * (Instagram, X…) alcanza con agregar una línea acá: el contacto y el footer
+ * lo muestran solos.
+ */
+export const channels: readonly Channel[] = [
+  { id: "email", label: site.email, href: `mailto:${site.email}`, external: false, placements: ["contact"] },
+  {
+    id: "whatsapp",
+    label: "WhatsApp",
+    href: "https://wa.me/543775432263",
+    external: true,
+    placements: ["contact"],
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/guido-jos%C3%A9-dealbera-5433a0261/",
+    external: true,
+    placements: ["contact", "footer"],
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    href: "https://github.com/GuidoDealbera",
+    external: true,
+    placements: ["footer"],
+  },
+];
+
+export function channelsFor(placement: Placement) {
+  return channels.filter((channel) => channel.placements.includes(placement));
+}
+
+export function channelHref(id: string) {
+  const channel = channels.find((item) => item.id === id);
+  if (!channel) throw new Error(`Canal desconocido: ${id}`);
+  return channel.href;
+}
+
+/** Ids de las secciones de la home. Iguales en todos los idiomas para que los links compartidos funcionen. */
+export const sections = ["work", "about", "journey", "contact"] as const;
+export type SectionId = (typeof sections)[number];

@@ -74,6 +74,16 @@
   h3 {
     text-wrap: balance;
   }
+
+  /* El header es fijo: sin esto, saltar a un ancla deja el título tapado. */
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+}
+
+/* Ritmo vertical único de todas las secciones. */
+@utility py-section {
+  padding-block: clamp(72px, 13vh, 128px);
 }
 
 @layer utilities {
@@ -84,8 +94,8 @@
   /* La grilla de papel milimetrado del fondo. */
   .graph-paper {
     background-image:
-      linear-gradient(rgb(233 230 220 / 0.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(233 230 220 / 0.055) 1px, transparent 1px);
+      linear-gradient(color-mix(in srgb, var(--color-chalk) 5.5%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--color-chalk) 5.5%, transparent) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 120% 80% at 50% 30%, #000 30%, transparent 78%);
   }

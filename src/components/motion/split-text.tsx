@@ -9,6 +9,7 @@ type Segment = { text: string; className?: string };
 type SplitTextProps = {
   segments: readonly Segment[];
   as?: "h1" | "h2" | "p";
+  id?: string;
   className?: string;
   /** Segundos antes de la primera letra. */
   delay?: number;
@@ -41,6 +42,7 @@ function toWords(segments: readonly Segment[]): Word[] {
 export function SplitText({
   segments,
   as: Tag = "h1",
+  id,
   className,
   delay = 0.18,
   step = 0.026,
@@ -49,7 +51,7 @@ export function SplitText({
   const fullText = segments.map((s) => s.text).join(" ");
 
   return (
-    <Tag className={className}>
+    <Tag id={id} className={className}>
       <span className="sr-only">{fullText}</span>
       <span aria-hidden="true">
         {words.map((word) => (
