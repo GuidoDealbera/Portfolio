@@ -46,9 +46,24 @@ export const es = {
 
   work: {
     kicker: "Trabajo",
-    title: "Casos de estudio en camino.",
-    body: "Estoy escribiendo cada proyecto con su problema, mis decisiones y el resultado. Mientras tanto, el código está en GitHub.",
-    cta: "Ver GitHub",
+    title: "Trabajo seleccionado.",
+    body: "Cada caso cuenta el problema, las decisiones que tomé y el resultado.",
+    viewCase: "Ver el caso",
+    privateRepo: "Código privado",
+    cta: "Más en GitHub",
+  },
+
+  projectPage: {
+    caseStudy: "Caso de estudio",
+    back: "Volver al trabajo",
+    next: "Siguiente caso",
+    stack: "Stack",
+    repo: "Ver el código",
+    live: "Ver online",
+    privateRepo: "El código de este proyecto es privado.",
+    problem: "El problema",
+    decisions: "Decisiones",
+    result: "Resultado",
   },
 
   about: {

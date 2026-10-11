@@ -53,10 +53,16 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 
 ## 4. Casos de estudio
 
-- [ ] Ruta `/proyectos/[slug]` con `generateStaticParams`
-- [ ] Formato del contenido: elegir entre MDX y archivos TS tipados
-- [ ] Metadata e imagen OG por proyecto
-- [ ] Capturas nuevas de cada proyecto (las de `public/legacy/proyectos` son de 2023–2024)
+- [x] Ruta `/[lang]/projects/[slug]` con `generateStaticParams`
+- [x] Formato del contenido: archivos TypeScript tipados, un archivo por proyecto con los dos idiomas adentro (decisión y motivos en `src/content/projects/README.md`)
+- [x] Metadata, `hreflang`, imagen Open Graph y sitemap por proyecto
+- [x] Grilla de tarjetas en la home con inclinación 3D, y página del caso con problema, decisiones y resultado
+- [x] 404 de verdad (con el código HTTP correcto) para un proyecto inexistente, y página 404 propia y bilingüe para cualquier URL sin ruta
+- [ ] **Revisar el caso "Este portfolio"** (`src/content/projects/portfolio.ts`): lo escribí yo, con hechos medidos durante el rediseño, para poder probar toda la estructura. Editalo o borralo cuando llegue tu MD
+- [ ] **Pasar tus proyectos** desde el MD: cada uno es un archivo nuevo más una línea en `index.ts`
+- [ ] Capturas nuevas de cada proyecto, en `public/projects/<slug>.png` (las de `public/legacy/proyectos` son de 2023–2024)
+- [ ] Decidir qué hacer con `public/legacy/`: si ninguna captura se reutiliza, borrar la carpeta
+- [ ] `global-not-found` es una opción **experimental** de Next. Está fijada en 16.4.0; si se actualiza Next, revisar que el 404 siga funcionando
 
 ## 5. Formulario de contacto
 

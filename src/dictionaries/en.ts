@@ -42,9 +42,24 @@ export const en: Dictionary = {
 
   work: {
     kicker: "Work",
-    title: "Case studies on the way.",
-    body: "I'm writing up each project with its problem, my decisions and the outcome. In the meantime, the code is on GitHub.",
-    cta: "See GitHub",
+    title: "Selected work.",
+    body: "Each case tells the problem, the decisions I made and the outcome.",
+    viewCase: "View the case",
+    privateRepo: "Private code",
+    cta: "More on GitHub",
+  },
+
+  projectPage: {
+    caseStudy: "Case study",
+    back: "Back to work",
+    next: "Next case",
+    stack: "Stack",
+    repo: "View the code",
+    live: "View live",
+    privateRepo: "The code for this project is private.",
+    problem: "The problem",
+    decisions: "Decisions",
+    result: "Outcome",
   },
 
   about: {

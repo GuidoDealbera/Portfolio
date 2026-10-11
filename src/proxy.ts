@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { getProject } from "@/content/projects";
 import { defaultLocale, hasLocale, localeCookie, locales, type Locale } from "@/i18n/config";
 
 /** Primer idioma soportado de `Accept-Language`, respetando los pesos q=. */
@@ -24,8 +25,29 @@ function pickLocale(request: NextRequest): Locale {
   return fromAcceptLanguage(request.headers.get("accept-language")) ?? defaultLocale;
 }
 
+/**
+ * Idioma de la URL si apunta a /<lang>/projects/<slug> con un slug que no existe.
+ * El estado HTTP queda fijado cuando empieza el streaming, así que un `notFound()` dentro de la
+ * página respondería 200 (un "soft 404"). Decidirlo acá, antes del render, da un 404 de verdad.
+ * Acopla con la carpeta app/[lang]/projects/[slug].
+ */
+function unknownProjectLocale(pathname: string): Locale | undefined {
+  const [lang, section, slug, ...rest] = pathname.split("/").filter(Boolean);
+  const isProjectUrl = hasLocale(lang) && section === "projects" && slug !== undefined && rest.length === 0;
+  return isProjectUrl && !getProject(slug) ? lang : undefined;
+}
+
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  const missingProjectLocale = unknownProjectLocale(pathname);
+  if (missingProjectLocale) {
+    // Se reescribe a una ruta que no existe: conserva la URL pero responde 404 con la página localizada.
+    const url = request.nextUrl.clone();
+    url.pathname = `/${missingProjectLocale}/404`;
+    return NextResponse.rewrite(url);
+  }
+
   const hasLocalePrefix = locales.some((locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`));
   if (hasLocalePrefix) return;
 

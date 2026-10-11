@@ -2,15 +2,15 @@ import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionHead } from "@/components/ui/section-head";
+import { projects } from "@/content/projects";
 import { channelHref } from "@/content/site";
-import { getDictionary } from "@/i18n/dictionaries";
+import { ProjectCard } from "@/features/projects/project-card";
+import { getDictionary, getLocale } from "@/i18n/dictionaries";
 
-/**
- * PROVISORIO. Los casos de estudio dependen del MD de proyectos de Guido.
- * Cuando llegue, esta sección pasa a ser la grilla de proyectos.
- */
 export async function Work() {
-  const { work } = await getDictionary();
+  const [dict, locale] = await Promise.all([getDictionary(), getLocale()]);
+  const { work, projectPage } = dict;
+  const labels = { viewCase: work.viewCase, privateRepo: work.privateRepo, stack: projectPage.stack };
 
   return (
     <section id="work" aria-labelledby="work-title" className="py-section">
@@ -18,7 +18,22 @@ export async function Work() {
         <SectionHead id="work-title" kicker={work.kicker} title={work.title}>
           <p className="mt-4 max-w-[56ch] text-[17px] text-dust">{work.body}</p>
         </SectionHead>
-        <Reveal>
+
+        <div className="grid gap-5 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              locale={locale}
+              labels={labels}
+              // Con cantidad impar, la primera ocupa el ancho completo y las demás quedan de a dos.
+              featured={index === 0 && projects.length % 2 === 1}
+              delay={index * 0.09}
+            />
+          ))}
+        </div>
+
+        <Reveal className="mt-10">
           <ButtonLink href={channelHref("github")} variant="secondary" target="_blank" rel="noreferrer" arrow>
             {work.cta}
           </ButtonLink>

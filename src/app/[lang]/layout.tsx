@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Nunito_Sans, Poppins } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
@@ -10,21 +9,8 @@ import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { site } from "@/content/site";
 import { hasLocale, localeTags, locales, otherLocale } from "@/i18n/config";
 import { getDictionary, getLocale, loadDictionary } from "@/i18n/dictionaries";
+import { nunito, poppins } from "../fonts";
 import "../globals.css";
-
-// Poppins no es variable en Google Fonts: se piden sólo los pesos que usan los títulos.
-const poppins = Poppins({
-  weight: ["500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-poppins",
-});
-
-// Nunito Sans sí es variable: un solo archivo cubre todos los pesos del cuerpo.
-const nunito = Nunito_Sans({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-nunito",
-});
 
 // Con Cache Components, cada parámetro raíz necesita al menos un valor conocido en el build.
 export function generateStaticParams() {

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { projects } from "@/content/projects";
 import { site } from "@/content/site";
 import { defaultLocale, locales } from "@/i18n/config";
 
@@ -18,5 +19,5 @@ function localized(path: string): MetadataRoute.Sitemap {
 // Sin `lastModified` a propósito: con Cache Components, `new Date()` no puede correr en el prerender,
 // y una fecha inventada es peor que ninguna.
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...localized("")];
+  return [...localized(""), ...projects.flatMap(({ slug }) => localized(`/projects/${slug}`))];
 }

@@ -1,0 +1,22 @@
+# Cómo agregar un proyecto
+
+Un proyecto es **un archivo** más **una línea** en `index.ts`. El resto de la
+página (tarjeta, página del caso, imagen para compartir, sitemap) sale solo.
+
+1. Copiá `portfolio.ts` como `<slug>.ts` y cambiá los datos. El tipo `Project`
+   (en `types.ts`) te marca qué falta: `copy` pide **los dos idiomas**, y si
+   falta uno el proyecto no compila.
+2. En `index.ts`, importalo y sumalo al arreglo `projects`. El orden del
+   arreglo es el orden en la página.
+3. Si tiene captura, ponela en `public/projects/<slug>.png` y completá `image`.
+   Sin captura se usa una portada generada.
+
+Un proyecto sin `links.repo` se muestra como privado, y no hace falta aclarar
+nada más.
+
+## Por qué archivos TypeScript y no Markdown
+
+Se evaluó MDX. Se eligió TypeScript porque el tipo `Record<Locale, …>` garantiza
+en compilación que ningún caso se publica sin traducir, y porque MDX con
+Turbopack y Cache Components suma configuración y riesgo. Si más adelante un caso
+necesita bloques de código o imágenes dentro del texto, se reevalúa.
