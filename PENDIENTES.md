@@ -10,7 +10,7 @@ Stack: Next 16.4 · React 19 · TypeScript · Tailwind 4 · Motion 14 · Paleta 
 Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `src/content/site.ts`.
 
 - [ ] **MD de proyectos** (estimado: semana del 12 de octubre). Por cada uno: problema, tu rol exacto, decisiones técnicas, resultado, qué se puede mostrar, fechas y estado
-- [ ] **CV actualizado** — lo estás armando; cuando esté, va a `public/cv-guido-dealbera.pdf`. Hoy es el de noviembre 2024 y el botón de descarga ya lo enlaza
+- [x] **CV actualizado** (2026-10-21). Sale de `~/Proyectos/CV` (fuente única, compatible con ATS, tres variantes en ES y EN). El general en español reemplaza a `public/cv-guido-dealbera.pdf`, que ya enlaza el botón; el inglés queda en `public/cv-guido-dealbera-en.pdf` y el botón por idioma se conecta en la fase de textos
 - [ ] **Qué hacés en Mecantronic y en tus proyectos freelance**, en una o dos frases. Hoy el recorrido dice sólo "Desarrollo de software en relación de dependencia" y "Proyectos independientes para clientes", porque es lo único que sé con certeza
 - [ ] **Revisar la redacción de los textos.** Son borrador y sólo afirman lo que me confirmaste. Mirá en especial el título de Sobre mí ("casi profesor de matemáticas"), el subtítulo del hero y todo el inglés (`src/dictionaries/`)
 - [ ] Foto: va, pero te la pido cuando la use — hoy no hay ninguna en la home. Las de `public/legacy/fotos` son recortes sobre fondo cyan
