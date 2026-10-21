@@ -3,22 +3,27 @@
 Rama de trabajo: `rediseno` · El sitio actual sigue vivo en `main`.
 Stack: Next 16.4 · React 19 · TypeScript · Tailwind 4 · Motion 14 · Paleta Chalk.
 
+Plan de lanzamiento validado el 2026-10-21: `~/Proyectos/PLAN_ACCION_PORTFOLIO.md` (fuera del repo). Las decisiones están en su sección 4b. Orden de trabajo: CVs (hecho) → casos de estudio → textos del perfil → formulario y preview → lanzamiento. Cada fase termina con commit y push a `rediseno`.
+
 ---
 
 ## 1. Lo que necesito de vos
 
 Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `src/content/site.ts`.
 
-- [ ] **MD de proyectos** (estimado: semana del 12 de octubre). Por cada uno: problema, tu rol exacto, decisiones técnicas, resultado, qué se puede mostrar, fechas y estado
+- [x] **MD de proyectos** (2026-10-21): es `~/Proyectos/INVENTARIO_PORTFOLIO.md`, fuera del repo, con tu rol medido con git en cada proyecto. Los casos y su orden están en la sección 4 de este archivo
 - [x] **CV actualizado** (2026-10-21). Sale de `~/Proyectos/CV` (fuente única, compatible con ATS, tres variantes en ES y EN). El general en español reemplaza a `public/cv-guido-dealbera.pdf`, que ya enlaza el botón; el inglés queda en `public/cv-guido-dealbera-en.pdf` y el botón por idioma se conecta en la fase de textos
-- [ ] **Qué hacés en Mecantronic y en tus proyectos freelance**, en una o dos frases. Hoy el recorrido dice sólo "Desarrollo de software en relación de dependencia" y "Proyectos independientes para clientes", porque es lo único que sé con certeza
+- [x] **Qué hacés en Mecantronic y en tus proyectos freelance**: los textos están aprobados (plan, sección 7) y se cargan en la fase de textos. Suman un tramo nuevo: NovoGas, empleador aparte (ago. 2023 – abr. 2025)
 - [ ] **Revisar la redacción de los textos.** Son borrador y sólo afirman lo que me confirmaste. Mirá en especial el título de Sobre mí ("casi profesor de matemáticas"), el subtítulo del hero y todo el inglés (`src/dictionaries/`)
-- [ ] Foto: va, pero te la pido cuando la use — hoy no hay ninguna en la home. Las de `public/legacy/fotos` son recortes sobre fondo cyan
-- [ ] ¿Querés una cifra de "proyectos entregados" junto a los años de experiencia? Si sí, necesito el número real
+- [ ] **Elegir la frase del hero**: opciones en el plan, sección 10.2. Se usa en la fase de textos
+- [x] Foto: se lanza sin foto, pero con el lugar preparado en "Sobre mí" para sumarla después
+- [x] Cifra de "proyectos entregados": no va
+- [x] Nombres de clientes: reales, con permiso para todos (Durrieu, Plan Mi Casa, Tu Casa en Cuotas, ESConecta, Discera)
+- [x] Mecantronic es remoto. Proyectos de Mecantronic: Plan Mi Casa, Tu Casa en Cuotas, ESConecta, Durrieu y Discera. Freelance: Mecánica Dealbera y Grupo Oeste Seguros
 - [x] Años de experiencia: 3,5
 - [x] Empleador: Mecantronic desde abril 2025
 - [x] Agenda freelance: siempre abierta
-- [x] Fechas del recorrido: Mecantronic (abr 2025–hoy), freelance (30/05/2023–hoy), SoyHenry (30/01–15/05/2023), Profesorado (2015–dic 2026)
+- [x] Fechas del recorrido: Mecantronic (abr 2025–hoy), NovoGas (ago 2023–abr 2025), freelance (30/05/2023–hoy), SoyHenry (30/01–15/05/2023; Teaching Assistant mar–may 2023), Profesorado (2015–dic 2026)
 - [x] Dominio: sigue `guidodealbera-dev.vercel.app`; migrar a `guidodealbera.dev` cuando haya presupuesto
 - [x] Fuentes: Poppins + Nunito Sans
 - [x] Inglés: ES/EN desde el lanzamiento
@@ -40,16 +45,24 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] `hreflang`, canonical y `og:locale` por idioma
 - [x] Selector de idioma que conserva la página y recuerda la elección
 - [ ] Revisión del inglés por vos (lo escribí yo)
-- [ ] Traducir los casos de estudio cuando lleguen
+- [ ] Traducir los casos de estudio (fase de casos)
 
 ## 3. Secciones de la home
 
 - [x] Hero con datos reales
 - [x] Marquesina del stack
-- [ ] Trabajo seleccionado: grilla + cards con inclinación 3D — **bloqueado por el MD**. Hoy hay una sección provisoria que enlaza a GitHub, para reemplazar
+- [x] Trabajo seleccionado: grilla + cards con inclinación 3D. `work.tsx` ya muestra las `ProjectCard`; lo que falta es el contenido (sección 4)
 - [x] Sobre mí: texto, contador de años con decimales por idioma, stack agrupado
 - [x] Recorrido: línea de tiempo que se dibuja con el scroll
 - [x] Contacto: formulario más canales directos (mail, WhatsApp, LinkedIn)
+
+Fase de textos (plan, Fase 2):
+- [ ] Hero con la frase elegida y un subtítulo con dominios concretos (planes de ahorro, operación de hacienda, campus de capacitación)
+- [ ] Recorrido con cinco tramos: Mecantronic, NovoGas (nuevo), freelance, SoyHenry (con Teaching Assistant) y Profesorado
+- [ ] Stack: sumar TypeScript, Redux Toolkit, TanStack Query, MUI, Python/FastAPI, TypeORM, SQLite, Electron, Firebase y Docker; quitar Sequelize; quedan React Native y Express
+- [ ] Etiqueta de idiomas del hero: "Español nativo · Inglés B1", para que coincida con el CV
+- [ ] Lugar preparado para la foto en "Sobre mí": un campo opcional en `site.ts`, sin foto se ve igual que hoy
+- [ ] Botón "Descargar CV" por idioma: `/en` descarga `cv-guido-dealbera-en.pdf`
 
 ## 4. Casos de estudio
 
@@ -58,10 +71,18 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] Metadata, `hreflang`, imagen Open Graph y sitemap por proyecto
 - [x] Grilla de tarjetas en la home con inclinación 3D, y página del caso con problema, decisiones y resultado
 - [x] 404 de verdad (con el código HTTP correcto) para un proyecto inexistente, y página 404 propia y bilingüe para cualquier URL sin ruta
-- [ ] **Revisar el caso "Este portfolio"** (`src/content/projects/portfolio.ts`): lo escribí yo, con hechos medidos durante el rediseño, para poder probar toda la estructura. Editalo o borralo cuando llegue tu MD
-- [ ] **Pasar tus proyectos** desde el MD: cada uno es un archivo nuevo más una línea en `index.ts`
-- [ ] Capturas nuevas de cada proyecto, en `public/projects/<slug>.png` (las de `public/legacy/proyectos` son de 2023–2024)
-- [ ] Decidir qué hacer con `public/legacy/`: si ninguna captura se reutiliza, borrar la carpeta
+- [ ] **Caso "Este portfolio"** (`src/content/projects/portfolio.ts`): se queda, y se le suman capturas
+- [ ] **Pasar los casos desde el inventario**, en este orden (con siete, la primera tarjeta ocupa el ancho completo):
+  1. `durrieu`: Mecantronic · En producción, piloto
+  2. `mecanica-dealbera`: Freelance · En desarrollo · repo público
+  3. `templo-de-las-asintotas`: Personal · Prueba de concepto · sin enlace "Ver online" (solo vos creás salas), con capturas o video
+  4. `plan-mi-casa`: Mecantronic · Plan Mi Casa en producción, más Tu Casa en Cuotas (prueba de concepto) en el mismo caso
+  5. `esconecta`: Mecantronic · En producción
+  6. `grupo-oeste-seguros`: Freelance · En producción (publicidad de la agencia) · repo público `seguros-front` · el backend lo hizo otro desarrollador
+  7. `portfolio`: Personal
+- [ ] Etiquetas de **contexto** (Mecantronic / Freelance / Personal) y **estado** (En producción, En producción · piloto, En desarrollo, Prueba de concepto) en el tipo `Project`, la tarjeta y la página del caso
+- [ ] Capturas en `public/projects/<slug>.png`. Mecánica Dealbera con los datos sensibles difuminados (nombres, teléfonos, patentes, domicilios, correos)
+- [x] Qué hacer con `public/legacy/`: se reutiliza la captura de Grupo Oeste Seguros si sigue siendo representativa; el resto se borra
 - [ ] `global-not-found` es una opción **experimental** de Next. Está fijada en 16.4.0; si se actualiza Next, revisar que el 404 siga funcionando
 
 ## 5. Formulario de contacto
@@ -71,7 +92,7 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] Campo trampa contra bots (honeypot)
 - [x] Estados visibles: enviando, enviado, error con instrucción de qué hacer, y el foco va al primer campo con error
 - [x] Variables de entorno: `.env.local` (tuyo, ignorado por Git) y `.env.example` (documentado)
-- [x] Cuenta de Resend creada y variables cargadas en `.env.local`
+- [x] Cuenta de Resend creada y variables cargadas en `.env.local` (recreado en esta máquina el 2026-10-21; `CONTACT_FROM` vacío usa el remitente por defecto)
 - [ ] **Probar un envío real**: `npm run dev`, mandar un mensaje desde el formulario y confirmar que llega. `CONTACT_TO_EMAIL` tiene que ser el email con el que creaste la cuenta de Resend
 - [ ] Cargar las 3 variables en Vercel (Project Settings → Environment Variables) antes de publicar: `.env.local` no viaja
 - [ ] Opcional: verificar un dominio en Resend para enviar desde un remitente propio. Hoy se envía desde `onboarding@resend.dev` hacia tu propio email, que alcanza para un formulario de contacto
@@ -96,11 +117,11 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] Menú móvil, selector de idioma, `prefers-reduced-motion` y sin JavaScript verificados en navegador real (Edge y Chrome), y navegación por toque en celular emulado
 - [x] La primera pantalla se ve completa al cargar, sin scrollear, en 720, 768, 900 y 1080 px de alto y en celular
 - [x] Lighthouse: Accesibilidad 100, Buenas prácticas 100 y SEO 100 en las cuatro páginas; rendimiento 100 en escritorio
-- [ ] **Lighthouse en celular simulado: rendimiento 93–94 (la meta era ≥ 95) con un LCP simulado de 3,1 s**, constante entre corridas. El LCP que mide el navegador sin simulación es de 0,2 s. No pude determinar qué fija el número simulado; probé quitar la dependencia de la hidratación en la entrada del hero y optimizar el canvas, y no lo movieron. Ver si vale la pena seguir o aceptarlo
+- [ ] **Lighthouse en celular simulado: rendimiento 93–94 (la meta era ≥ 95) con un LCP simulado de 3,1 s**, constante entre corridas. El LCP que mide el navegador sin simulación es de 0,2 s. No pude determinar qué fija el número simulado; probé quitar la dependencia de la hidratación en la entrada del hero y optimizar el canvas, y no lo movieron. **Decidido (2026-10-21): se acepta para lanzar y se mejora después**
 - [ ] **Escuchar el sitio con un lector de pantalla real** (NVDA o VoiceOver): lo automático detecta reglas, no si resulta entendible
 - [ ] **Probar en un teléfono real**: cómo se siente el canvas y por qué, en la emulación de celular, el navegador deja tres precargas duplicadas que nunca cierran (y se cancelan con `ERR_ABORTED` al volver al tope). La navegación funciona igual y no hay errores del servidor, pero no pude fijar la causa
 - [ ] El contraste de texto lo midió axe con el canvas y la cuadrícula del fondo ocultos (son decorativos, de opacidad ≤ 20%), porque con ellos axe no puede calcular el fondo. Los pares de colores de la paleta sí están calculados a mano
-- [ ] Vercel Analytics + Speed Insights
+- [ ] Vercel Analytics + Speed Insights (después del lanzamiento)
 - [ ] README nuevo (se borró el del template de Vite)
 - [ ] Revisar `npm audit` cuando salga una versión nueva de `eslint-config-next` (hoy hay 5 alertas, todas en herramientas de desarrollo; ninguna llega al sitio)
 
