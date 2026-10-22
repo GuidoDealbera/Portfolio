@@ -14,6 +14,59 @@ export const durrieu: Project = {
   status: "pilot",
   stack: ["Next.js", "React", "FastAPI", "PostgreSQL", "Telegram", "WhatsApp"],
   links: {},
+  // Datos de demo, salvo en las dos de invernada: ahí los nombres, los CUIT y los representantes van difuminados.
+  shots: [
+    {
+      src: "/projects/durrieu/negocios-faena.webp",
+      width: 1917,
+      height: 905,
+      alt: {
+        es: "Listado de negocios de faena: tabla con lote, remitente, categorías, cabezas, frigorífico, intermediario y estado de cada negocio, con búsqueda y filtros por estado y fecha.",
+        en: "Finished-cattle deals list: a table with lot, sender, categories, head count, meat packer, intermediary and status for each deal, with search and status and date filters.",
+      },
+      caption: { es: "Negocios de faena", en: "Finished-cattle deals" },
+    },
+    {
+      src: "/projects/durrieu/detalle-faena.webp",
+      width: 1917,
+      height: 905,
+      alt: {
+        es: "Detalle de un negocio de faena: las seis etapas, de pedido a liquidado, con las condiciones del negocio, los representantes, el intermediario y el establecimiento.",
+        en: "A finished-cattle deal in detail: the six stages from request to settled, with the deal terms, agents, intermediary and farm.",
+      },
+      caption: { es: "Detalle de un negocio de faena", en: "A finished-cattle deal" },
+    },
+    {
+      src: "/projects/durrieu/negocios-invernada.webp",
+      width: 1917,
+      height: 905,
+      alt: {
+        es: "Listado de negocios de invernada entre un vendedor y un comprador, con estado, sanidad y fecha de alta. Los nombres de las partes están difuminados.",
+        en: "Feeder-cattle deals between a seller and a buyer, with status, health certificate and date. The parties' names are blurred.",
+      },
+      caption: { es: "Negocios de invernada", en: "Feeder-cattle deals" },
+    },
+    {
+      src: "/projects/durrieu/detalle-invernada.webp",
+      width: 1917,
+      height: 905,
+      alt: {
+        es: "Detalle de un negocio de invernada: etapas, vendedor y comprador con sus representantes, y establecimientos de origen y destino. Los datos de las partes están difuminados.",
+        en: "A feeder-cattle deal in detail: stages, seller and buyer with their agents, and origin and destination farms. The parties' details are blurred.",
+      },
+      caption: { es: "Detalle de un negocio de invernada", en: "A feeder-cattle deal" },
+    },
+    {
+      src: "/projects/durrieu/reportes.webp",
+      width: 1917,
+      height: 905,
+      alt: {
+        es: "Reportes: totales de negocios por estado, filtros por remitente, frigorífico, categoría y fechas, y exportación a Excel.",
+        en: "Reports: deal totals by status, filters by sender, meat packer, category and dates, and Excel export.",
+      },
+      caption: { es: "Reportes", en: "Reports" },
+    },
+  ],
   copy: {
     es: {
       title: "Durrieu Consignatarios",
@@ -35,6 +88,8 @@ export const durrieu: Project = {
         "La plataforma está en producción y el cliente la usa en una etapa piloto. El bot es casi íntegramente mío (el 97 % de su código actual), y al backend y a la web les sumé la vinculación de cuentas de chat, el módulo de notificaciones, la ficha pública de lotes y mejoras en los flujos de faena e invernada.",
         "Cada cambio pasa por integración continua con pruebas del backend, del bot (incluida una de punta a punta contra el backend real) y de la web.",
       ],
+      shotsNote:
+        "Pantallas de la plataforma web, que hizo un equipo de cuatro: lo que hice yo está en “Mi rol” y “Resultado”. El bot no tiene pantallas propias: funciona dentro de Telegram y WhatsApp.",
     },
     en: {
       title: "Durrieu Consignatarios",
@@ -56,6 +111,8 @@ export const durrieu: Project = {
         "The platform is in production and the client is using it in a pilot stage. The bot is almost entirely my work (97% of its current code), and I added chat-account linking, the notifications module, the public lot page and improvements to the trading flows on the backend and the web app.",
         "Every change goes through CI with backend, bot (including an end-to-end test against the real backend) and web tests.",
       ],
+      shotsNote:
+        "Screens from the web platform, built by a team of four: my part is under “My role” and “Outcome”. The bot has no screens of its own: it runs inside Telegram and WhatsApp.",
     },
   },
 };

@@ -72,6 +72,17 @@ export const es = {
     result: "Resultado",
     role: "Mi rol",
     status: "Estado",
+    // Galería de capturas del caso y el visor que se abre al tocar una.
+    gallery: {
+      title: "Capturas",
+      // Se lee después de la descripción de la imagen: "…, ampliar".
+      enlarge: "ampliar",
+      close: "Cerrar",
+      previous: "Captura anterior",
+      next: "Captura siguiente",
+      // "2 de 5"
+      of: "de",
+    },
     // `satisfies` obliga a tener un texto por cada valor del tipo: un contexto o
     // estado nuevo en types.ts no compila hasta que se lo nombre acá (y en en.ts).
     contexts: {

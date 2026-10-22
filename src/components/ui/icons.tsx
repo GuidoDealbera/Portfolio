@@ -47,6 +47,8 @@ const glyphs = {
       </>
     ),
   },
+  close: { body: <path d="M18 6 6 18M6 6l12 12" /> },
+  expand: { body: <path d="M15 3h6v6m0-6-7 7M3 21l7-7m-1 7H3v-6" /> },
   house: {
     body: (
       <>
@@ -128,6 +130,8 @@ export const iconHover: Record<IconName, string> = {
   arrowUpRight: "group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
   download: "[&_.icon-part]:transition-transform [&_.icon-part]:duration-300 group-hover:[&_.icon-part]:translate-y-0.5",
   mail: "[&_.icon-part]:transition-transform [&_.icon-part]:duration-300 group-hover:[&_.icon-part]:translate-y-px group-hover:-rotate-6",
+  close: "group-hover:rotate-90",
+  expand: "group-hover:scale-110",
   house: "group-hover:-translate-y-0.5",
   paperPlane: "group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:-rotate-12",
   github: "group-hover:-rotate-8 group-hover:scale-110",

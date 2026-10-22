@@ -14,6 +14,19 @@ export const grupoOesteSeguros: Project = {
   status: "live",
   stack: ["React", "JavaScript", "Tailwind CSS", "Swiper"],
   links: { repo: "https://github.com/GuidoDealbera/seguros-front" },
+  // Captura de 2024, la del portfolio anterior.
+  shots: [
+    {
+      src: "/projects/grupo-oeste-seguros/inicio.webp",
+      width: 1366,
+      height: 605,
+      alt: {
+        es: "Sección “Quiénes somos” del sitio de Grupo Oeste Seguros: el logo de la agencia en un celular y tres párrafos que presentan su forma de asesorar.",
+        en: "The “About us” section of the Grupo Oeste Seguros site: the agency's logo on a phone and three paragraphs introducing how they advise clients.",
+      },
+      caption: { es: "Quiénes somos", en: "About us" },
+    },
+  ],
   copy: {
     es: {
       title: "Grupo Oeste Seguros",

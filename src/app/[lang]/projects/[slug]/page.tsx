@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Intro, introStyle } from "@/components/motion/intro";
@@ -12,6 +11,7 @@ import { Container } from "@/components/ui/container";
 import { Icon, iconHover } from "@/components/ui/icons";
 import { getProject, projects } from "@/content/projects";
 import { site } from "@/content/site";
+import { ShotGallery, type GalleryShot } from "@/features/projects/shot-gallery";
 import { StatusLabel } from "@/features/projects/status-label";
 import { hasLocale, localeTags, locales, otherLocale, defaultLocale } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/dictionaries";
@@ -65,6 +65,19 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
   const copy = project.copy[locale];
   const labels = dict.projectPage;
   const next = projects[(projects.indexOf(project) + 1) % projects.length];
+  // Las capturas viajan al cliente ya en el idioma de la página.
+  const shots: GalleryShot[] = (project.shots ?? []).map(({ alt, caption, ...shot }) => ({
+    ...shot,
+    alt: alt[locale],
+    caption: caption[locale],
+  }));
+  const galleryLabels = {
+    enlarge: labels.gallery.enlarge,
+    close: labels.gallery.close,
+    previous: labels.gallery.previous,
+    next: labels.gallery.next,
+    of: labels.gallery.of,
+  };
 
   const sections = [
     { id: "problem", title: labels.problem, body: copy.problem, list: false },
@@ -151,18 +164,10 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
           </Container>
         </header>
 
-        {project.image && (
+        {shots.length > 0 && (
           <Container>
             <Reveal>
-              <Image
-                src={project.image.src}
-                alt={project.image.alt[locale]}
-                width={project.image.width}
-                height={project.image.height}
-                sizes="(min-width: 1180px) 1052px, 100vw"
-                priority
-                className="w-full rounded-2xl border border-line"
-              />
+              <ShotGallery shots={shots} show="cover" labels={galleryLabels} />
             </Reveal>
           </Container>
         )}
@@ -198,6 +203,21 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
             </Container>
           </section>
         ))}
+
+        {/* La primera captura ya está arriba, como portada: acá van las demás. */}
+        {shots.length > 1 && (
+          <section aria-labelledby="shots-title" className="mt-[clamp(40px,7vh,72px)] border-t border-line">
+            <Container className="py-[clamp(32px,6vh,56px)]">
+              <Reveal className="mb-8 max-w-[62ch]">
+                <h2 id="shots-title" className={sectionHeading}>
+                  {labels.gallery.title}
+                </h2>
+                {copy.shotsNote && <p className="mt-3 text-[15px] leading-[1.65] text-dust">{copy.shotsNote}</p>}
+              </Reveal>
+              <ShotGallery shots={shots} show="rest" labels={galleryLabels} />
+            </Container>
+          </section>
+        )}
       </article>
 
       <nav aria-label={labels.caseStudy} className="border-t border-line">

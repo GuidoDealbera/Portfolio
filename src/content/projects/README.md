@@ -10,8 +10,13 @@ página (tarjeta, página del caso, imagen para compartir, sitemap) sale solo.
    prueba de concepto), que se muestran como etiquetas en la tarjeta y en el caso.
 2. En `index.ts`, importalo y sumalo al arreglo `projects`. El orden del
    arreglo es el orden en la página.
-3. Si tiene captura, ponela en `public/projects/<slug>.png` y completá `image`.
-   Sin captura se usa una portada generada.
+3. Si tiene capturas, ponelas en `public/projects/<slug>/` (en WebP, sin datos
+   personales a la vista) y completá `shots`, con el ancho y alto reales, el
+   `alt` y el `caption` en los dos idiomas. La primera es la portada de la
+   tarjeta y del caso; las demás van en la galería del final, y todas se pueden
+   ampliar. Sin capturas se usa una portada generada.
+4. En un proyecto de equipo, completá `shotsNote` en `copy`: aclara arriba de la
+   galería que las pantallas son del sistema completo y no sólo tuyas.
 
 Un proyecto sin `links.repo` se muestra como privado, y no hace falta aclarar
 nada más.

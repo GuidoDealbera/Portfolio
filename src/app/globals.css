@@ -172,6 +172,68 @@
 }
 
 /*
+ * Visor de capturas (shot-gallery.tsx). Es un <dialog> nativo: estas transiciones lo animan al abrir y
+ * también al cerrar con Escape, sin JavaScript de por medio. `allow-discrete` deja animar la salida
+ * aunque el elemento pase a `display: none`; donde no se soporta, simplemente aparece y desaparece.
+ */
+.lightbox,
+.lightbox::backdrop {
+  transition:
+    opacity 0.35s var(--ease-chalk),
+    background-color 0.35s var(--ease-chalk),
+    backdrop-filter 0.35s var(--ease-chalk),
+    overlay 0.35s allow-discrete,
+    display 0.35s allow-discrete;
+}
+
+.lightbox {
+  opacity: 0;
+}
+
+.lightbox[open] {
+  opacity: 1;
+}
+
+.lightbox::backdrop {
+  background-color: transparent;
+}
+
+.lightbox[open]::backdrop {
+  background-color: color-mix(in srgb, var(--color-board) 94%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+/* La imagen llega un poco más chica y se asienta, como el resto de las entradas del sitio. */
+.lightbox .lightbox-stage {
+  scale: 0.96;
+  transition: scale 0.45s var(--ease-chalk);
+}
+
+.lightbox[open] .lightbox-stage {
+  scale: 1;
+}
+
+@starting-style {
+  .lightbox[open] {
+    opacity: 0;
+  }
+
+  .lightbox[open]::backdrop {
+    background-color: transparent;
+    backdrop-filter: blur(0);
+  }
+
+  .lightbox[open] .lightbox-stage {
+    scale: 0.96;
+  }
+}
+
+/* Con el visor abierto, la página de atrás no se desplaza. */
+html:has(.lightbox[open]) {
+  overflow: hidden;
+}
+
+/*
  * Motion pinta el estado inicial (opacidad 0, blur) como estilo inline desde
  * el servidor. Con reduced motion —y sin JS, vía el <noscript> del layout—
  * esta regla lo pisa para que el contenido nunca quede invisible.

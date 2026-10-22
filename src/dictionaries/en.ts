@@ -64,6 +64,14 @@ export const en: Dictionary = {
     result: "Outcome",
     role: "My role",
     status: "Status",
+    gallery: {
+      title: "Screenshots",
+      enlarge: "enlarge",
+      close: "Close",
+      previous: "Previous screenshot",
+      next: "Next screenshot",
+      of: "of",
+    },
     contexts: {
       mecantronic: "Mecantronic",
       freelance: "Freelance",

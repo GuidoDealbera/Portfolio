@@ -13,6 +13,79 @@ export const mecanicaDealbera: Project = {
   status: "inProgress",
   stack: ["Electron", "React", "TypeScript", "SQLite", "TypeORM"],
   links: { repo: "https://github.com/GuidoDealbera/mecanica-dealbera" },
+  // Datos de prueba: clientes, patentes y teléfonos son inventados (los correos son @example.com).
+  shots: [
+    {
+      src: "/projects/mecanica-dealbera/dashboard.webp",
+      width: 1917,
+      height: 1110,
+      alt: {
+        es: "Inicio de la aplicación: vehículos registrados, clientes activos, trabajos en curso e ingresos del mes, un gráfico de ingresos de los últimos seis meses, trabajos por estado y el aviso de vehículos que necesitan service.",
+        en: "The app's home screen: registered vehicles, active customers, jobs in progress and monthly revenue, a six-month revenue chart, jobs by status and a warning about vehicles due for service.",
+      },
+      caption: { es: "Inicio", en: "Home" },
+    },
+    {
+      src: "/projects/mecanica-dealbera/autos.webp",
+      width: 1917,
+      height: 1106,
+      alt: {
+        es: "Listado de vehículos con búsqueda por patente y filtros por marca y año: patente, marca, modelo, año, kilometraje y dueño.",
+        en: "Vehicle list with search by license plate and filters by make and year: plate, make, model, year, mileage and owner.",
+      },
+      caption: { es: "Vehículos", en: "Vehicles" },
+    },
+    {
+      src: "/projects/mecanica-dealbera/clientes.webp",
+      width: 1917,
+      height: 1103,
+      alt: {
+        es: "Listado de clientes con búsqueda por nombre y filtro por ciudad: teléfono, correo, dirección, vehículos y estado.",
+        en: "Customer list with search by name and a city filter: phone, email, address, vehicles and status.",
+      },
+      caption: { es: "Clientes", en: "Customers" },
+    },
+    {
+      src: "/projects/mecanica-dealbera/detalle-vehiculo.webp",
+      width: 1917,
+      height: 1108,
+      alt: {
+        es: "Ficha de un vehículo: próximo service por fecha y por kilometraje, con una estimación de cuándo se llegaría al kilometraje, intervalos propios del vehículo y documentos emitidos.",
+        en: "A vehicle's record: next service by date and by mileage, with an estimate of when the mileage will be reached, vehicle-specific intervals and issued documents.",
+      },
+      caption: { es: "Ficha del vehículo", en: "Vehicle record" },
+    },
+    {
+      src: "/projects/mecanica-dealbera/detalle-vehiculo-trabajos.webp",
+      width: 1917,
+      height: 952,
+      alt: {
+        es: "Trabajos de un vehículo con estado y precio, los datos del vehículo y del titular, y un botón para escribirle por WhatsApp.",
+        en: "A vehicle's jobs with status and price, the vehicle and owner details, and a button to message the owner on WhatsApp.",
+      },
+      caption: { es: "Trabajos y titular", en: "Jobs and owner" },
+    },
+    {
+      src: "/projects/mecanica-dealbera/detalle-vehiculo-historial.webp",
+      width: 1917,
+      height: 958,
+      alt: {
+        es: "Historial de un vehículo en una línea de tiempo: trabajos realizados y actualizaciones de kilometraje con su fecha.",
+        en: "A vehicle's history on a timeline: completed jobs and mileage updates with their dates.",
+      },
+      caption: { es: "Historial del vehículo", en: "Vehicle history" },
+    },
+    {
+      src: "/projects/mecanica-dealbera/recordatorios.webp",
+      width: 1917,
+      height: 1107,
+      alt: {
+        es: "Recordatorios de service vencidos o por vencer, por fecha o por kilometraje, con aviso al cliente por WhatsApp y opciones para posponer, marcar como hecho o descartar.",
+        en: "Service reminders that are overdue or coming up, by date or mileage, with a WhatsApp message to the customer and options to postpone, mark as done or dismiss.",
+      },
+      caption: { es: "Recordatorios de service", en: "Service reminders" },
+    },
+  ],
   copy: {
     es: {
       title: "Mecánica Dealbera",

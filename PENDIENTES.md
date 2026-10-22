@@ -85,7 +85,7 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [x] Metadata, `hreflang`, imagen Open Graph y sitemap por proyecto
 - [x] Grilla de tarjetas en la home con inclinación 3D, y página del caso con problema, decisiones y resultado
 - [x] 404 de verdad (con el código HTTP correcto) para un proyecto inexistente, y página 404 propia y bilingüe para cualquier URL sin ruta
-- [ ] **Caso "Este portfolio"** (`src/content/projects/portfolio.ts`): se queda, y se le suman capturas
+- [x] **Caso "Este portfolio"** (`src/content/projects/portfolio.ts`): se queda, con cuatro capturas del sitio (2026-10-22)
 - [x] **Pasar los casos desde el inventario** (2026-10-21; falta tu revisión de los textos), en este orden (con siete, la primera tarjeta ocupa el ancho completo):
   1. `durrieu`: Mecantronic · En producción, piloto
   2. `mecanica-dealbera`: Freelance · En desarrollo · repo público
@@ -96,9 +96,23 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
   7. `portfolio`: Personal
 - [x] Etiquetas de **contexto** (Mecantronic / Freelance / Personal) y **estado** (En producción, En producción · piloto, En desarrollo, Prueba de concepto) en el tipo `Project`, la tarjeta y la página del caso. Son campos obligatorios: un caso nuevo no compila sin ellos. En la página del caso, el rol pasó a un bloque "Mi rol / Estado" debajo del resumen
 - [ ] **Revisar los siete casos**, en español y en inglés (`src/content/projects/*.ts`). Solo afirman lo que está en el inventario o lo que confirmaste
-- [ ] Capturas en `public/projects/<slug>.png`. Mecánica Dealbera con los datos sensibles difuminados (nombres, teléfonos, patentes, domicilios, correos)
+- [x] **Capturas** (2026-10-22): 27 en `public/projects/<slug>/`, en WebP.
+  - **Cómo se muestran:** la primera de cada caso es la portada de la tarjeta y del caso; las demás van en una galería al final, y cualquiera se amplía en un visor a pantalla completa (teclado, flechas, deslizar en celular, Escape).
+  - **Datos personales:** se revisaron una por una.
+    - Durrieu: en las dos de invernada se difuminaron nombres, CUIT y representantes.
+    - Templo: se difuminaron los links de la sala y el QR, porque el juego no lleva enlace público.
+    - Mecánica Dealbera, Plan Mi Casa y Tu Casa en Cuotas: tienen datos de prueba.
+  - **Artefactos borrados:** el botón "N" de Next en desarrollo (Durrieu), el recuadro "Debug Info" (Tu Casa en Cuotas) y la marca "Activar Windows" (Grupo Oeste).
+  - **Proyectos de equipo:** en Durrieu y Plan Mi Casa, una nota arriba de la galería aclara que las pantallas son del sistema completo y dice cuáles son tuyas.
+  - **Originales:** siguen intactos en `~/Proyectos/capturas-portfolio/`.
+- [ ] Capturas de ESConecta (hoy usa la portada generada)
 - [x] Qué hacer con `public/legacy/`: se reutiliza la captura de Grupo Oeste Seguros si sigue siendo representativa; el resto se borra. Carpeta borrada antes del lanzamiento. La captura de 2024 quedó fuera del repo, en `~/Proyectos/capturas-portfolio/grupo-oeste-seguros-2024.png`, esperando tu confirmación; lo demás se recupera del historial (`git show 342e2e9:public/legacy/<ruta>`)
-- [ ] `global-not-found` es una opción **experimental** de Next. Está fijada en 16.4.0; si se actualiza Next, revisar que el 404 siga funcionando
+- [ ] `global-not-found` es una opción **experimental** de Next. Está fijada en 16.4.2; si se actualiza Next, revisar que el 404 siga funcionando
+- [x] **Next 16.4.0 → 16.4.2 por seguridad** (2026-10-22). `npm audit` marcaba en producción:
+  - dos ejecuciones remotas de código, críticas (GHSA-2464-fhr4-w9xw y GHSA-673q-mjm6-r5xr);
+  - una denegación de servicio con Server Actions (GHSA-p3m5-59mp-jv5r), que el formulario usa.
+
+  Con 16.4.2: 0 alertas en las dependencias del sitio. Verificados el build, las dos 404, el formulario y la galería
 
 ## 5. Formulario de contacto
 

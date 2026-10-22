@@ -11,8 +11,9 @@ type ProjectCoverProps = {
   className?: string;
 };
 
-/** Captura del proyecto o, si no hay, una portada generada con el año. El destello cruza al pasar el mouse. */
+/** La primera captura del proyecto o, si no hay, una portada generada con el año. El destello cruza al pasar el mouse. */
 export function ProjectCover({ project, locale, featured = false, className }: ProjectCoverProps) {
+  const cover = project.shots?.[0];
   return (
     <div
       className={cn(
@@ -23,12 +24,12 @@ export function ProjectCover({ project, locale, featured = false, className }: P
         className,
       )}
     >
-      {project.image ? (
+      {cover ? (
         <Image
-          src={project.image.src}
-          alt={project.image.alt[locale]}
-          width={project.image.width}
-          height={project.image.height}
+          src={cover.src}
+          alt={cover.alt[locale]}
+          width={cover.width}
+          height={cover.height}
           sizes="(min-width: 768px) 50vw, 100vw"
           className="size-full object-cover object-top transition-transform duration-700 ease-chalk group-hover:scale-[1.04]"
         />

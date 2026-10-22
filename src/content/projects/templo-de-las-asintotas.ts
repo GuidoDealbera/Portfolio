@@ -13,6 +13,59 @@ export const temploDeLasAsintotas: Project = {
   status: "poc",
   stack: ["React", "TypeScript", "Tailwind CSS", "Firebase"],
   links: {},
+  // Grupos y alumnos de demo. Los links de la sala y el QR van difuminados: llevan a la versión publicada.
+  shots: [
+    {
+      src: "/projects/templo-de-las-asintotas/inicio.webp",
+      width: 1901,
+      height: 987,
+      alt: {
+        es: "Pantalla de entrada del templo: un arco con la gráfica de una función racional y sus asíntotas, antorchas, columnas, y el formulario para escribir el código de la sala de 4 letras y anotar al grupo.",
+        en: "The temple entrance: an arch showing the graph of a rational function and its asymptotes, torches and columns, and the form to type the 4-letter room code and sign up the team.",
+      },
+      caption: { es: "Entrada al templo", en: "Temple entrance" },
+    },
+    {
+      src: "/projects/templo-de-las-asintotas/sala-de-espera.webp",
+      width: 1900,
+      height: 987,
+      alt: {
+        es: "Panel docente en la sala de espera: código de la sala, QR y enlaces para alumnos y para quien mira (difuminados), grupos anotados, reglas y sonido de la partida.",
+        en: "Teacher panel in the waiting room: room code, QR code and links for students and spectators (blurred), signed-up teams, game rules and sound.",
+      },
+      caption: { es: "Panel docente · Sala de espera", en: "Teacher panel · Waiting room" },
+    },
+    {
+      src: "/projects/templo-de-las-asintotas/partida-en-curso.webp",
+      width: 1896,
+      height: 987,
+      alt: {
+        es: "Panel docente con la partida en curso: tiempo de juego, enlaces de la sala (difuminados) y controles para pausar, reiniciar o terminar la partida.",
+        en: "Teacher panel with a game in progress: game time, room links (blurred) and controls to pause, restart or end the game.",
+      },
+      caption: { es: "Panel docente · Partida en curso", en: "Teacher panel · Game in progress" },
+    },
+    {
+      src: "/projects/templo-de-las-asintotas/grupos.webp",
+      width: 1896,
+      height: 697,
+      alt: {
+        es: "Cómo viene cada grupo: el cuarto y el desafío en que está, desafíos resueltos de 15, errores seguidos, pistas usadas y reinicios, con opciones para reiniciar o quitar al grupo.",
+        en: "How each team is doing: the room and challenge they're on, challenges solved out of 15, errors in a row, hints used and restarts, with options to restart or remove the team.",
+      },
+      caption: { es: "Tablero en vivo", en: "Live dashboard" },
+    },
+    {
+      src: "/projects/templo-de-las-asintotas/detalle-grupo.webp",
+      width: 1895,
+      height: 985,
+      alt: {
+        es: "Detalle de un grupo: tiempo de juego, dónde está, totales de errores, intentos, envíos sin leer, pistas y reinicios, y el estado de cada desafío.",
+        en: "A team in detail: game time, current position, totals for errors, attempts, unreadable submissions, hints and restarts, and the status of each challenge.",
+      },
+      caption: { es: "Historial de un grupo", en: "Team history" },
+    },
+  ],
   copy: {
     es: {
       title: "El Templo de las Asíntotas",

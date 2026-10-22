@@ -26,4 +26,4 @@ export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
 }
 
-export type { Project, ProjectContext, ProjectCopy, ProjectStatus } from "./types";
+export type { Project, ProjectContext, ProjectCopy, ProjectShot, ProjectStatus } from "./types";

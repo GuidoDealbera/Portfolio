@@ -15,6 +15,49 @@ export const portfolio: Project = {
     repo: "https://github.com/GuidoDealbera/Portfolio",
     live: "https://guidodealbera-dev.vercel.app/",
   },
+  // Capturas de este mismo sitio, a 1920×1032.
+  shots: [
+    {
+      src: "/projects/portfolio/inicio.webp",
+      width: 1920,
+      height: 1032,
+      alt: {
+        es: "Inicio del portfolio: el titular “No se trata de escribir código. Se trata de construir lo que realmente importa.”, una presentación breve, cuatro fortalezas, los botones de contacto, trabajo y CV, sobre un fondo de pizarrón con cuadrícula.",
+        en: "The portfolio's home: the headline “It's not about writing code. It's about building what really matters.”, a short introduction, four strengths and the contact, work and CV buttons, on a chalkboard background with a grid.",
+      },
+      caption: { es: "Inicio", en: "Home" },
+    },
+    {
+      src: "/projects/portfolio/trabajo.webp",
+      width: 1920,
+      height: 1032,
+      alt: {
+        es: "Sección de trabajo seleccionado: la volanta, el título subrayado en tiza y la primera tarjeta de proyecto con su captura.",
+        en: "The selected work section: the eyebrow, the chalk-underlined title and the first project card with its screenshot.",
+      },
+      caption: { es: "Trabajo seleccionado", en: "Selected work" },
+    },
+    {
+      src: "/projects/portfolio/contacto.webp",
+      width: 1920,
+      height: 1032,
+      alt: {
+        es: "Formulario de contacto validando en vivo: tildes de tiza en los campos completos, un error en el mensaje, la línea que se llena hasta el mínimo y el botón deshabilitado con su ayuda.",
+        en: "The contact form validating live: chalk check marks on the completed fields, an error on the message, the line that fills up to the minimum length and the disabled button with its hint.",
+      },
+      caption: { es: "Contacto con validación en vivo", en: "Contact form with live validation" },
+    },
+    {
+      src: "/projects/portfolio/caso.webp",
+      width: 1920,
+      height: 1032,
+      alt: {
+        es: "Página de un caso de estudio: volanta con año y contexto, título, resumen, rol, estado y stack.",
+        en: "A case study page: eyebrow with year and context, title, summary, role, status and stack.",
+      },
+      caption: { es: "Caso de estudio", en: "Case study" },
+    },
+  ],
   copy: {
     es: {
       title: "Este portfolio",

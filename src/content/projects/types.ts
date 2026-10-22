@@ -22,6 +22,22 @@ export type ProjectCopy = {
   decisions: readonly string[];
   /** Un párrafo por elemento. */
   result: readonly string[];
+  /**
+   * Va arriba de la galería. En un proyecto de equipo, las capturas muestran el sistema completo y no
+   * sólo lo propio: la nota lo aclara, para no atribuirse pantallas que hicieron otros.
+   */
+  shotsNote?: string;
+};
+
+/** Una captura, desde public/projects/<slug>/. Ancho y alto reales: reservan el lugar y evitan saltos. */
+export type ProjectShot = {
+  src: string;
+  width: number;
+  height: number;
+  /** Qué se ve, para quien no ve la imagen. */
+  alt: Record<Locale, string>;
+  /** Qué pantalla es, en una línea: va debajo de la imagen y en el visor. */
+  caption: Record<Locale, string>;
 };
 
 export type Project = {
@@ -33,8 +49,11 @@ export type Project = {
   stack: readonly string[];
   /** Sin `repo`, el proyecto se muestra como privado. */
   links: { repo?: string; live?: string };
-  /** Captura del proyecto, desde public/. Si falta, la tarjeta usa una portada generada. */
-  image?: { src: string; width: number; height: number; alt: Record<Locale, string> };
+  /**
+   * Capturas del proyecto. La primera es la portada: va en la tarjeta y grande al principio del caso; las
+   * demás, en la galería del final. Sin capturas, la tarjeta usa una portada generada.
+   */
+  shots?: readonly ProjectShot[];
   /** `Record<Locale, …>` obliga a escribir todos los idiomas: si falta uno, no compila. */
   copy: Record<Locale, ProjectCopy>;
 };

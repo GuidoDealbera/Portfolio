@@ -14,6 +14,59 @@ export const planMiCasa: Project = {
   status: "live",
   stack: ["React", "TypeScript", "MUI", "Redux Toolkit"],
   links: {},
+  // Entornos de demo: los suscriptores y sus datos son de prueba.
+  shots: [
+    {
+      src: "/projects/plan-mi-casa/pmc-dashboard.webp",
+      width: 1917,
+      height: 987,
+      alt: {
+        es: "Dashboard del panel de Plan Mi Casa: valor de la unidad de ahorro y su variación, tasas de interés del mes, suscriptores y suscripciones activas, y unidades funcionales disponibles.",
+        en: "Plan Mi Casa back-office dashboard: the savings unit value and its change, the month's interest rates, active subscribers and subscriptions, and available housing units.",
+      },
+      caption: { es: "Plan Mi Casa · Dashboard", en: "Plan Mi Casa · Dashboard" },
+    },
+    {
+      src: "/projects/plan-mi-casa/pmc-cuentas-corrientes.webp",
+      width: 1917,
+      height: 985,
+      alt: {
+        es: "Cuentas corrientes activas de Plan Mi Casa: búsqueda por nombre, legajo o CUIL, filtros por grupo, estado y tipo de plan, totales al día y en mora, y exportación a CSV, XLS y PDF.",
+        en: "Plan Mi Casa active accounts: search by name, file number or tax ID, filters by group, status and plan type, totals up to date and overdue, and CSV, XLS and PDF export.",
+      },
+      caption: { es: "Plan Mi Casa · Cuentas corrientes", en: "Plan Mi Casa · Accounts" },
+    },
+    {
+      src: "/projects/plan-mi-casa/pmc-unidades-funcionales.webp",
+      width: 1917,
+      height: 987,
+      alt: {
+        es: "Unidades funcionales de Plan Mi Casa por proyecto, con superficie, ambientes, precio en unidades de ahorro, terminaciones y estado de asignación y de construcción.",
+        en: "Plan Mi Casa housing units by project, with floor area, rooms, price in savings units, finish and allocation and construction status.",
+      },
+      caption: { es: "Plan Mi Casa · Unidades funcionales", en: "Plan Mi Casa · Housing units" },
+    },
+    {
+      src: "/projects/plan-mi-casa/tcc-dashboard.webp",
+      width: 1917,
+      height: 986,
+      alt: {
+        es: "Panel del personal de Tu Casa en Cuotas: totales de suscriptores, suscripciones, documentos y pagos, y suscriptores recientes.",
+        en: "Tu Casa en Cuotas staff panel: totals for subscribers, subscriptions, documents and payments, and recent subscribers.",
+      },
+      caption: { es: "Tu Casa en Cuotas · Panel", en: "Tu Casa en Cuotas · Staff panel" },
+    },
+    {
+      src: "/projects/plan-mi-casa/tcc-planes.webp",
+      width: 1917,
+      height: 986,
+      alt: {
+        es: "Planes de Tu Casa en Cuotas: contratos de financiación por tipo, con sus etapas, sorteos y licitaciones, y exportación a CSV, XLS y PDF.",
+        en: "Tu Casa en Cuotas plans: financing contracts by type, with their stages, draws and bids, and CSV, XLS and PDF export.",
+      },
+      caption: { es: "Tu Casa en Cuotas · Planes", en: "Tu Casa en Cuotas · Plans" },
+    },
+  ],
   copy: {
     es: {
       title: "Plan Mi Casa y Tu Casa en Cuotas",
@@ -34,6 +87,8 @@ export const planMiCasa: Project = {
         "Plan Mi Casa está en producción y es el sistema principal del cliente; el portal del suscriptor es, en su mayor parte, desarrollo mío. Tu Casa en Cuotas quedó como prueba de concepto lista para ofrecerse como SaaS.",
         "Las dos versiones muestran la evolución del mismo dominio: de una aplicación React 18 con MUI 6 a un monorepo con React 19, MUI 7 y funcionalidades compartidas entre aplicaciones.",
       ],
+      shotsNote:
+        "Pantallas de los paneles de administración, que se hicieron en equipo. De las que se ven, son módulos míos el dashboard de Plan Mi Casa y los planes de Tu Casa en Cuotas; el resto de mi parte está en “Mi rol” y “Decisiones”.",
     },
     en: {
       title: "Plan Mi Casa and Tu Casa en Cuotas",
@@ -54,6 +109,8 @@ export const planMiCasa: Project = {
         "Plan Mi Casa is in production and is the client's core system; most of the subscriber portal is my work. Tu Casa en Cuotas stands as a proof of concept, ready to be offered as SaaS.",
         "Together they show the same domain evolving: from a React 18 app with MUI 6 to a monorepo with React 19, MUI 7 and features shared across apps.",
       ],
+      shotsNote:
+        "Screens from the admin panels, which were built by a team. Of those shown, the Plan Mi Casa dashboard and the Tu Casa en Cuotas plans are modules I built; the rest of my part is under “My role” and “Decisions”.",
     },
   },
 };
