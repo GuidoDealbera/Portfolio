@@ -129,7 +129,7 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 
 ## 8. Lanzamiento
 
-- [ ] Preview deploy de `rediseno` en Vercel
+- [x] Preview deploy de `rediseno` en Vercel: anda desde `0cb0a2a`. Fallaba porque el proyecto de Vercel se creó con el sitio en Vite; lo resolvieron `vercel.json` y `engines.node`
 - [ ] Revisión final juntos
 - [ ] Merge a `main`
 - [ ] Dominio nuevo + redirección desde el `vercel.app` (si se compra)
