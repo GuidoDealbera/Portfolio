@@ -19,11 +19,40 @@ export type FieldName = (typeof fieldNames)[number];
 export type FieldError = "required" | "invalid" | "tooShort" | "tooLong";
 
 export type ContactValues = Record<FieldName, string>;
+export type ContactErrors = Partial<Record<FieldName, FieldError>>;
 
 export type ContactState =
   | { status: "idle" }
   | { status: "success" }
-  | { status: "invalid"; errors: Partial<Record<FieldName, FieldError>>; values: ContactValues }
+  | { status: "invalid"; errors: ContactErrors; values: ContactValues }
   | { status: "failed"; values: ContactValues };
 
 export const initialContactState: ContactState = { status: "idle" };
+
+/** El patrón de email por defecto de Zod. Lo usan el navegador y el servidor, así aceptan exactamente lo mismo. */
+export const EMAIL_PATTERN =
+  /^(?:[A-Za-z0-9_'+\-]+\.)*[A-Za-z0-9_'+\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\-]*\.)+[A-Za-z]{2,}$/;
+
+/**
+ * Las mismas reglas que `contactSchema` (schema.ts), sin Zod: el formulario las usa para avisar mientras
+ * se escribe y para no habilitar el envío hasta que todo esté bien. La última palabra la tiene el servidor.
+ */
+export function validateContact(values: ContactValues): ContactErrors {
+  const errors: ContactErrors = {};
+  const name = values.name.trim();
+  const email = values.email.trim();
+  const message = values.message.trim();
+
+  if (!name) errors.name = "required";
+  else if (name.length > limits.name) errors.name = "tooLong";
+
+  if (!email) errors.email = "required";
+  else if (email.length > limits.email) errors.email = "tooLong";
+  else if (!EMAIL_PATTERN.test(email)) errors.email = "invalid";
+
+  if (!message) errors.message = "required";
+  else if (message.length < limits.messageMin) errors.message = "tooShort";
+  else if (message.length > limits.message) errors.message = "tooLong";
+
+  return errors;
+}

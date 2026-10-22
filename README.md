@@ -36,7 +36,8 @@ En Vercel se cargan las mismas variables en Project Settings → Environment Var
 | Textos | `src/dictionaries/es.ts` (fuente de verdad) y `en.ts`. Si a `en.ts` le falta o le sobra una clave, no compila |
 | Casos de estudio | `src/content/projects/`: un archivo por proyecto, con los dos idiomas. Cómo agregar uno: `src/content/projects/README.md` |
 | Secciones de la home | `src/components/sections/` |
-| Animaciones propias | `src/components/motion/`: revelado, texto letra por letra, pizarrón en canvas… Conviene reutilizarlas antes de crear otras |
+| Animaciones propias | `src/components/motion/`: revelado, listas que entran de a uno (`Stagger`), texto letra por letra, pizarrón en canvas… Conviene reutilizarlas antes de crear otras |
+| Íconos | `src/components/ui/icons.tsx`: de interfaz (Lucide) y logos oficiales de GitHub, LinkedIn y WhatsApp, con la fuente de cada uno. Los botones los reciben con `icon` y `trailingIcon` |
 | Formulario de contacto | `src/features/contact/`. `mailer.ts` es el único archivo que conoce a Resend |
 | SEO: imágenes para compartir, JSON-LD | `src/features/seo/` y `opengraph-image.tsx` de cada ruta |
 | Colores, tipografía y animaciones base | `src/app/globals.css` (tokens de la paleta Chalk, con sus contrastes medidos) |

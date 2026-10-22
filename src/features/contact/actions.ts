@@ -5,6 +5,7 @@ import { contactSchema } from "./schema";
 import {
   fieldNames,
   HONEYPOT_FIELD,
+  type ContactErrors,
   type ContactState,
   type ContactValues,
   type FieldError,
@@ -24,7 +25,7 @@ export async function submitContact(_previous: ContactState, formData: FormData)
   const parsed = contactSchema.safeParse(values);
 
   if (!parsed.success) {
-    const errors: Partial<Record<FieldName, FieldError>> = {};
+    const errors: ContactErrors = {};
     for (const issue of parsed.error.issues) {
       const field = issue.path[0] as FieldName;
       // Un campo puede fallar por varias reglas: se muestra la primera.

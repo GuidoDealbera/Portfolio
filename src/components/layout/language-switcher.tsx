@@ -17,7 +17,10 @@ function remember(locale: Locale) {
 }
 
 // 40 px de alto: el texto mide 21, el resto es área tocable.
-const item = "grid min-h-10 min-w-8 place-items-center rounded px-1.5";
+const item = "group relative grid min-h-10 min-w-8 place-items-center rounded px-1.5";
+// El mismo subrayado de tiza que la navegación: fijo bajo el idioma actual, se traza al pasar por el otro.
+const underline =
+  "absolute inset-x-1.5 bottom-2 h-px bg-accent transition-transform duration-500 ease-chalk";
 
 export function LanguageSwitcher({ locale, label, className }: LanguageSwitcherProps) {
   const pathname = usePathname();
@@ -36,6 +39,7 @@ export function LanguageSwitcher({ locale, label, className }: LanguageSwitcherP
           {code === locale ? (
             <span aria-current="true" className={cn(item, "text-accent")}>
               {code.toUpperCase()}
+              <span aria-hidden="true" className={cn(underline, "opacity-60")} />
             </span>
           ) : (
             <Link
@@ -47,6 +51,10 @@ export function LanguageSwitcher({ locale, label, className }: LanguageSwitcherP
               className={cn(item, "text-dust transition-colors hover:text-chalk")}
             >
               {code.toUpperCase()}
+              <span
+                aria-hidden="true"
+                className={cn(underline, "origin-right scale-x-0 group-hover:origin-left group-hover:scale-x-100")}
+              />
             </Link>
           )}
         </span>

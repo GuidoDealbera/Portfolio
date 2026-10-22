@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CountUp } from "@/components/motion/count-up";
 import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionHead } from "@/components/ui/section-head";
@@ -8,6 +9,9 @@ import { site } from "@/content/site";
 import { getDictionary, getLocale } from "@/i18n/dictionaries";
 
 type StackGroup = keyof typeof site.stack.groups;
+
+const chip =
+  "cursor-default rounded-md border border-line px-2.5 py-1 text-[13px] font-semibold transition-[border-color,color,translate] duration-300 ease-chalk hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent";
 
 export async function About() {
   const [dict, locale] = await Promise.all([getDictionary(), getLocale()]);
@@ -19,18 +23,18 @@ export async function About() {
       <Container className="grid gap-[clamp(28px,5vw,64px)] md:grid-cols-[1.15fr_0.85fr] md:items-start">
         <div>
           <SectionHead id="about-title" kicker={about.kicker} title={about.title} underline={1} />
-          <Reveal className="flex flex-col gap-5">
-            {about.paragraphs.map((paragraph) => (
-              <p key={paragraph} className="max-w-[58ch] text-[17px] leading-[1.78] text-dust">
+          <div className="flex flex-col gap-5">
+            {about.paragraphs.map((paragraph, index) => (
+              <Reveal key={paragraph} as="p" delay={index * 0.1} y={18} className="max-w-[58ch] text-[17px] leading-[1.78] text-dust">
                 {paragraph}
-              </p>
+              </Reveal>
             ))}
-            <div className="mt-2">
-              <ButtonLink href={site.cv[locale]} variant="secondary" download>
+            <Reveal delay={about.paragraphs.length * 0.1} y={18} className="mt-2">
+              <ButtonLink href={site.cv[locale]} variant="secondary" icon="download" download>
                 {about.ctaCv}
               </ButtonLink>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
 
         <Reveal delay={0.12} className="flex flex-col gap-8">
@@ -46,7 +50,7 @@ export async function About() {
             />
           )}
 
-          <div className="rounded-[14px] border border-line bg-surface/60 p-6">
+          <div className="rounded-[14px] border border-line bg-surface/60 p-6 transition-[border-color,background-color] duration-500 hover:border-accent/40 hover:bg-surface">
             <p className="font-display text-[clamp(44px,6vw,68px)] leading-none font-bold tracking-[-0.04em]">
               <CountUp to={site.yearsOfExperience} decimals={1} locale={locale} />
             </p>
@@ -60,13 +64,13 @@ export async function About() {
               {groups.map(([group, items]) => (
                 <div key={group} className="grid gap-2 py-4 sm:grid-cols-[124px_1fr]">
                   <dt className="pt-1 text-xs font-bold tracking-[0.14em] text-dust uppercase">{about.groups[group]}</dt>
-                  <dd className="flex flex-wrap gap-2">
+                  <Stagger as="dd" step={0.035} delay={0.15} className="flex flex-wrap gap-2">
                     {items.map((item) => (
-                      <span key={item} className="rounded-md border border-line px-2.5 py-1 text-[13px] font-semibold">
+                      <StaggerItem as="span" key={item} className={chip}>
                         {item}
-                      </span>
+                      </StaggerItem>
                     ))}
-                  </dd>
+                  </Stagger>
                 </div>
               ))}
             </dl>
