@@ -46,7 +46,7 @@ El backlog vivo está en `PENDIENTES.md`.
 
 ## Decisiones que conviene conocer
 
-- **Next.js está fijado en 16.4.0.** El 404 propio usa `globalNotFound`, que es experimental: si se actualiza Next, hay que revisar que siga funcionando. Antes de escribir código de Next, leer la guía local en `node_modules/next/dist/docs/` (lo pide `AGENTS.md`).
+- **Next.js está fijado en 16.4.2.** El 404 propio usa `globalNotFound`, que es experimental: si se actualiza Next, hay que revisar que siga funcionando. Las versiones de parche de la misma línea se toman apenas salen si corrigen seguridad (16.4.2 corrigió dos ejecuciones remotas de código y una denegación de servicio de 16.4.0): `npm audit --omit=dev` las muestra. Antes de escribir código de Next, leer la guía local en `node_modules/next/dist/docs/` (lo pide `AGENTS.md`).
 - **El idioma es un parámetro raíz** (`app/[lang]`, `next/root-params`). `src/proxy.ts`:
   - en `/`, elige el idioma: cookie, después `Accept-Language`, después español;
   - devuelve un 404 HTTP real para los casos de estudio que no existen.
