@@ -10,8 +10,6 @@ export async function Hero() {
   const [dict, locale] = await Promise.all([getDictionary(), getLocale()]);
   const { hero } = dict;
 
-  const stack = new Intl.ListFormat(locale, { style: "long", type: "conjunction" }).format(site.stack.core);
-  const years = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 }).format(site.yearsOfExperience);
   const facts = [`${site.place.city}, ${site.place.region}`, hero.remote(site.timezone), hero.languages, hero.degree];
 
   return (
@@ -28,37 +26,46 @@ export async function Hero() {
           </Intro>
         )}
 
+        {/* El titular es una frase larga: el tamaño y el ancho están ajustados para que la
+            primera pantalla siga entrando completa desde 720 px de alto. */}
         <SplitText
           id="hero-title"
-          className="mt-6 max-w-[15ch] font-display text-[clamp(38px,7.4vw,86px)] leading-[1.03] font-bold tracking-[-0.035em]"
+          className="mt-6 max-w-[24ch] font-display text-[clamp(32px,4.8vw,62px)] leading-[1.06] font-bold tracking-[-0.035em]"
           segments={[{ text: hero.headline.lead }, { text: hero.headline.highlight, className: "text-accent" }]}
         />
 
         <Intro delay={0.5}>
-          <p className="mt-7 max-w-[54ch] text-[clamp(16px,1.6vw,19px)] leading-[1.7] text-dust">
-            {hero.role}. <b className="font-bold text-chalk">{hero.ledeStack(stack)}</b>{" "}
-            {hero.ledeRest({ years, company: site.career.company.name })}
-          </p>
+          <p className="mt-6 max-w-[62ch] text-[clamp(16px,1.5vw,18px)] leading-[1.7] text-dust">{hero.lede}</p>
         </Intro>
 
-        <Intro delay={0.65} className="mt-9 flex flex-wrap items-center gap-3">
+        <Intro delay={0.58}>
+          <ul aria-label={hero.strengthsLabel} className="mt-5 flex flex-wrap gap-2">
+            {hero.strengths.map((strength) => (
+              <li key={strength} className="rounded-full bg-raised px-3 py-1 text-[13px] font-semibold text-chalk">
+                {strength}
+              </li>
+            ))}
+          </ul>
+        </Intro>
+
+        <Intro delay={0.65} className="mt-8 flex flex-wrap items-center gap-3">
           <Magnetic>
-            <ButtonLink href="#work" arrow>
-              {hero.ctaWork}
-            </ButtonLink>
-          </Magnetic>
-          <Magnetic>
-            <ButtonLink href="#contact" variant="secondary">
+            <ButtonLink href="#contact" arrow>
               {hero.ctaContact}
             </ButtonLink>
           </Magnetic>
-          <ButtonLink href={site.cv} variant="ghost" download>
+          <Magnetic>
+            <ButtonLink href="#work" variant="secondary">
+              {hero.ctaWork}
+            </ButtonLink>
+          </Magnetic>
+          <ButtonLink href={site.cv[locale]} variant="ghost" download>
             {hero.ctaCv}
           </ButtonLink>
         </Intro>
 
         <Intro delay={0.8}>
-          <ul className="mt-11 flex flex-wrap gap-x-5.5 gap-y-2 border-t border-line pt-5.5 text-[13px] text-dust">
+          <ul className="mt-10 flex flex-wrap gap-x-5.5 gap-y-2 border-t border-line pt-5 text-[13px] text-dust">
             {facts.map((fact) => (
               <li key={fact} className="inline-flex items-center gap-2">
                 <span aria-hidden="true" className="size-1 rounded-full bg-accent/65" />

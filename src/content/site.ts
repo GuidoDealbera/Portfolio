@@ -5,6 +5,11 @@
  * Los campos marcados PENDIENTE son supuestos que hay que confirmar.
  */
 
+import type { Locale } from "@/i18n/config";
+
+/** Foto del perfil, desde public/. Ancho y alto reales: reservan el espacio y evitan el salto de layout. */
+type SitePhoto = { src: string; width: number; height: number };
+
 export const site = {
   // El sitio sigue en el subdominio gratuito hasta tener guidodealbera.dev.
   url: "https://guidodealbera-dev.vercel.app",
@@ -24,6 +29,7 @@ export const site = {
   // Fechas en formato ISO. Los textos legibles viven en los diccionarios.
   career: {
     company: { name: "Mecantronic", since: "2025-04" },
+    previousCompany: { name: "NovoGas", legalName: "Global Energy Innovations S.A.C.", from: "2023-08", to: "2025-04" },
     freelance: { since: "2023-05-30" },
     bootcamp: {
       name: "SoyHenry",
@@ -35,33 +41,53 @@ export const site = {
     degree: { since: "2015", expected: "2026-12" },
   },
 
-  // Stack agrupado por uso real, tal como figuraba en el sitio anterior.
+  // Stack agrupado por uso real. Cada tecnología tiene respaldo en algún proyecto del
+  // inventario o en el CV de 2024 (decidido el 2026-10-21; Sequelize salió por no usarse).
   stack: {
-    core: ["React", "Next.js", "NestJS", "PostgreSQL"],
+    // Va en la imagen para compartir del sitio.
+    core: ["React", "Next.js", "TypeScript", "Node.js", "Python"],
     groups: {
-      frontend: ["React", "Next.js", "TypeScript", "Redux", "Tailwind CSS", "Material UI", "HTML", "CSS"],
-      backend: ["Node.js", "NestJS", "Express"],
-      data: ["PostgreSQL", "Sequelize"],
-      mobile: ["React Native"],
+      frontend: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "Redux Toolkit",
+        "TanStack Query",
+        "Tailwind CSS",
+        "Material UI",
+        "HTML",
+        "CSS",
+      ],
+      backend: ["Node.js", "NestJS", "Express", "Python", "FastAPI"],
+      data: ["PostgreSQL", "SQL Server", "SQLite", "TypeORM", "Firebase"],
+      mobile: ["React Native", "Electron"],
+      tools: ["Docker", "Git", "GitHub Actions"],
     },
     // Lo que desfila en la marquesina.
     marquee: [
       "React",
       "Next.js",
       "TypeScript",
-      "NestJS",
-      "PostgreSQL",
       "Node.js",
+      "NestJS",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
       "Tailwind CSS",
+      "Redux Toolkit",
       "React Native",
-      "Redux",
-      "Express",
-      "Sequelize",
-      "Material UI",
+      "Electron",
+      "Docker",
     ],
   },
 
-  cv: "/cv-guido-dealbera.pdf",
+  // Un CV por idioma: cada versión del sitio descarga el suyo.
+  cv: { es: "/cv-guido-dealbera.pdf", en: "/cv-guido-dealbera-en.pdf" } satisfies Record<Locale, string>,
+
+  // Sin foto por ahora (decidido el 2026-10-21): "Sobre mí" la muestra sólo si está
+  // cargada. Para sumarla: ponerla en public/ y completar { src, width, height }.
+  photo: null as SitePhoto | null,
 
   email: "guidojdealbera@gmail.com",
 } as const;

@@ -11,7 +11,7 @@ export const es = {
   meta: {
     title: "Guido Dealbera — Desarrollador Fullstack",
     description:
-      "Desarrollador Fullstack en Villa María, Córdoba. React, Next.js, NestJS y PostgreSQL. Disponible para proyectos freelance y trabajo remoto.",
+      "Desarrollador Fullstack en Villa María, Córdoba. React, Next.js, TypeScript, Node.js y Python. Soluciones con criterio, visión de producto e IA. Disponible para proyectos freelance y trabajo remoto.",
   },
 
   a11y: {
@@ -33,15 +33,20 @@ export const es = {
   hero: {
     role: "Desarrollador Fullstack",
     availability: "Agenda abierta para proyectos",
-    headline: { lead: "Construyo productos web que la gente", highlight: "usa todos los días." },
-    ledeStack: (stack: string) => `${stack}.`,
-    ledeRest: (p: { years: string; company: string }) =>
-      `${p.years} años llevando ideas a producción — hoy en ${p.company}, y con la agenda abierta para proyectos independientes.`,
+    headline: {
+      lead: "No se trata de escribir código. Se trata de construir",
+      highlight: "lo que realmente importa.",
+    },
+    lede: "Desarrollo soluciones digitales con criterio, visión de producto y foco en resultados. Combino ingeniería de software, pensamiento analítico e IA para transformar problemas reales en aplicaciones escalables, eficientes y preparadas para crecer.",
+    // En inglés en los dos idiomas: son los términos con los que se buscan estos perfiles.
+    strengths: ["Full-Stack Development", "Product Thinking", "AI-Assisted Engineering", "Problem Solving"],
+    strengthsLabel: "Fortalezas",
     ctaWork: "Ver mi trabajo",
-    ctaContact: "Hablemos de tu proyecto",
+    ctaContact: "Construyamos algo que valga la pena",
     ctaCv: "Descargar CV",
     remote: (timezone: string) => `Remoto · ${timezone}`,
-    languages: "Español / Inglés",
+    // Igual que en el CV: B1, sin inflarlo.
+    languages: "Español nativo, inglés B1",
     degree: "Profesorado en Matemáticas",
   },
 
@@ -86,14 +91,15 @@ export const es = {
     kicker: "Sobre mí",
     title: "Desarrollador fullstack, casi profesor de matemáticas.",
     paragraphs: [
-      "Soy Guido, de Villa María, Córdoba. Trabajo como desarrollador desde 2023: después del bootcamp de SoyHenry empecé a tomar proyectos por mi cuenta, y desde abril de 2025 también desarrollo en Mecantronic.",
+      "Soy Guido, de Villa María, Córdoba. Trabajo como desarrollador desde 2023: después del bootcamp de SoyHenry fui desarrollador frontend en NovoGas, tomé proyectos por mi cuenta y desde abril de 2025 desarrollo en Mecantronic.",
       "En paralelo estoy terminando el Profesorado en Matemáticas, que empecé en 2015 y cierro en diciembre de 2026.",
       "Los proyectos independientes siguen abiertos todo el año: si tenés algo para construir, escribime.",
     ],
     experienceLabel: "años de experiencia",
     stackTitle: "Con qué trabajo",
-    groups: { frontend: "Frontend", backend: "Backend", data: "Datos", mobile: "Mobile" },
+    groups: { frontend: "Frontend", backend: "Backend", data: "Datos", mobile: "Mobile y escritorio", tools: "Herramientas" },
     ctaCv: "Descargar CV",
+    photoAlt: "Guido Dealbera",
   },
 
   journey: {
@@ -104,19 +110,25 @@ export const es = {
         id: "company",
         when: "abr. 2025 — actualidad",
         title: "Mecantronic",
-        body: "Desarrollo de software en relación de dependencia.",
+        body: "Desarrollo full stack remoto para clientes como Durrieu Consignatarios, Plan Mi Casa y ESConecta: plataformas web en React y Next.js, APIs en FastAPI y NestJS, bots de Telegram y WhatsApp e integraciones con Keycloak y Moodle.",
+      },
+      {
+        id: "previousCompany",
+        when: "ago. 2023 — abr. 2025",
+        title: "NovoGas",
+        body: "Frontend web y mobile, remoto: el panel de administración de válvulas inteligentes de gas envasado (React, Redux Toolkit) y la app para usuarios finales, con consumo en tiempo real y registro por QR (React Native, Expo).",
       },
       {
         id: "freelance",
         when: "may. 2023 — actualidad",
         title: "Desarrollador freelance",
-        body: "Proyectos independientes para clientes.",
+        body: "Proyectos a medida: la landing de Grupo Oeste Seguros (2024) y, hoy, Mecánica Dealbera, una aplicación de escritorio para la gestión de un taller mecánico.",
       },
       {
         id: "bootcamp",
         when: "ene. — may. 2023",
         title: "SoyHenry",
-        body: "Bootcamp Full Stack Developer.",
+        body: "Bootcamp Full Stack Developer (800 horas). De marzo a mayo, también Teaching Assistant: acompañé a un grupo de estudiantes en su adaptación al programa.",
       },
       {
         id: "degree",
@@ -124,7 +136,12 @@ export const es = {
         title: "Profesorado en Matemáticas",
         body: "Ingresé en 2015. Egreso previsto en diciembre de 2026.",
       },
-    ] as { id: "company" | "freelance" | "bootcamp" | "degree"; when: string; title: string; body: string }[],
+    ] as {
+      id: "company" | "previousCompany" | "freelance" | "bootcamp" | "degree";
+      when: string;
+      title: string;
+      body: string;
+    }[],
   },
 
   contact: {

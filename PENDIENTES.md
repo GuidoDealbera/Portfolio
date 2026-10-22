@@ -15,7 +15,7 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] **CV actualizado** (2026-10-21). Sale de `~/Proyectos/CV` (fuente única, compatible con ATS, tres variantes en ES y EN). El general en español reemplaza a `public/cv-guido-dealbera.pdf`, que ya enlaza el botón; el inglés queda en `public/cv-guido-dealbera-en.pdf` y el botón por idioma se conecta en la fase de textos
 - [x] **Qué hacés en Mecantronic y en tus proyectos freelance**: los textos están aprobados (plan, sección 7) y se cargan en la fase de textos. Suman un tramo nuevo: NovoGas, empleador aparte (ago. 2023 – abr. 2025)
 - [ ] **Revisar la redacción de los textos.** Son borrador y sólo afirman lo que me confirmaste. Mirá en especial el título de Sobre mí ("casi profesor de matemáticas"), el subtítulo del hero y todo el inglés (`src/dictionaries/`)
-- [ ] **Elegir la frase del hero**: opciones en el plan, sección 10.2. Se usa en la fase de textos
+- [x] **Frase del hero** (2026-10-21): "No se trata de escribir código. Se trata de construir lo que realmente importa.", con tu texto, tus cuatro fortalezas y "Construyamos algo que valga la pena" como botón principal
 - [x] Foto: se lanza sin foto, pero con el lugar preparado en "Sobre mí" para sumarla después
 - [x] Cifra de "proyectos entregados": no va
 - [x] Nombres de clientes: reales, con permiso para todos (Durrieu, Plan Mi Casa, Tu Casa en Cuotas, ESConecta, Discera)
@@ -56,13 +56,14 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] Recorrido: línea de tiempo que se dibuja con el scroll
 - [x] Contacto: formulario más canales directos (mail, WhatsApp, LinkedIn)
 
-Fase de textos (plan, Fase 2):
-- [ ] Hero con la frase elegida y un subtítulo con dominios concretos (planes de ahorro, operación de hacienda, campus de capacitación)
-- [ ] Recorrido con cinco tramos: Mecantronic, NovoGas (nuevo), freelance, SoyHenry (con Teaching Assistant) y Profesorado
-- [ ] Stack: sumar TypeScript, Redux Toolkit, TanStack Query, MUI, Python/FastAPI, TypeORM, SQLite, Electron, Firebase y Docker; quitar Sequelize; quedan React Native y Express
-- [ ] Etiqueta de idiomas del hero: "Español nativo · Inglés B1", para que coincida con el CV
-- [ ] Lugar preparado para la foto en "Sobre mí": un campo opcional en `site.ts`, sin foto se ve igual que hoy
-- [ ] Botón "Descargar CV" por idioma: `/en` descarga `cv-guido-dealbera-en.pdf`
+Fase de textos (plan, Fase 2), hecha el 2026-10-21:
+- [x] **Hero** con la frase elegida, tu texto y las fortalezas como chips. El titular es más largo que el anterior: el tamaño está ajustado y la primera pantalla sigue entrando completa (verificado en 1280×720, 1366×768, 1440×900, 1920×1080 y 500 px de ancho). La imagen para compartir usa el titular nuevo y entra bien
+- [x] **Recorrido** con cinco tramos: Mecantronic, NovoGas (nuevo), freelance, SoyHenry (con Teaching Assistant) y Profesorado. El primer párrafo de "Sobre mí" ahora también nombra a NovoGas
+- [x] **Stack** actualizado en `site.ts`: sale Sequelize; se suman TypeScript, Redux Toolkit, TanStack Query, Python, FastAPI, SQL Server, SQLite, TypeORM, Firebase, Electron, Docker y GitHub Actions; un grupo nuevo, "Herramientas". La columna de rótulos de "Sobre mí" pasó a 124 px, porque "Herramientas" no entraba
+- [x] **Idiomas** del hero: "Español nativo, inglés B1", igual que en el CV
+- [x] **Lugar para la foto**: `site.photo` (hoy `null`). Probado con una foto de prueba: se ve arriba de la columna derecha de "Sobre mí", sin salto de layout
+- [x] **CV por idioma**: `site.cv.es` y `site.cv.en`; `/en` descarga `cv-guido-dealbera-en.pdf`
+- [x] Meta description con el stack actual
 
 ## 4. Casos de estudio
 

@@ -5,7 +5,7 @@ export const en: Dictionary = {
   meta: {
     title: "Guido Dealbera — Fullstack Developer",
     description:
-      "Fullstack developer based in Villa María, Córdoba, Argentina. React, Next.js, NestJS and PostgreSQL. Available for freelance projects and remote work.",
+      "Fullstack developer based in Villa María, Córdoba, Argentina. React, Next.js, TypeScript, Node.js and Python. Solutions built with judgment, product vision and AI. Available for freelance projects and remote work.",
   },
 
   a11y: {
@@ -27,15 +27,18 @@ export const en: Dictionary = {
   hero: {
     role: "Fullstack Developer",
     availability: "Open for projects",
-    headline: { lead: "I build web products that people", highlight: "use every day." },
-    ledeStack: (stack: string) => `${stack}.`,
-    ledeRest: (p: { years: string; company: string }) =>
-      `${p.years} years taking ideas to production — currently at ${p.company}, and with my schedule open for independent projects.`,
+    headline: {
+      lead: "It's not about writing code. It's about building",
+      highlight: "what really matters.",
+    },
+    lede: "I build digital solutions with judgment, product vision and a focus on results. I combine software engineering, analytical thinking and AI to turn real problems into scalable, efficient applications that are ready to grow.",
+    strengths: ["Full-Stack Development", "Product Thinking", "AI-Assisted Engineering", "Problem Solving"],
+    strengthsLabel: "Strengths",
     ctaWork: "See my work",
-    ctaContact: "Let's talk about your project",
+    ctaContact: "Let's build something worthwhile",
     ctaCv: "Download CV",
     remote: (timezone: string) => `Remote · ${timezone}`,
-    languages: "Spanish / English",
+    languages: "Native Spanish, B1 English",
     degree: "Mathematics teaching degree",
   },
 
@@ -78,14 +81,15 @@ export const en: Dictionary = {
     kicker: "About",
     title: "Fullstack developer, nearly a maths teacher.",
     paragraphs: [
-      "I'm Guido, from Villa María, Córdoba, Argentina. I've worked as a developer since 2023: after the SoyHenry bootcamp I started taking on projects of my own, and since April 2025 I also develop at Mecantronic.",
+      "I'm Guido, from Villa María, Córdoba, Argentina. I've worked as a developer since 2023: after the SoyHenry bootcamp I was a frontend developer at NovoGas, took on projects of my own, and since April 2025 I've been developing at Mecantronic.",
       "On the side I'm finishing a teaching degree in Mathematics — I started it in 2015 and graduate in December 2026.",
       "Independent projects stay open all year: if you have something to build, write to me.",
     ],
     experienceLabel: "years of experience",
     stackTitle: "What I work with",
-    groups: { frontend: "Frontend", backend: "Backend", data: "Data", mobile: "Mobile" },
+    groups: { frontend: "Frontend", backend: "Backend", data: "Data", mobile: "Mobile & desktop", tools: "Tools" },
     ctaCv: "Download CV",
+    photoAlt: "Guido Dealbera",
   },
 
   journey: {
@@ -96,19 +100,25 @@ export const en: Dictionary = {
         id: "company",
         when: "Apr 2025 — present",
         title: "Mecantronic",
-        body: "Software development, as an employee.",
+        body: "Remote full stack development for clients such as Durrieu Consignatarios, Plan Mi Casa and ESConecta: web platforms in React and Next.js, APIs in FastAPI and NestJS, Telegram and WhatsApp bots, and integrations with Keycloak and Moodle.",
+      },
+      {
+        id: "previousCompany",
+        when: "Aug 2023 — Apr 2025",
+        title: "NovoGas",
+        body: "Remote web and mobile frontend: the admin dashboard for smart valves on bottled-gas cylinders (React, Redux Toolkit) and the end-user app, with real-time consumption and QR sign-up (React Native, Expo).",
       },
       {
         id: "freelance",
         when: "May 2023 — present",
         title: "Freelance developer",
-        body: "Independent projects for clients.",
+        body: "Custom projects: the Grupo Oeste Seguros landing page (2024) and, currently, Mecánica Dealbera, a desktop app to run a car repair shop.",
       },
       {
         id: "bootcamp",
         when: "Jan — May 2023",
         title: "SoyHenry",
-        body: "Full Stack Developer bootcamp.",
+        body: "Full Stack Developer bootcamp (800 hours). From March to May I was also a Teaching Assistant, guiding a group of students through their onboarding.",
       },
       {
         id: "degree",
