@@ -87,8 +87,6 @@ export const planMiCasa: Project = {
         "Plan Mi Casa está en producción y es el sistema principal del cliente; el portal del suscriptor es, en su mayor parte, desarrollo mío. Tu Casa en Cuotas quedó como prueba de concepto lista para ofrecerse como SaaS.",
         "Las dos versiones muestran la evolución del mismo dominio: de una aplicación React 18 con MUI 6 a un monorepo con React 19, MUI 7 y funcionalidades compartidas entre aplicaciones.",
       ],
-      shotsNote:
-        "Pantallas de los paneles de administración, que se hicieron en equipo. De las que se ven, son módulos míos el dashboard de Plan Mi Casa y los planes de Tu Casa en Cuotas; el resto de mi parte está en “Mi rol” y “Decisiones”.",
     },
     en: {
       title: "Plan Mi Casa and Tu Casa en Cuotas",
@@ -109,8 +107,6 @@ export const planMiCasa: Project = {
         "Plan Mi Casa is in production and is the client's core system; most of the subscriber portal is my work. Tu Casa en Cuotas stands as a proof of concept, ready to be offered as SaaS.",
         "Together they show the same domain evolving: from a React 18 app with MUI 6 to a monorepo with React 19, MUI 7 and features shared across apps.",
       ],
-      shotsNote:
-        "Screens from the admin panels, which were built by a team. Of those shown, the Plan Mi Casa dashboard and the Tu Casa en Cuotas plans are modules I built; the rest of my part is under “My role” and “Decisions”.",
     },
   },
 };

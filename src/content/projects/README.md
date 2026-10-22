@@ -15,8 +15,8 @@ página (tarjeta, página del caso, imagen para compartir, sitemap) sale solo.
    `alt` y el `caption` en los dos idiomas. La primera es la portada de la
    tarjeta y del caso; las demás van en la galería del final, y todas se pueden
    ampliar. Sin capturas se usa una portada generada.
-4. En un proyecto de equipo, completá `shotsNote` en `copy`: aclara arriba de la
-   galería que las pantallas son del sistema completo y no sólo tuyas.
+4. Si las capturas necesitan una aclaración (por ejemplo, una parte del
+   proyecto que no tiene pantallas), va en `shotsNote`, dentro de `copy`.
 
 Un proyecto sin `links.repo` se muestra como privado, y no hace falta aclarar
 nada más.

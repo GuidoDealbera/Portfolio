@@ -98,14 +98,12 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [ ] **Revisar los siete casos**, en español y en inglés (`src/content/projects/*.ts`). Solo afirman lo que está en el inventario o lo que confirmaste
 - [x] **Capturas** (2026-10-22): 27 en `public/projects/<slug>/`, en WebP.
   - **Cómo se muestran:** la primera de cada caso es la portada de la tarjeta y del caso; las demás van en una galería al final, y cualquiera se amplía en un visor a pantalla completa (teclado, flechas, deslizar en celular, Escape).
-  - **Datos personales:** se revisaron una por una.
-    - Durrieu: en las dos de invernada se difuminaron nombres, CUIT y representantes.
-    - Templo: se difuminaron los links de la sala y el QR, porque el juego no lleva enlace público.
-    - Mecánica Dealbera, Plan Mi Casa y Tu Casa en Cuotas: tienen datos de prueba.
+  - **Datos personales:** se revisaron una por una. Todas usan datos de prueba (confirmado el 2026-10-22). Lo único difuminado son los links de la sala y el QR del Templo, porque el juego no lleva enlace público.
   - **Artefactos borrados:** el botón "N" de Next en desarrollo (Durrieu), el recuadro "Debug Info" (Tu Casa en Cuotas) y la marca "Activar Windows" (Grupo Oeste).
-  - **Proyectos de equipo:** en Durrieu y Plan Mi Casa, una nota arriba de la galería aclara que las pantallas son del sistema completo y dice cuáles son tuyas.
+  - **Proyectos de equipo:** un proyecto hecho en equipo es de todo el equipo (tu criterio, 2026-10-22). Las capturas no llevan notas que repartan autoría; lo tuyo lo cuenta "Mi rol". Durrieu sólo aclara que el bot no tiene pantallas.
   - **Originales:** siguen intactos en `~/Proyectos/capturas-portfolio/`.
 - [ ] Capturas de ESConecta (hoy usa la portada generada)
+- [ ] Capturas de los portales del suscriptor de Plan Mi Casa y de Tu Casa en Cuotas: las tenés vos
 - [x] Qué hacer con `public/legacy/`: se reutiliza la captura de Grupo Oeste Seguros si sigue siendo representativa; el resto se borra. Carpeta borrada antes del lanzamiento. La captura de 2024 quedó fuera del repo, en `~/Proyectos/capturas-portfolio/grupo-oeste-seguros-2024.png`, esperando tu confirmación; lo demás se recupera del historial (`git show 342e2e9:public/legacy/<ruta>`)
 - [ ] `global-not-found` es una opción **experimental** de Next. Está fijada en 16.4.2; si se actualiza Next, revisar que el 404 siga funcionando
 - [x] **Next 16.4.0 → 16.4.2 por seguridad** (2026-10-22). `npm audit` marcaba en producción:

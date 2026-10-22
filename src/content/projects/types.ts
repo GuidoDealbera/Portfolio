@@ -23,8 +23,9 @@ export type ProjectCopy = {
   /** Un párrafo por elemento. */
   result: readonly string[];
   /**
-   * Va arriba de la galería. En un proyecto de equipo, las capturas muestran el sistema completo y no
-   * sólo lo propio: la nota lo aclara, para no atribuirse pantallas que hicieron otros.
+   * Una aclaración arriba de la galería, si hace falta para entender las capturas (por ejemplo, una parte
+   * del proyecto que no tiene pantallas). Un proyecto de equipo es de todo el equipo: no se usa para
+   * repartir autoría pantalla por pantalla.
    */
   shotsNote?: string;
 };
