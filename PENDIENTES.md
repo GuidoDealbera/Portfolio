@@ -95,7 +95,7 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [x] Estados visibles: enviando, enviado, error con instrucción de qué hacer, y el foco va al primer campo con error
 - [x] Variables de entorno: `.env.local` (tuyo, ignorado por Git) y `.env.example` (documentado)
 - [x] Cuenta de Resend creada y variables cargadas en `.env.local` (recreado en esta máquina el 2026-10-21; `CONTACT_FROM` vacío usa el remitente por defecto)
-- [ ] **Probar un envío real**: `npm run dev`, mandar un mensaje desde el formulario y confirmar que llega. `CONTACT_TO_EMAIL` tiene que ser el email con el que creaste la cuenta de Resend
+- [x] **Envío real probado** (2026-10-21) con el build de producción en local, en `/es` y `/en`, enviando el formulario como un navegador sin JavaScript (que además prueba esa vía). El inválido vuelve con su error y no envía nada; el válido llega a Resend sin errores y el formulario pasa al estado "enviado". Llegaron mails de prueba con asunto "Portfolio · Prueba del formulario (es/en)"
 - [ ] Cargar las 3 variables en Vercel (Project Settings → Environment Variables) antes de publicar: `.env.local` no viaja
 - [ ] Opcional: verificar un dominio en Resend para enviar desde un remitente propio. Hoy se envía desde `onboarding@resend.dev` hacia tu propio email, que alcanza para un formulario de contacto
 - [ ] Límite de envíos por visitante: necesita un almacén compartido (por ejemplo Upstash), porque la memoria del servidor no sirve en Vercel. Hoy el tope lo pone el plan de Resend
@@ -108,7 +108,7 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [x] Datos estructurados JSON-LD de tipo `Person`
 - [x] Favicon (32 px) y `apple-icon` (180 px) propios con el monograma GD; se eliminó el de Next
 - [ ] Probar cómo se ve el link al compartirlo en LinkedIn y WhatsApp una vez publicado (cachean la imagen: se refresca con sus depuradores de links)
-- [ ] Logo nuevo en SVG real: el `logo.svg` y el `logo.png` de `public/` son del sitio viejo y ya no se usan; borrarlos o reemplazarlos
+- [x] `logo.svg` y `logo.png` del sitio viejo: borrados (nada los usaba). El monograma GD de los íconos queda como marca
 - [ ] `lastModified` en el sitemap: hoy se omite porque `new Date()` no corre en el prerender; se puede sumar con una fecha fija por proyecto cuando existan
 
 ## 7. Calidad
@@ -124,7 +124,7 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [ ] **Probar en un teléfono real**: cómo se siente el canvas y por qué, en la emulación de celular, el navegador deja tres precargas duplicadas que nunca cierran (y se cancelan con `ERR_ABORTED` al volver al tope). La navegación funciona igual y no hay errores del servidor, pero no pude fijar la causa
 - [ ] El contraste de texto lo midió axe con el canvas y la cuadrícula del fondo ocultos (son decorativos, de opacidad ≤ 20%), porque con ellos axe no puede calcular el fondo. Los pares de colores de la paleta sí están calculados a mano
 - [ ] Vercel Analytics + Speed Insights (después del lanzamiento)
-- [ ] README nuevo (se borró el del template de Vite)
+- [x] README nuevo: cómo correrlo, variables de entorno, dónde está cada cosa, decisiones y despliegue
 - [ ] Revisar `npm audit` cuando salga una versión nueva de `eslint-config-next` (hoy hay 5 alertas, todas en herramientas de desarrollo; ninguna llega al sitio)
 
 ## 8. Lanzamiento
