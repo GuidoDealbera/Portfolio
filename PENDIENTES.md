@@ -93,10 +93,17 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [x] Envío con Resend, aislado en `mailer.ts`: cambiar de proveedor es reescribir ese único archivo
 - [x] Campo trampa contra bots (honeypot)
 - [x] Estados visibles: enviando, enviado, error con instrucción de qué hacer, y el foco va al primer campo con error
+- [x] Animación del envío (`message-sent.tsx`):
+  - mientras se envía, un trazo de tiza gira en el botón;
+  - al confirmarse, el formulario se deshace en polvo de tiza y el botón se pliega en un avión de papel;
+  - el avión despega en S, hace un rizo y sale del panel dejando un rastro punteado que se desvanece;
+  - aterriza un círculo con tilde a mano alzada y el título letra por letra.
+
+  Sin JavaScript o con movimiento reducido, la confirmación aparece quieta. Probado en escritorio, en 390 px, sin JS, con movimiento reducido y con envío inválido, sin enviar mails
 - [x] Variables de entorno: `.env.local` (tuyo, ignorado por Git) y `.env.example` (documentado)
 - [x] Cuenta de Resend creada y variables cargadas en `.env.local` (recreado en esta máquina el 2026-10-21; `CONTACT_FROM` vacío usa el remitente por defecto)
 - [x] **Envío real probado** (2026-10-21) con el build de producción en local, en `/es` y `/en`, enviando el formulario como un navegador sin JavaScript (que además prueba esa vía). El inválido vuelve con su error y no envía nada; el válido llega a Resend sin errores y el formulario pasa al estado "enviado". Llegaron mails de prueba con asunto "Portfolio · Prueba del formulario (es/en)"
-- [ ] Cargar las 3 variables en Vercel (Project Settings → Environment Variables) antes de publicar: `.env.local` no viaja
+- [x] Cargar las 3 variables en Vercel (Project Settings → Environment Variables) antes de publicar: `.env.local` no viaja. Verificado el 2026-10-21 con un envío real desde producción
 - [ ] Opcional: verificar un dominio en Resend para enviar desde un remitente propio. Hoy se envía desde `onboarding@resend.dev` hacia tu propio email, que alcanza para un formulario de contacto
 - [ ] Límite de envíos por visitante: necesita un almacén compartido (por ejemplo Upstash), porque la memoria del servidor no sirve en Vercel. Hoy el tope lo pone el plan de Resend
 - [ ] Cuando `main` pase al sitio nuevo, desactivar o regenerar las claves de EmailJS: el id del servicio, el de la plantilla y la public key están en el historial público del repo

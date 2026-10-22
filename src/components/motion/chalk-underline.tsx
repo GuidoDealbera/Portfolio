@@ -13,11 +13,13 @@ const strokes = [
 
 type ChalkUnderlineProps = {
   variant?: 0 | 1 | 2;
+  /** Segundos antes de empezar el trazo. */
+  delay?: number;
   className?: string;
 };
 
 /** Subrayado de tiza que se dibuja de izquierda a derecha al entrar en pantalla. */
-export function ChalkUnderline({ variant = 0, className }: ChalkUnderlineProps) {
+export function ChalkUnderline({ variant = 0, delay = 0.15, className }: ChalkUnderlineProps) {
   return (
     <svg
       viewBox="0 0 300 12"
@@ -32,10 +34,12 @@ export function ChalkUnderline({ variant = 0, className }: ChalkUnderlineProps) 
         strokeWidth={2.5}
         strokeLinecap="round"
         strokeOpacity={0.85}
-        initial={{ pathLength: 0 }}
-        whileInView={{ pathLength: 1 }}
+        // La opacidad entra de golpe al arrancar: con pathLength en 0, la punta redondeada dejaría un punto
+        // suelto durante la espera.
+        initial={{ pathLength: 0, opacity: 0 }}
+        whileInView={{ pathLength: 1, opacity: 1 }}
         viewport={{ once: true, amount: 0.8 }}
-        transition={{ duration: 1.1, ease: chalkEase, delay: 0.15 }}
+        transition={{ duration: 1.1, ease: chalkEase, delay, opacity: { delay, duration: 0.05 } }}
       />
     </svg>
   );
