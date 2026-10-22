@@ -59,6 +59,19 @@ export const en: Dictionary = {
     problem: "The problem",
     decisions: "Decisions",
     result: "Outcome",
+    role: "My role",
+    status: "Status",
+    contexts: {
+      mecantronic: "Mecantronic",
+      freelance: "Freelance",
+      personal: "Personal project",
+    },
+    statuses: {
+      live: "In production",
+      pilot: "In production · pilot",
+      inProgress: "In development",
+      poc: "Proof of concept",
+    },
   },
 
   about: {

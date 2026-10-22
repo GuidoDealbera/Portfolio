@@ -5,7 +5,9 @@ página (tarjeta, página del caso, imagen para compartir, sitemap) sale solo.
 
 1. Copiá `portfolio.ts` como `<slug>.ts` y cambiá los datos. El tipo `Project`
    (en `types.ts`) te marca qué falta: `copy` pide **los dos idiomas**, y si
-   falta uno el proyecto no compila.
+   falta uno el proyecto no compila. También pide `context` (Mecantronic,
+   freelance o personal) y `status` (en producción, piloto, en desarrollo o
+   prueba de concepto), que se muestran como etiquetas en la tarjeta y en el caso.
 2. En `index.ts`, importalo y sumalo al arreglo `projects`. El orden del
    arreglo es el orden en la página.
 3. Si tiene captura, ponela en `public/projects/<slug>.png` y completá `image`.

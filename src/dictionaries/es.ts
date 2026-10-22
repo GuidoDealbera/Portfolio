@@ -1,3 +1,5 @@
+import type { ProjectContext, ProjectStatus } from "@/content/projects/types";
+
 /**
  * Español: es la fuente de verdad. El tipo `Dictionary` sale de acá, así que
  * en.ts no compila si le falta o le sobra una clave.
@@ -63,6 +65,21 @@ export const es = {
     problem: "El problema",
     decisions: "Decisiones",
     result: "Resultado",
+    role: "Mi rol",
+    status: "Estado",
+    // `satisfies` obliga a tener un texto por cada valor del tipo: un contexto o
+    // estado nuevo en types.ts no compila hasta que se lo nombre acá (y en en.ts).
+    contexts: {
+      mecantronic: "Mecantronic",
+      freelance: "Freelance",
+      personal: "Proyecto personal",
+    } satisfies Record<ProjectContext, string>,
+    statuses: {
+      live: "En producción",
+      pilot: "En producción · piloto",
+      inProgress: "En desarrollo",
+      poc: "Prueba de concepto",
+    } satisfies Record<ProjectStatus, string>,
   },
 
   about: {

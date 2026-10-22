@@ -10,7 +10,13 @@ import { getDictionary, getLocale } from "@/i18n/dictionaries";
 export async function Work() {
   const [dict, locale] = await Promise.all([getDictionary(), getLocale()]);
   const { work, projectPage } = dict;
-  const labels = { viewCase: work.viewCase, privateRepo: work.privateRepo, stack: projectPage.stack };
+  const labels = {
+    viewCase: work.viewCase,
+    privateRepo: work.privateRepo,
+    stack: projectPage.stack,
+    contexts: projectPage.contexts,
+    statuses: projectPage.statuses,
+  };
 
   return (
     <section id="work" aria-labelledby="work-title" className="py-section">

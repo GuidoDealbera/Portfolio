@@ -45,7 +45,7 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] `hreflang`, canonical y `og:locale` por idioma
 - [x] Selector de idioma que conserva la página y recuerda la elección
 - [ ] Revisión del inglés por vos (lo escribí yo)
-- [ ] Traducir los casos de estudio (fase de casos)
+- [x] Traducir los casos de estudio (2026-10-21). Falta tu revisión del inglés
 
 ## 3. Secciones de la home
 
@@ -72,7 +72,7 @@ Fase de textos (plan, Fase 2):
 - [x] Grilla de tarjetas en la home con inclinación 3D, y página del caso con problema, decisiones y resultado
 - [x] 404 de verdad (con el código HTTP correcto) para un proyecto inexistente, y página 404 propia y bilingüe para cualquier URL sin ruta
 - [ ] **Caso "Este portfolio"** (`src/content/projects/portfolio.ts`): se queda, y se le suman capturas
-- [ ] **Pasar los casos desde el inventario**, en este orden (con siete, la primera tarjeta ocupa el ancho completo):
+- [x] **Pasar los casos desde el inventario** (2026-10-21; falta tu revisión de los textos), en este orden (con siete, la primera tarjeta ocupa el ancho completo):
   1. `durrieu`: Mecantronic · En producción, piloto
   2. `mecanica-dealbera`: Freelance · En desarrollo · repo público
   3. `templo-de-las-asintotas`: Personal · Prueba de concepto · sin enlace "Ver online" (solo vos creás salas), con capturas o video
@@ -80,7 +80,8 @@ Fase de textos (plan, Fase 2):
   5. `esconecta`: Mecantronic · En producción
   6. `grupo-oeste-seguros`: Freelance · En producción (publicidad de la agencia) · repo público `seguros-front` · el backend lo hizo otro desarrollador
   7. `portfolio`: Personal
-- [ ] Etiquetas de **contexto** (Mecantronic / Freelance / Personal) y **estado** (En producción, En producción · piloto, En desarrollo, Prueba de concepto) en el tipo `Project`, la tarjeta y la página del caso
+- [x] Etiquetas de **contexto** (Mecantronic / Freelance / Personal) y **estado** (En producción, En producción · piloto, En desarrollo, Prueba de concepto) en el tipo `Project`, la tarjeta y la página del caso. Son campos obligatorios: un caso nuevo no compila sin ellos. En la página del caso, el rol pasó a un bloque "Mi rol / Estado" debajo del resumen
+- [ ] **Revisar los siete casos**, en español y en inglés (`src/content/projects/*.ts`). Solo afirman lo que está en el inventario o lo que confirmaste
 - [ ] Capturas en `public/projects/<slug>.png`. Mecánica Dealbera con los datos sensibles difuminados (nombres, teléfonos, patentes, domicilios, correos)
 - [x] Qué hacer con `public/legacy/`: se reutiliza la captura de Grupo Oeste Seguros si sigue siendo representativa; el resto se borra
 - [ ] `global-not-found` es una opción **experimental** de Next. Está fijada en 16.4.0; si se actualiza Next, revisar que el 404 siga funcionando

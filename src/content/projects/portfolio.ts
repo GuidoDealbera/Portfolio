@@ -8,6 +8,8 @@ import type { Project } from "./types";
 export const portfolio: Project = {
   slug: "portfolio",
   year: 2026,
+  context: "personal",
+  status: "live",
   stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Motion"],
   links: {
     repo: "https://github.com/GuidoDealbera/Portfolio",

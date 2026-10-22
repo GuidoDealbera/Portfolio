@@ -1,5 +1,15 @@
 import type { Locale } from "@/i18n/config";
 
+/** Dónde se hizo el proyecto. Los textos de cada valor están en los diccionarios (`projectPage.contexts`). */
+export type ProjectContext = "mecantronic" | "freelance" | "personal";
+
+/**
+ * En qué estado está hoy. Se muestra en la tarjeta y en el caso para que un
+ * proyecto en desarrollo o una prueba de concepto no parezcan algo terminado y
+ * en uso. Textos en `projectPage.statuses`.
+ */
+export type ProjectStatus = "live" | "pilot" | "inProgress" | "poc";
+
 /** Lo que se cuenta de un proyecto, en un idioma. */
 export type ProjectCopy = {
   title: string;
@@ -18,6 +28,8 @@ export type Project = {
   /** Va en la URL: /es/projects/<slug>. Minúsculas y guiones. */
   slug: string;
   year: number;
+  context: ProjectContext;
+  status: ProjectStatus;
   stack: readonly string[];
   /** Sin `repo`, el proyecto se muestra como privado. */
   links: { repo?: string; live?: string };

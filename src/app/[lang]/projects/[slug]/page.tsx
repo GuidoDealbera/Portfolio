@@ -9,6 +9,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { getProject, projects } from "@/content/projects";
 import { site } from "@/content/site";
+import { StatusLabel } from "@/features/projects/status-label";
 import { hasLocale, localeTags, locales, otherLocale, defaultLocale } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/dictionaries";
 
@@ -85,7 +86,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
             <p className="mt-8 flex items-center gap-3 text-xs font-bold tracking-[0.16em] text-accent uppercase before:h-px before:w-7 before:bg-accent/60">
               <span className="tabular-nums">{project.year}</span>
               <span aria-hidden="true">·</span>
-              {copy.role}
+              {labels.contexts[project.context]}
             </p>
 
             <SplitText
@@ -97,6 +98,22 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
 
             <Intro delay={0.4}>
               <p className="mt-6 max-w-[56ch] text-[clamp(17px,1.8vw,21px)] leading-[1.65] text-dust">{copy.summary}</p>
+            </Intro>
+
+            {/* El rol va aparte y no en el renglón de arriba: en mayúsculas, un rol de dos líneas se vuelve ilegible. */}
+            <Intro delay={0.48}>
+              <dl className="mt-8 flex flex-wrap gap-x-12 gap-y-5">
+                <div className="max-w-[46ch]">
+                  <dt className="text-xs font-bold tracking-[0.16em] text-dust uppercase">{labels.role}</dt>
+                  <dd className="mt-2 text-[15px] leading-[1.6]">{copy.role}</dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-bold tracking-[0.16em] text-dust uppercase">{labels.status}</dt>
+                  <dd className="mt-2 text-[15px] leading-[1.6]">
+                    <StatusLabel status={project.status} label={labels.statuses[project.status]} />
+                  </dd>
+                </div>
+              </dl>
             </Intro>
 
             <Intro delay={0.55} className="mt-8 flex flex-wrap items-center gap-3">
