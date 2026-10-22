@@ -153,6 +153,8 @@ export const es = {
       email: "Email",
       message: "Mensaje",
       submit: "Enviar mensaje",
+      // Al lado del botón mientras no se puede enviar. El mínimo del mensaje sale de `limits`.
+      hint: (min: number) => `Completá tu nombre, un email válido y un mensaje de al menos ${min} caracteres.`,
       sending: "Enviando…",
       successTitle: "Mensaje enviado.",
       successBody: "Gracias por escribirme. Lo leo y te respondo por email.",

@@ -30,14 +30,15 @@ export function ProjectCover({ project, locale, featured = false, className }: P
           width={project.image.width}
           height={project.image.height}
           sizes="(min-width: 768px) 50vw, 100vw"
-          className="size-full object-cover object-top"
+          className="size-full object-cover object-top transition-transform duration-700 ease-chalk group-hover:scale-[1.04]"
         />
       ) : (
         <div
           aria-hidden="true"
           className="grid size-full place-items-center bg-[radial-gradient(120%_90%_at_18%_8%,color-mix(in_srgb,var(--color-accent)_24%,transparent),transparent_58%)]"
         >
-          <span className="font-display text-[clamp(56px,11vw,128px)] leading-none font-bold tracking-[-0.05em] text-chalk/10 tabular-nums">
+          {/* El año se acerca y se aclara al pasar el mouse, como la captura cuando la hay. */}
+          <span className="font-display text-[clamp(56px,11vw,128px)] leading-none font-bold tracking-[-0.05em] text-chalk/10 tabular-nums transition-[color,scale] duration-700 ease-chalk group-hover:scale-[1.06] group-hover:text-chalk/20">
             {project.year}
           </span>
         </div>

@@ -5,6 +5,7 @@ import { useEffect, useId, useRef } from "react";
 import { ChalkUnderline } from "@/components/motion/chalk-underline";
 import { chalkEase } from "@/components/motion/ease";
 import { SplitText } from "@/components/motion/split-text";
+import { paperPlane } from "@/components/ui/icons";
 
 /** El formulario en el momento del envío, medido en el navegador: el avión despega de su botón. */
 export type Launch = {
@@ -15,14 +16,15 @@ export type Launch = {
   y: number;
 };
 
+/** Mide el formulario y el avioncito del botón de envío: el avión que vuela sale exactamente de ahí. */
 export function measureLaunch(form: HTMLFormElement): Launch {
   const box = form.getBoundingClientRect();
-  const button = form.querySelector('[type="submit"]')?.getBoundingClientRect() ?? box;
+  const origin = (form.querySelector('[type="submit"] > svg:last-child') ?? form.querySelector('[type="submit"]') ?? form).getBoundingClientRect();
   return {
     width: box.width,
     height: box.height,
-    x: button.left + button.width / 2 - box.left,
-    y: button.top + button.height / 2 - box.top,
+    x: origin.left + origin.width / 2 - box.left,
+    y: origin.top + origin.height / 2 - box.top,
   };
 }
 
@@ -37,10 +39,6 @@ const cue = {
   underline: 2.4,
   body: 2.5,
 } as const;
-
-// Avión de papel visto desde arriba, apuntando a +x y centrado en el origen: el pliegue central separa las alas.
-const PLANE = "M22 0 L-20 -14 L-11 0 L-20 14 Z";
-const CREASE = "M-11 0 L22 0";
 
 // Polvo de tiza que levanta el despegue, detrás del avión: desplazamiento (px) y radio de cada partícula.
 const DUST = [
@@ -170,13 +168,14 @@ function Flight({ launch }: { launch: Launch }) {
       ))}
 
       <g ref={planeRef}>
+        {/* Arranca del tamaño del avioncito del botón y crece mientras se dibuja. */}
         <motion.g
-          initial={{ opacity: 0, scale: 0.3 }}
+          initial={{ opacity: 0, scale: 0.4 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: cue.fold, duration: 0.5, ease: chalkEase }}
         >
           <motion.path
-            d={PLANE}
+            d={paperPlane.outline}
             fill="var(--color-surface)"
             stroke="var(--color-accent)"
             strokeWidth={2}
@@ -186,7 +185,7 @@ function Flight({ launch }: { launch: Launch }) {
             transition={{ delay: cue.fold, duration: 0.45, ease: chalkEase }}
           />
           <motion.path
-            d={CREASE}
+            d={paperPlane.crease}
             stroke="var(--color-accent)"
             strokeOpacity={0.7}
             strokeWidth={1.5}

@@ -1,5 +1,7 @@
+import { ChalkUnderline } from "@/components/motion/chalk-underline";
 import { Magnetic } from "@/components/motion/magnetic";
 import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { channelsFor, site } from "@/content/site";
@@ -27,22 +29,30 @@ export async function Contact() {
             >
               {contact.title}
             </h2>
-            <p className="mt-5 max-w-[40ch] text-[17px] text-dust">{contact.body}</p>
+            <ChalkUnderline variant={0} delay={0.45} className="mt-2" />
+            <Reveal as="p" delay={0.12} y={16} className="mt-5 max-w-[40ch] text-[17px] text-dust">
+              {contact.body}
+            </Reveal>
 
-            <p className="mt-10 text-xs font-bold tracking-[0.16em] text-dust uppercase">{contact.direct}</p>
-            <div className="mt-3 flex flex-wrap gap-3">
+            <Reveal as="p" delay={0.22} y={12} className="mt-10 text-xs font-bold tracking-[0.16em] text-dust uppercase">
+              {contact.direct}
+            </Reveal>
+            <Stagger as="div" step={0.08} delay={0.3} className="mt-3 flex flex-wrap gap-3">
               {channelsFor("contact").map((channel) => (
-                <Magnetic key={channel.id}>
-                  <ButtonLink
-                    href={channel.href}
-                    variant="secondary"
-                    {...(channel.external && { target: "_blank", rel: "noreferrer" })}
-                  >
-                    {channel.label}
-                  </ButtonLink>
-                </Magnetic>
+                <StaggerItem as="span" key={channel.id} className="inline-flex">
+                  <Magnetic>
+                    <ButtonLink
+                      href={channel.href}
+                      variant="secondary"
+                      icon={channel.icon}
+                      {...(channel.external && { target: "_blank", rel: "noreferrer" })}
+                    >
+                      {channel.label}
+                    </ButtonLink>
+                  </Magnetic>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </div>
 
           <div className="relative">
@@ -52,6 +62,7 @@ export async function Contact() {
                 email: form.email,
                 message: form.message,
                 submit: form.submit,
+                hint: form.hint(limits.messageMin),
                 sending: form.sending,
                 successTitle: form.successTitle,
                 successBody: form.successBody,

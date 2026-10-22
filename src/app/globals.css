@@ -37,6 +37,49 @@
   /* Entrada de la primera pantalla: CSS puro, arranca con la hoja de estilos sin esperar a que JavaScript
      hidrate. `both` mantiene el estado inicial (invisible) durante el retraso y el final al terminar. */
   --animate-chalk-in: chalk-in 0.82s var(--ease-chalk) both;
+  /* El botón de envío cuando el formulario queda listo. */
+  --animate-pop: pop 0.6s var(--ease-chalk);
+  /* Un campo que acaba de quedar con error. */
+  --animate-shake: shake 0.42s ease-in-out;
+  /* Trazo de tiza que se dibuja solo: el path necesita pathLength="1". */
+  --animate-draw: draw 0.55s var(--ease-chalk) both;
+
+  @keyframes pop {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    35% {
+      transform: scale(1.05);
+    }
+    65% {
+      transform: scale(0.985);
+    }
+  }
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    20%,
+    60% {
+      transform: translateX(-4px);
+    }
+    40%,
+    80% {
+      transform: translateX(4px);
+    }
+  }
+
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
 
   @keyframes chalk-in {
     from {
@@ -89,8 +132,17 @@
     @apply bg-accent text-on-accent;
   }
 
+  /* El anillo de foco no aparece de golpe: se cierra sobre el elemento, como un trazo que lo rodea. */
   :focus-visible {
     @apply rounded-[3px] outline-2 outline-offset-4 outline-accent;
+    animation: focus-ring 0.35s var(--ease-chalk);
+  }
+
+  @keyframes focus-ring {
+    from {
+      outline-offset: 10px;
+      outline-color: transparent;
+    }
   }
 
   h1,

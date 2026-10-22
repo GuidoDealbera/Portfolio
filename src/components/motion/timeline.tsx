@@ -2,6 +2,8 @@
 
 import { motion, useInView, useScroll, useSpring } from "motion/react";
 import { useRef } from "react";
+import { Icon, iconHover } from "@/components/ui/icons";
+import { cn } from "@/lib/cn";
 import { Reveal } from "./reveal";
 
 export type TimelineEntry = {
@@ -35,9 +37,13 @@ function Entry({ entry, index }: { entry: TimelineEntry; index: number }) {
               href={entry.href}
               target="_blank"
               rel="noreferrer"
-              className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              className="group underline decoration-line-strong underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
             >
               {entry.title}
+              <Icon
+                name="arrowUpRight"
+                className={cn("ml-1 inline size-[0.75em] align-baseline transition-transform duration-300 ease-chalk", iconHover.arrowUpRight)}
+              />
             </a>
           ) : (
             entry.title

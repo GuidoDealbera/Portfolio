@@ -19,11 +19,16 @@ type IntroProps = {
  */
 export function Intro({ children, delay = 0, rise = "30px", className }: IntroProps) {
   return (
-    <div
-      className={cn("animate-chalk-in", className)}
-      style={{ animationDelay: `${delay}s`, "--rise": rise } as CSSProperties}
-    >
+    <div className={cn("animate-chalk-in", className)} style={introStyle(delay, rise)}>
       {children}
     </div>
   );
+}
+
+/**
+ * La misma entrada aplicada directo a un elemento, con la clase `animate-chalk-in`: para los hijos de una
+ * lista, donde el <div> de <Intro> no puede ir, y para escalonarlos de a uno.
+ */
+export function introStyle(delay: number, rise = "12px") {
+  return { animationDelay: `${delay}s`, "--rise": rise } as CSSProperties;
 }

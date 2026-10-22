@@ -55,6 +55,19 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] Sobre mí: texto, contador de años con decimales por idioma, stack agrupado
 - [x] Recorrido: línea de tiempo que se dibuja con el scroll
 - [x] Contacto: formulario más canales directos (mail, WhatsApp, LinkedIn)
+- [x] **Íconos en todos los botones y links de acción** (2026-10-21), en `src/components/ui/icons.tsx`. Los de interfaz son de Lucide. Los de marca son los oficiales y en un solo color, como piden sus guías sobre fondo oscuro: GitHub (Primer Octicons), LinkedIn (brand.linkedin.com, comparado contra su PNG oficial) y WhatsApp (centro de marca de Meta). Cada ícono se mueve a su manera al pasar el mouse
+- [x] **Animación de todo el sitio, repasada pieza por pieza** (2026-10-21):
+  - **Header:** entra desde arriba al cargar; las letras del logo se separan al pasar el mouse; una línea se desliza bajo la sección que se está leyendo; el ícono del menú se cruza en una X y los links del menú móvil entran de a uno; el selector de idioma subraya como la navegación.
+  - **Hero:** fortalezas y datos entran de a uno; las fortalezas se levantan al pasar el mouse.
+  - **Secciones:** la línea de cada volanta se traza; los párrafos de "Sobre mí" y las tecnologías del stack entran de a uno.
+  - **Tarjetas:** el punto de los proyectos en uso late; las tecnologías se encienden en cascada; la portada se acerca al pasar el mouse.
+  - **Contacto:** el título se subraya y los canales entran de a uno.
+  - **Footer:** también se revela.
+  - **Casos de estudio:** los párrafos entran de a uno y cada guion de la lista se traza.
+  - **404:** cada cifra se escribe en tiza.
+  - **En todo el sitio:** los botones se hunden al apretarlos, el principal tiene un destello y el anillo de foco se cierra sobre el elemento.
+
+  Verificado sin JavaScript y con movimiento reducido: ningún elemento queda invisible
 
 Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [x] **Hero** con la frase elegida, tu texto y las fortalezas como chips. El titular es más largo que el anterior: el tamaño está ajustado y la primera pantalla sigue entrando completa (verificado en 1280×720, 1366×768, 1440×900, 1920×1080 y 500 px de ancho). La imagen para compartir usa el titular nuevo y entra bien
@@ -100,6 +113,13 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
   - aterriza un círculo con tilde a mano alzada y el título letra por letra.
 
   Sin JavaScript o con movimiento reducido, la confirmación aparece quieta. Probado en escritorio, en 390 px, sin JS, con movimiento reducido y con envío inválido, sin enviar mails
+- [x] **Validación en vivo** (2026-10-21). Antes, un error quedaba marcado hasta volver a apretar "Enviar" aunque el campo ya estuviera bien. Ahora:
+  - el error aparece al salir de un campo con algo escrito, y se actualiza con cada tecla;
+  - un campo válido muestra un tilde de tiza;
+  - el mensaje tiene una línea que se llena hasta el mínimo y un contador;
+  - el botón queda deshabilitado, con una ayuda al lado, hasta que todo está bien, y se habilita con un pequeño salto.
+
+  Las reglas viven en `validateContact` (`shared.ts`), sin Zod, con el mismo patrón de email que usa el servidor. Sin JavaScript, el botón queda habilitado y valida el servidor. Probado paso a paso, incluido el caso del error que antes no se iba, y la falla de envío: lo escrito no se pierde
 - [x] Variables de entorno: `.env.local` (tuyo, ignorado por Git) y `.env.example` (documentado)
 - [x] Cuenta de Resend creada y variables cargadas en `.env.local` (recreado en esta máquina el 2026-10-21; `CONTACT_FROM` vacío usa el remitente por defecto)
 - [x] **Envío real probado** (2026-10-21) con el build de producción en local, en `/es` y `/en`, enviando el formulario como un navegador sin JavaScript (que además prueba esa vía). El inválido vuelve con su error y no envía nada; el válido llega a Resend sin errores y el formulario pasa al estado "enviado". Llegaron mails de prueba con asunto "Portfolio · Prueba del formulario (es/en)"

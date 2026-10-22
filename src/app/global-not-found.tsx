@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Intro } from "@/components/motion/intro";
 import { ButtonLink } from "@/components/ui/button";
+import { NotFoundCode } from "@/components/ui/not-found-code";
 import { en } from "@/dictionaries/en";
 import { es } from "@/dictionaries/es";
 import { nunito, poppins } from "./fonts";
@@ -18,21 +20,23 @@ export default function GlobalNotFound() {
       <body>
         <main className="grid min-h-screen place-items-center px-6 text-center">
           <div>
-            <p className="font-display text-[clamp(72px,16vw,160px)] leading-none font-bold tracking-tighter text-accent">
-              404
-            </p>
-            <h1 lang="es" className="mt-4 font-display text-[clamp(24px,3.4vw,36px)] font-semibold tracking-tight">
-              {es.notFound.title}
-            </h1>
-            <p lang="en" className="mt-2 text-dust">
-              {en.notFound.title}
-            </p>
-            <div className="mt-8 flex justify-center">
+            <NotFoundCode />
+            <Intro delay={0.5} rise="16px">
+              <h1 lang="es" className="mt-4 font-display text-[clamp(24px,3.4vw,36px)] font-semibold tracking-tight">
+                {es.notFound.title}
+              </h1>
+            </Intro>
+            <Intro delay={0.6} rise="16px">
+              <p lang="en" className="mt-2 text-dust">
+                {en.notFound.title}
+              </p>
+            </Intro>
+            <Intro delay={0.7} rise="16px" className="mt-8 flex justify-center">
               {/* "/" lo resuelve el proxy según el idioma de quien visita. */}
-              <ButtonLink href="/" arrow>
+              <ButtonLink href="/" icon="house">
                 {es.notFound.back} · {en.notFound.back}
               </ButtonLink>
-            </div>
+            </Intro>
           </div>
         </main>
       </body>

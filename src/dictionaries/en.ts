@@ -138,6 +138,7 @@ export const en: Dictionary = {
       email: "Email",
       message: "Message",
       submit: "Send message",
+      hint: (min: number) => `Add your name, a valid email and a message of at least ${min} characters.`,
       sending: "Sending…",
       successTitle: "Message sent.",
       successBody: "Thanks for writing. I'll read it and reply by email.",

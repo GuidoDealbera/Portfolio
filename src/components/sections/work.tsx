@@ -40,7 +40,14 @@ export async function Work() {
         </div>
 
         <Reveal className="mt-10">
-          <ButtonLink href={channelHref("github")} variant="secondary" target="_blank" rel="noreferrer" arrow>
+          <ButtonLink
+            href={channelHref("github")}
+            variant="secondary"
+            target="_blank"
+            rel="noreferrer"
+            icon="github"
+            trailingIcon="arrowUpRight"
+          >
             {work.cta}
           </ButtonLink>
         </Reveal>

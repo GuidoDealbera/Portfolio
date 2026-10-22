@@ -5,6 +5,7 @@
  * Los campos marcados PENDIENTE son supuestos que hay que confirmar.
  */
 
+import type { IconName } from "@/components/ui/icons";
 import type { Locale } from "@/i18n/config";
 
 /** Foto del perfil, desde public/. Ancho y alto reales: reservan el espacio y evitan el salto de layout. */
@@ -99,6 +100,8 @@ export type Channel = {
   label: string;
   href: string;
   external: boolean;
+  /** Las redes llevan su logo oficial; el email, un sobre. */
+  icon: IconName;
   /** En qué partes de la página aparece. El primero de "contact" es el botón principal. */
   placements: readonly Placement[];
 };
@@ -109,12 +112,13 @@ export type Channel = {
  * lo muestran solos.
  */
 export const channels: readonly Channel[] = [
-  { id: "email", label: site.email, href: `mailto:${site.email}`, external: false, placements: ["contact"] },
+  { id: "email", label: site.email, href: `mailto:${site.email}`, external: false, icon: "mail", placements: ["contact"] },
   {
     id: "whatsapp",
     label: "WhatsApp",
     href: "https://wa.me/543775432263",
     external: true,
+    icon: "whatsapp",
     placements: ["contact"],
   },
   {
@@ -122,6 +126,7 @@ export const channels: readonly Channel[] = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/guido-jos%C3%A9-dealbera-5433a0261/",
     external: true,
+    icon: "linkedin",
     placements: ["contact", "footer"],
   },
   {
@@ -129,6 +134,7 @@ export const channels: readonly Channel[] = [
     label: "GitHub",
     href: "https://github.com/GuidoDealbera",
     external: true,
+    icon: "github",
     placements: ["footer"],
   },
 ];

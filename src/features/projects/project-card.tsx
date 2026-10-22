@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { TiltCard } from "@/components/motion/tilt-card";
+import { Icon, iconHover } from "@/components/ui/icons";
 import type { Project, ProjectContext, ProjectStatus } from "@/content/projects";
 import type { Locale } from "@/i18n/config";
 import { cn } from "@/lib/cn";
@@ -51,9 +52,14 @@ export function ProjectCard({ project, locale, labels, featured = false, delay =
             </h3>
             <p className="mt-2 max-w-[58ch] text-[15px] leading-[1.6] text-dust">{copy.summary}</p>
 
+            {/* Al pasar el mouse por la tarjeta, las tecnologías se encienden de a una. */}
             <ul className="mt-4 flex flex-wrap gap-2" aria-label={labels.stack}>
-              {project.stack.map((tech) => (
-                <li key={tech} className="rounded-md border border-line px-2.5 py-1 text-[12px] font-semibold text-dust">
+              {project.stack.map((tech, index) => (
+                <li
+                  key={tech}
+                  className="rounded-md border border-line px-2.5 py-1 text-[12px] font-semibold text-dust transition-[border-color,color] duration-300 group-hover:border-line-strong group-hover:text-chalk"
+                  style={{ transitionDelay: `${index * 40}ms` }}
+                >
                   {tech}
                 </li>
               ))}
@@ -64,14 +70,9 @@ export function ProjectCard({ project, locale, labels, featured = false, delay =
                 {project.year}
                 {!project.links.repo && ` · ${labels.privateRepo}`}
               </span>
-              <span className="inline-flex items-center gap-1.5 font-bold text-chalk">
+              <span className="inline-flex items-center gap-1.5 font-bold text-chalk transition-colors duration-300 group-hover:text-accent">
                 {labels.viewCase}
-                <span
-                  aria-hidden="true"
-                  className="transition-transform duration-300 ease-chalk group-hover:translate-x-1"
-                >
-                  →
-                </span>
+                <Icon name="arrowRight" className={cn("transition-transform duration-300 ease-chalk", iconHover.arrowRight)} />
               </span>
             </div>
           </div>
