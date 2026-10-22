@@ -84,7 +84,7 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [x] Etiquetas de **contexto** (Mecantronic / Freelance / Personal) y **estado** (En producción, En producción · piloto, En desarrollo, Prueba de concepto) en el tipo `Project`, la tarjeta y la página del caso. Son campos obligatorios: un caso nuevo no compila sin ellos. En la página del caso, el rol pasó a un bloque "Mi rol / Estado" debajo del resumen
 - [ ] **Revisar los siete casos**, en español y en inglés (`src/content/projects/*.ts`). Solo afirman lo que está en el inventario o lo que confirmaste
 - [ ] Capturas en `public/projects/<slug>.png`. Mecánica Dealbera con los datos sensibles difuminados (nombres, teléfonos, patentes, domicilios, correos)
-- [x] Qué hacer con `public/legacy/`: se reutiliza la captura de Grupo Oeste Seguros si sigue siendo representativa; el resto se borra
+- [x] Qué hacer con `public/legacy/`: se reutiliza la captura de Grupo Oeste Seguros si sigue siendo representativa; el resto se borra. Carpeta borrada antes del lanzamiento. La captura de 2024 quedó fuera del repo, en `~/Proyectos/capturas-portfolio/grupo-oeste-seguros-2024.png`, esperando tu confirmación; lo demás se recupera del historial (`git show 342e2e9:public/legacy/<ruta>`)
 - [ ] `global-not-found` es una opción **experimental** de Next. Está fijada en 16.4.0; si se actualiza Next, revisar que el 404 siga funcionando
 
 ## 5. Formulario de contacto
@@ -130,10 +130,10 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 ## 8. Lanzamiento
 
 - [x] Preview deploy de `rediseno` en Vercel: anda desde `0cb0a2a`. Fallaba porque el proyecto de Vercel se creó con el sitio en Vite; lo resolvieron `vercel.json` y `engines.node`
-- [ ] Revisión final juntos
-- [ ] Merge a `main`
+- [ ] Revisión final juntos: se lanzó con tu OK antes de cerrarla. Quedan las capturas, el lector de pantalla y el teléfono real
+- [x] Merge a `main` (2026-10-21)
 - [ ] Dominio nuevo + redirección desde el `vercel.app` (si se compra)
-- [ ] Borrar de `public/legacy` todo lo que no se haya usado
+- [x] Borrar de `public/legacy` todo lo que no se haya usado
 
 ## 9. Opcional, para después
 
