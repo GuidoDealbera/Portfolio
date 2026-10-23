@@ -16,8 +16,39 @@ export const planMiCasa: Project = {
   status: "live",
   stack: ["React", "TypeScript", "MUI", "Redux Toolkit"],
   links: {},
-  // Entornos de demo: los suscriptores y sus datos son de prueba.
+  // Entornos de demo: los suscriptores y sus datos son de prueba. El portal del suscriptor va primero
+  // (y es la portada) porque es el centro del trabajo de Guido en este caso.
   shots: [
+    {
+      src: "/projects/plan-mi-casa/portal-pmc-cuenta-corriente.webp",
+      width: 1917,
+      height: 987,
+      alt: {
+        es: "Cuenta corriente en el portal del suscriptor de Plan Mi Casa: una tarjeta por grupo con estado, saldo, cuotas pagadas de cada etapa y unidades de ahorro, y pestañas de primeros pasos, propietario y adelantos.",
+        en: "Account statement in the Plan Mi Casa subscriber portal: one card per group with status, balance, installments paid per stage and savings units, and tabs for first steps, owner and prepayments.",
+      },
+      caption: { es: "Plan Mi Casa · Portal · Cuenta corriente", en: "Plan Mi Casa · Portal · Account statement" },
+    },
+    {
+      src: "/projects/plan-mi-casa/portal-pmc-suscripciones.webp",
+      width: 1917,
+      height: 987,
+      alt: {
+        es: "Suscripciones en el portal de Plan Mi Casa: el bien base de cada una, su estado y el de su cuenta corriente, y los datos de la suscripción y del grupo, con pestañas de cuotas y documentos.",
+        en: "Subscriptions in the Plan Mi Casa portal: each one's base property, its status and its account status, plus subscription and group details, with installments and documents tabs.",
+      },
+      caption: { es: "Plan Mi Casa · Portal · Suscripciones", en: "Plan Mi Casa · Portal · Subscriptions" },
+    },
+    {
+      src: "/projects/plan-mi-casa/portal-pmc-mis-datos.webp",
+      width: 1917,
+      height: 986,
+      alt: {
+        es: "Mis datos en el portal de Plan Mi Casa: datos personales e información profesional del suscriptor de demo.",
+        en: "My details in the Plan Mi Casa portal: the demo subscriber's personal and professional information.",
+      },
+      caption: { es: "Plan Mi Casa · Portal · Mis datos", en: "Plan Mi Casa · Portal · My details" },
+    },
     {
       src: "/projects/plan-mi-casa/pmc-dashboard.webp",
       width: 1917,
@@ -26,7 +57,7 @@ export const planMiCasa: Project = {
         es: "Dashboard del panel de Plan Mi Casa: valor de la unidad de ahorro y su variación, tasas de interés del mes, suscriptores y suscripciones activas, y unidades funcionales disponibles.",
         en: "Plan Mi Casa back-office dashboard: the savings unit value and its change, the month's interest rates, active subscribers and subscriptions, and available housing units.",
       },
-      caption: { es: "Plan Mi Casa · Dashboard", en: "Plan Mi Casa · Dashboard" },
+      caption: { es: "Plan Mi Casa · Panel · Dashboard", en: "Plan Mi Casa · Back office · Dashboard" },
     },
     {
       src: "/projects/plan-mi-casa/pmc-cuentas-corrientes.webp",
@@ -36,7 +67,7 @@ export const planMiCasa: Project = {
         es: "Cuentas corrientes activas de Plan Mi Casa: búsqueda por nombre, legajo o CUIL, filtros por grupo, estado y tipo de plan, totales al día y en mora, y exportación a CSV, XLS y PDF.",
         en: "Plan Mi Casa active accounts: search by name, file number or tax ID, filters by group, status and plan type, totals up to date and overdue, and CSV, XLS and PDF export.",
       },
-      caption: { es: "Plan Mi Casa · Cuentas corrientes", en: "Plan Mi Casa · Accounts" },
+      caption: { es: "Plan Mi Casa · Panel · Cuentas corrientes", en: "Plan Mi Casa · Back office · Accounts" },
     },
     {
       src: "/projects/plan-mi-casa/pmc-unidades-funcionales.webp",
@@ -46,7 +77,37 @@ export const planMiCasa: Project = {
         es: "Unidades funcionales de Plan Mi Casa por proyecto, con superficie, ambientes, precio en unidades de ahorro, terminaciones y estado de asignación y de construcción.",
         en: "Plan Mi Casa housing units by project, with floor area, rooms, price in savings units, finish and allocation and construction status.",
       },
-      caption: { es: "Plan Mi Casa · Unidades funcionales", en: "Plan Mi Casa · Housing units" },
+      caption: { es: "Plan Mi Casa · Panel · Unidades funcionales", en: "Plan Mi Casa · Back office · Housing units" },
+    },
+    {
+      src: "/projects/plan-mi-casa/portal-tcc-inicio.webp",
+      width: 1917,
+      height: 985,
+      alt: {
+        es: "Inicio del portal de Tu Casa en Cuotas: el avance de los pagos realizados, el próximo pago con su vencimiento y el aviso de documentos pendientes de carga.",
+        en: "Tu Casa en Cuotas portal home: progress of payments made, the next payment with its due date and a notice about documents still to upload.",
+      },
+      caption: { es: "Tu Casa en Cuotas · Portal · Inicio", en: "Tu Casa en Cuotas · Portal · Home" },
+    },
+    {
+      src: "/projects/plan-mi-casa/portal-tcc-mis-datos.webp",
+      width: 1917,
+      height: 987,
+      alt: {
+        es: "Mis datos en el portal de Tu Casa en Cuotas: datos personales, domicilio y contacto del suscriptor de demo, con emails y CUIL adicionales.",
+        en: "My details in the Tu Casa en Cuotas portal: the demo subscriber's personal details, address and contact information, with additional emails and tax IDs.",
+      },
+      caption: { es: "Tu Casa en Cuotas · Portal · Mis datos", en: "Tu Casa en Cuotas · Portal · My details" },
+    },
+    {
+      src: "/projects/plan-mi-casa/portal-tcc-mis-documentos.webp",
+      width: 1917,
+      height: 986,
+      alt: {
+        es: "Mis documentos en el portal de Tu Casa en Cuotas: documentos personales y documentos de cada suscripción, como el contrato y el certificado de posesión.",
+        en: "My documents in the Tu Casa en Cuotas portal: personal documents and each subscription's documents, such as the contract and the possession certificate.",
+      },
+      caption: { es: "Tu Casa en Cuotas · Portal · Mis documentos", en: "Tu Casa en Cuotas · Portal · My documents" },
     },
     {
       src: "/projects/plan-mi-casa/tcc-dashboard.webp",
@@ -66,7 +127,7 @@ export const planMiCasa: Project = {
         es: "Planes de Tu Casa en Cuotas: contratos de financiación por tipo, con sus etapas, sorteos y licitaciones, y exportación a CSV, XLS y PDF.",
         en: "Tu Casa en Cuotas plans: financing contracts by type, with their stages, draws and bids, and CSV, XLS and PDF export.",
       },
-      caption: { es: "Tu Casa en Cuotas · Planes", en: "Tu Casa en Cuotas · Plans" },
+      caption: { es: "Tu Casa en Cuotas · Panel · Planes", en: "Tu Casa en Cuotas · Staff panel · Plans" },
     },
   ],
   copy: {

@@ -13,6 +13,50 @@ export const plantuvieji: Project = {
   status: "inProgress",
   stack: ["FastAPI", "PostgreSQL", "Celery", "React", "TypeScript", "Claude API"],
   links: {},
+  // Capturas del entorno local. Son datos de prueba, pero los emails y algunos nombres son reales (casillas
+  // del equipo y el usuario logueado): van difuminados, a pedido de Guido.
+  shots: [
+    {
+      src: "/projects/plantuvieji/licitaciones.webp",
+      width: 1901,
+      height: 986,
+      alt: {
+        es: "Listado de licitaciones: número, tipo, descripción, situación (abierta, solicitudes enviadas, cerrada, adjudicada), fecha de cierre, monto promedio de las ofertas y cantidad de proveedores.",
+        en: "Tender list: number, type, description, status (open, requests sent, closed, awarded), closing date, average offer amount and number of suppliers.",
+      },
+      caption: { es: "Licitaciones", en: "Tenders" },
+    },
+    {
+      src: "/projects/plantuvieji/detalle-licitacion.webp",
+      width: 1917,
+      height: 985,
+      alt: {
+        es: "Detalle de una licitación: el encabezado con situación, fecha de cierre y monto promedio, y los proveedores invitados con el estado de su propuesta, sus respuestas y los datos leídos de cada presupuesto. Los nombres de los proveedores están difuminados.",
+        en: "A tender in detail: the header with status, closing date and average amount, and the invited suppliers with the status of their proposal, their replies and the data read from each quote. Supplier names are blurred.",
+      },
+      caption: { es: "Detalle de una licitación", en: "A tender in detail" },
+    },
+    {
+      src: "/projects/plantuvieji/proveedores.webp",
+      width: 1917,
+      height: 986,
+      alt: {
+        es: "Listado de proveedores con CUIT y rubro. La razón social, el nombre de fantasía y el email están difuminados.",
+        en: "Supplier list with tax ID and line of business. Company names and emails are blurred.",
+      },
+      caption: { es: "Proveedores", en: "Suppliers" },
+    },
+    {
+      src: "/projects/plantuvieji/comunicaciones.webp",
+      width: 1900,
+      height: 987,
+      alt: {
+        es: "Configuración de las comunicaciones: datos de la empresa para el PDF de cotización y los emails, colores, y la cantidad de recordatorios a quien no confirmó su participación, uno cada 24 horas.",
+        en: "Communication settings: company details for the quote PDF and the emails, colors, and how many reminders go to suppliers who haven't confirmed, one every 24 hours.",
+      },
+      caption: { es: "Comunicaciones", en: "Communications" },
+    },
+  ],
   copy: {
     es: {
       title: "Plantuvieji",

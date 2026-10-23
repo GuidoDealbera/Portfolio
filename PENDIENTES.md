@@ -102,10 +102,10 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
   - **Artefactos borrados:** el botón "N" de Next en desarrollo (Durrieu), el recuadro "Debug Info" (Tu Casa en Cuotas) y la marca "Activar Windows" (Grupo Oeste).
   - **Proyectos de equipo:** un proyecto hecho en equipo es de todo el equipo (tu criterio, 2026-10-22). Las capturas no llevan notas que repartan autoría; lo tuyo lo cuenta "Mi rol". Durrieu sólo aclara que el bot no tiene pantallas.
   - **Originales:** siguen intactos en `~/Proyectos/capturas-portfolio/`.
-- [x] **Caso Plantuvieji** (2026-10-23): Mecantronic · En desarrollo, sin capturas. Cuenta sólo tus seis PRs mergeados en `develop` (#133, #143, #149, #150, #151, #152). No nombra al cliente, igual que el repo. Va después de Grupo Oeste. Con ocho casos, la grilla queda de a dos y ya no hay tarjeta a ancho completo
-- [ ] Capturas de Plantuvieji, si se pueden mostrar
+- [x] **Caso Plantuvieji** (2026-10-23): Mecantronic · En desarrollo. Cuenta sólo tus seis PRs mergeados en `develop` (#133, #143, #149, #150, #151, #152). No nombra al cliente, igual que el repo. Va después de Grupo Oeste. Con ocho casos, la grilla queda de a dos y ya no hay tarjeta a ancho completo
+- [x] **Capturas de Plantuvieji** (2026-10-23): licitaciones, detalle, proveedores y comunicaciones. Son datos locales, pero los emails y algunos nombres son reales, así que van difuminados: los emails, el usuario logueado, los nombres de los proveedores y el del adjudicado. "comunicaciones-2" quedó afuera porque sólo muestra casilleros vacíos
 - [ ] Capturas de ESConecta (hoy usa la portada generada)
-- [ ] Capturas de los portales del suscriptor de Plan Mi Casa y de Tu Casa en Cuotas: las tenés vos
+- [x] **Capturas de los portales del suscriptor** de Plan Mi Casa y de Tu Casa en Cuotas (2026-10-23), con usuarios de demo. El portal de Plan Mi Casa pasa a ser la portada del caso; las del panel llevan "Panel" en la leyenda
 - [x] Qué hacer con `public/legacy/`: se reutiliza la captura de Grupo Oeste Seguros si sigue siendo representativa; el resto se borra. Carpeta borrada antes del lanzamiento. La captura de 2024 quedó fuera del repo, en `~/Proyectos/capturas-portfolio/grupo-oeste-seguros-2024.png`, esperando tu confirmación; lo demás se recupera del historial (`git show 342e2e9:public/legacy/<ruta>`)
 - [ ] `global-not-found` es una opción **experimental** de Next. Está fijada en 16.4.2; si se actualiza Next, revisar que el 404 siga funcionando
 - [x] **Next 16.4.0 → 16.4.2 por seguridad** (2026-10-22). `npm audit` marcaba en producción:
