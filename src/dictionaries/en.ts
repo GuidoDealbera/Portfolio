@@ -38,7 +38,7 @@ export const en: Dictionary = {
     ctaContact: "Let's build something worthwhile",
     ctaCv: "Download CV",
     remote: (timezone: string) => `Remote · ${timezone}`,
-    languages: "Native Spanish, B1 English",
+    languages: "Native Spanish, A2 English",
     degree: "Mathematics teaching degree",
   },
 

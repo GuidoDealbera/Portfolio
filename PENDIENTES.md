@@ -73,7 +73,7 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [x] **Hero** con la frase elegida, tu texto y las fortalezas como chips. El titular es más largo que el anterior: el tamaño está ajustado y la primera pantalla sigue entrando completa (verificado en 1280×720, 1366×768, 1440×900, 1920×1080 y 500 px de ancho). La imagen para compartir usa el titular nuevo y entra bien
 - [x] **Recorrido** con cinco tramos: Mecantronic, NovoGas (nuevo), freelance, SoyHenry (con Teaching Assistant) y Profesorado. El primer párrafo de "Sobre mí" ahora también nombra a NovoGas
 - [x] **Stack** actualizado en `site.ts`: sale Sequelize; se suman TypeScript, Redux Toolkit, TanStack Query, Python, FastAPI, SQL Server, SQLite, TypeORM, Firebase, Electron, Docker y GitHub Actions; un grupo nuevo, "Herramientas". La columna de rótulos de "Sobre mí" pasó a 124 px, porque "Herramientas" no entraba
-- [x] **Idiomas** del hero: "Español nativo, inglés B1", igual que en el CV
+- [x] **Idiomas** del hero: "Español nativo, inglés A2", igual que en el CV (era B1; corregido el 2026-10-23, con los seis CVs regenerados y el general copiado al sitio)
 - [x] **Lugar para la foto**: `site.photo` (hoy `null`). Probado con una foto de prueba: se ve arriba de la columna derecha de "Sobre mí", sin salto de layout
 - [x] **CV por idioma**: `site.cv.es` y `site.cv.en`; `/en` descarga `cv-guido-dealbera-en.pdf`
 - [x] Meta description con el stack actual
@@ -102,6 +102,8 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
   - **Artefactos borrados:** el botón "N" de Next en desarrollo (Durrieu), el recuadro "Debug Info" (Tu Casa en Cuotas) y la marca "Activar Windows" (Grupo Oeste).
   - **Proyectos de equipo:** un proyecto hecho en equipo es de todo el equipo (tu criterio, 2026-10-22). Las capturas no llevan notas que repartan autoría; lo tuyo lo cuenta "Mi rol". Durrieu sólo aclara que el bot no tiene pantallas.
   - **Originales:** siguen intactos en `~/Proyectos/capturas-portfolio/`.
+- [x] **Caso Plantuvieji** (2026-10-23): Mecantronic · En desarrollo, sin capturas. Cuenta sólo tus seis PRs mergeados en `develop` (#133, #143, #149, #150, #151, #152). No nombra al cliente, igual que el repo. Va después de Grupo Oeste. Con ocho casos, la grilla queda de a dos y ya no hay tarjeta a ancho completo
+- [ ] Capturas de Plantuvieji, si se pueden mostrar
 - [ ] Capturas de ESConecta (hoy usa la portada generada)
 - [ ] Capturas de los portales del suscriptor de Plan Mi Casa y de Tu Casa en Cuotas: las tenés vos
 - [x] Qué hacer con `public/legacy/`: se reutiliza la captura de Grupo Oeste Seguros si sigue siendo representativa; el resto se borra. Carpeta borrada antes del lanzamiento. La captura de 2024 quedó fuera del repo, en `~/Proyectos/capturas-portfolio/grupo-oeste-seguros-2024.png`, esperando tu confirmación; lo demás se recupera del historial (`git show 342e2e9:public/legacy/<ruta>`)

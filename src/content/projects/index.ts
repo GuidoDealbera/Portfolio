@@ -3,6 +3,7 @@ import { esconecta } from "./esconecta";
 import { grupoOesteSeguros } from "./grupo-oeste-seguros";
 import { mecanicaDealbera } from "./mecanica-dealbera";
 import { planMiCasa } from "./plan-mi-casa";
+import { plantuvieji } from "./plantuvieji";
 import { portfolio } from "./portfolio";
 import { temploDeLasAsintotas } from "./templo-de-las-asintotas";
 import type { Project } from "./types";
@@ -19,6 +20,8 @@ export const projects: readonly Project[] = [
   planMiCasa,
   esconecta,
   grupoOesteSeguros,
+  // Sumado el 2026-10-23, después de Grupo Oeste para no juntar tres casos de Mecantronic seguidos.
+  plantuvieji,
   portfolio,
 ];
 

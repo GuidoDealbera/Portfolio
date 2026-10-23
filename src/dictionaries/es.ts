@@ -45,8 +45,8 @@ export const es = {
     ctaContact: "Construyamos algo que valga la pena",
     ctaCv: "Descargar CV",
     remote: (timezone: string) => `Remoto · ${timezone}`,
-    // Igual que en el CV: B1, sin inflarlo.
-    languages: "Español nativo, inglés B1",
+    // Igual que en el CV: A2, sin inflarlo (antes B1; corregido por Guido el 2026-10-23).
+    languages: "Español nativo, inglés A2",
     degree: "Profesorado en Matemáticas",
   },
 
