@@ -5,7 +5,9 @@ import type { Project } from "./types";
  * 2026-10-21. Un solo caso para los dos proyectos: Tu Casa en Cuotas es el
  * template que nació de Plan Mi Casa, y juntos cuentan esa evolución. El
  * backend, la base del monorepo y la configuración de marca son de otros
- * integrantes; acá sólo se cuenta como propio lo que el inventario le atribuye.
+ * integrantes; acá sólo se cuenta como propio lo que el inventario le atribuye
+ * y lo que Guido confirmó el 2026-10-23: participó en la gran mayoría de las
+ * pantallas de Plan Mi Casa, del portal y del panel.
  */
 export const planMiCasa: Project = {
   slug: "plan-mi-casa",
@@ -72,7 +74,7 @@ export const planMiCasa: Project = {
       title: "Plan Mi Casa y Tu Casa en Cuotas",
       summary:
         "El sistema de un plan de ahorro para la vivienda, hoy el sistema principal del cliente, y el template SaaS que nació de él para replicarlo en planes similares. Desarrollé la mayor parte del portal del suscriptor y gran parte del frontend del template.",
-      role: "Frontend: la mayor parte del portal del suscriptor y módulos del panel administrativo de Plan Mi Casa, y gran parte del frontend de Tu Casa en Cuotas.",
+      role: "Frontend: trabajo en la gran mayoría de las pantallas de Plan Mi Casa, del portal del suscriptor (en su mayor parte desarrollo propio) y del panel administrativo, y gran parte del frontend de Tu Casa en Cuotas.",
       problem: [
         "Plan Mi Casa es un plan de ahorro para la vivienda: los suscriptores pagan cuotas en unidades de ahorro, con intereses, adelantos y gastos de entrega, y acceden a departamentos por sorteo o adjudicación. Administrarlo implica muchas reglas de negocio, y cada suscriptor necesita ver y pagar lo suyo sin depender de la oficina.",
         "Con el sistema en marcha apareció la idea de convertirlo en un producto para otros planes similares. Eso pedía una base común para clientes con distinta marca, distinta terminología y planes configurables.",
@@ -92,7 +94,7 @@ export const planMiCasa: Project = {
       title: "Plan Mi Casa and Tu Casa en Cuotas",
       summary:
         "The system behind a home savings plan, now the client's core system, and the SaaS template born from it to serve similar plans. I built most of the subscriber portal and a large part of the template's frontend.",
-      role: "Frontend: most of the subscriber portal and several back-office modules for Plan Mi Casa, and a large part of the Tu Casa en Cuotas frontend.",
+      role: "Frontend: work on the vast majority of Plan Mi Casa's screens, across the subscriber portal (mostly my own work) and the back office, and a large part of the Tu Casa en Cuotas frontend.",
       problem: [
         "Plan Mi Casa is a home savings plan: subscribers pay installments in savings units, with interest, prepayments and handover fees, and get apartments through draws or allocation. Running it involves many business rules, and every subscriber needs to see and pay what they owe without going through the office.",
         "Once the system was running, the idea came up to turn it into a product for other similar plans. That called for a shared codebase serving clients with different branding, different terminology and configurable plans.",
