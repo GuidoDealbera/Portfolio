@@ -10,6 +10,8 @@ export async function PersonJsonLd() {
     "@type": "Person",
     name: site.fullName,
     url: `${site.url}/${locale}`,
+    // La foto ayuda a que el buscador asocie la cara con el nombre. Va la versión con fondo, no la transparente.
+    ...(site.photo && { image: `${site.url}${site.photo.profile}` }),
     jobTitle: dict.hero.role,
     description: dict.meta.description,
     address: {

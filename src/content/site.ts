@@ -9,7 +9,13 @@ import type { IconName } from "@/components/ui/icons";
 import type { Locale } from "@/i18n/config";
 
 /** Foto del perfil, desde public/. Ancho y alto reales: reservan el espacio y evitan el salto de layout. */
-type SitePhoto = { src: string; width: number; height: number };
+type SitePhoto = {
+  src: string;
+  width: number;
+  height: number;
+  /** Versión cuadrada en JPG con el fondo del sitio: es la que ven los buscadores (JSON-LD). */
+  profile: string;
+};
 
 export const site = {
   // El sitio sigue en el subdominio gratuito hasta tener guidodealbera.dev.
@@ -88,7 +94,7 @@ export const site = {
 
   // El hero la muestra sólo si está cargada; con null, se arma sin ella. Es un recorte con fondo
   // transparente: el fondo lo pone el CSS. El original en PNG quedó en ~/Proyectos/capturas-portfolio/.
-  photo: { src: "/guido-dealbera.webp", width: 1088, height: 1446 } as SitePhoto | null,
+  photo: { src: "/guido-dealbera.webp", width: 1088, height: 1446, profile: "/guido-dealbera-perfil.jpg" } as SitePhoto | null,
 
   email: "guidojdealbera@gmail.com",
 } as const;
