@@ -23,7 +23,7 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] Años de experiencia: 3,5
 - [x] Empleador: Mecantronic desde abril 2025
 - [x] Agenda freelance: siempre abierta
-- [x] Fechas del recorrido: Mecantronic (abr 2025–hoy), NovoGas (ago 2023–abr 2025), freelance (30/05/2023–hoy), SoyHenry (30/01–15/05/2023; Teaching Assistant ene–may 2023, corregido el 2026-10-27), Profesorado (2015–dic 2026)
+- [x] Fechas del recorrido: Mecantronic (abr 2025–hoy), NovoGas (ago 2023–abr 2025), freelance (30/05/2023–hoy), SoyHenry (30/01–15/05/2023; Teaching Assistant mar–may 2023), Profesorado (2015–dic 2026)
 - [x] Dominio: sigue `guidodealbera-dev.vercel.app`; migrar a `guidodealbera.dev` cuando haya presupuesto
 - [x] Fuentes: Poppins + Nunito Sans
 - [x] Inglés: ES/EN desde el lanzamiento
