@@ -32,6 +32,9 @@ export const es = {
 
   hero: {
     role: "Desarrollador Fullstack",
+    photoAlt: "Guido Dealbera",
+    // Leyenda de la foto, debajo del nombre. En inglés en los dos idiomas, como las fortalezas.
+    photoCaption: "Full-Stack Developer",
     availability: "Agenda abierta para proyectos",
     headline: {
       lead: "No se trata de escribir código. Se trata de construir",
@@ -110,7 +113,6 @@ export const es = {
     stackTitle: "Con qué trabajo",
     groups: { frontend: "Frontend", backend: "Backend", data: "Datos", mobile: "Mobile y escritorio", tools: "Herramientas" },
     ctaCv: "Descargar CV",
-    photoAlt: "Guido Dealbera",
   },
 
   journey: {

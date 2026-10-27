@@ -86,9 +86,9 @@ export const site = {
   // Un CV por idioma: cada versión del sitio descarga el suyo.
   cv: { es: "/cv-guido-dealbera.pdf", en: "/cv-guido-dealbera-en.pdf" } satisfies Record<Locale, string>,
 
-  // Sin foto por ahora (decidido el 2026-10-21): "Sobre mí" la muestra sólo si está
-  // cargada. Para sumarla: ponerla en public/ y completar { src, width, height }.
-  photo: null as SitePhoto | null,
+  // El hero la muestra sólo si está cargada; con null, se arma sin ella. Es un recorte con fondo
+  // transparente: el fondo lo pone el CSS. El original en PNG quedó en ~/Proyectos/capturas-portfolio/.
+  photo: { src: "/guido-dealbera.webp", width: 1088, height: 1446 } as SitePhoto | null,
 
   email: "guidojdealbera@gmail.com",
 } as const;

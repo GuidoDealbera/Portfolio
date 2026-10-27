@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { CountUp } from "@/components/motion/count-up";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
@@ -38,18 +37,6 @@ export async function About() {
         </div>
 
         <Reveal delay={0.12} className="flex flex-col gap-8">
-          {/* Sólo si hay foto cargada en site.ts. Ancho y alto reales reservan el lugar: no hay salto al cargar. */}
-          {site.photo && (
-            <Image
-              src={site.photo.src}
-              alt={about.photoAlt}
-              width={site.photo.width}
-              height={site.photo.height}
-              sizes="(min-width: 768px) 40vw, 100vw"
-              className="h-auto w-full rounded-[14px] border border-line"
-            />
-          )}
-
           <div className="rounded-[14px] border border-line bg-surface/60 p-6 transition-[border-color,background-color] duration-500 hover:border-accent/40 hover:bg-surface">
             <p className="font-display text-[clamp(44px,6vw,68px)] leading-none font-bold tracking-[-0.04em]">
               <CountUp to={site.yearsOfExperience} decimals={1} locale={locale} />

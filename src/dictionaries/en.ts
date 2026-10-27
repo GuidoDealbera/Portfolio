@@ -26,6 +26,8 @@ export const en: Dictionary = {
 
   hero: {
     role: "Fullstack Developer",
+    photoAlt: "Guido Dealbera",
+    photoCaption: "Full-Stack Developer",
     availability: "Open for projects",
     headline: {
       lead: "It's not about writing code. It's about building",
@@ -97,7 +99,6 @@ export const en: Dictionary = {
     stackTitle: "What I work with",
     groups: { frontend: "Frontend", backend: "Backend", data: "Data", mobile: "Mobile & desktop", tools: "Tools" },
     ctaCv: "Download CV",
-    photoAlt: "Guido Dealbera",
   },
 
   journey: {
