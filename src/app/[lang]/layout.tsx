@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/layout/footer";
@@ -78,6 +80,9 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
             <Footer />
           </div>
         </MotionProvider>
+        {/* Visitas y Web Vitals de visitantes reales, en el panel de Vercel. Sin cookies; no muestran nada en la página. */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
