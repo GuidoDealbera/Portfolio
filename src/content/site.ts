@@ -29,7 +29,7 @@ export const site = {
 
   // Fechas en formato ISO. Los textos legibles viven en los diccionarios.
   career: {
-    company: { name: "Mecantronic", since: "2025-04" },
+    company: { name: "Mecantronic", since: "2025-04", url: "https://mecantronic.com.ar/" },
     previousCompany: { name: "NovoGas", legalName: "Global Energy Innovations S.A.C.", from: "2023-08", to: "2025-04" },
     freelance: { since: "2023-05-30" },
     bootcamp: {

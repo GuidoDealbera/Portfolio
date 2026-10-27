@@ -18,7 +18,7 @@ export async function PersonJsonLd() {
       addressRegion: site.place.region,
       addressCountry: site.place.countryCode,
     },
-    worksFor: { "@type": "Organization", name: site.career.company.name },
+    worksFor: { "@type": "Organization", name: site.career.company.name, url: site.career.company.url },
     alumniOf: { "@type": "EducationalOrganization", name: site.career.bootcamp.name, url: site.career.bootcamp.url },
     knowsAbout: [...new Set(Object.values(site.stack.groups).flat())],
     sameAs: [channelHref("linkedin"), channelHref("github")],
