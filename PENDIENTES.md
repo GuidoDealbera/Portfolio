@@ -16,7 +16,7 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] **Qué hacés en Mecantronic y en tus proyectos freelance**: los textos están aprobados (plan, sección 7) y se cargan en la fase de textos. Suman un tramo nuevo: NovoGas, empleador aparte (ago. 2023 – abr. 2025)
 - [ ] **Revisar la redacción de los textos.** Son borrador y sólo afirman lo que me confirmaste. Mirá en especial el título de Sobre mí ("casi profesor de matemáticas"), el subtítulo del hero y todo el inglés (`src/dictionaries/`)
 - [x] **Frase del hero** (2026-10-21): "No se trata de escribir código. Se trata de construir lo que realmente importa.", con tu texto, tus cuatro fortalezas y "Construyamos algo que valga la pena" como botón principal
-- [x] Foto: se lanza sin foto, pero con el lugar preparado en "Sobre mí" para sumarla después
+- [x] Foto (2026-10-26): va en el hero, recortada y con el fondo del sitio. El original y el recorte transparente están en `~/Proyectos/capturas-portfolio/`; las versiones con el fondo del portfolio, para usar afuera, en `~/Proyectos/Guido/fotos/`
 - [x] Cifra de "proyectos entregados": no va
 - [x] Nombres de clientes: reales, con permiso para todos (Durrieu, Plan Mi Casa, Tu Casa en Cuotas, ESConecta, Discera)
 - [x] Mecantronic es remoto. Proyectos de Mecantronic: Plan Mi Casa, Tu Casa en Cuotas, ESConecta, Durrieu y Discera. Freelance: Mecánica Dealbera y Grupo Oeste Seguros
@@ -68,13 +68,16 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
   - **En todo el sitio:** los botones se hunden al apretarlos, el principal tiene un destello y el anillo de foco se cierra sobre el elemento.
 
   Verificado sin JavaScript y con movimiento reducido: ningún elemento queda invisible
+- [x] **Foto en el hero** (2026-10-26). En escritorio va a la derecha, con tu nombre completo y "Full-Stack Developer" como leyenda; en el celular es un avatar con el nombre al lado, como un usuario. El fondo blanco original se reemplazó por el de las tarjetas del sitio con el brillo de tiza, sin tocar la cara. "Sobre mí" quedó sin foto. La primera pantalla sigue entrando completa en 1440×900, 1280×720 y 1024×768, y cada pantalla descarga sólo su versión de la foto
+- [x] **Mecantronic enlazado** en el recorrido (2026-10-26), igual que SoyHenry, y con su sitio en el JSON-LD
+- [x] **Luz y polvo de tiza que siguen al mouse** (2026-10-26). Un brillo dorado que respira y enciende la cuadrícula bajo el cursor; el polvo del fondo se aparta y el cursor suelta el suyo, que cae y se desvanece. Sólo con mouse: no corre en táctil ni con movimiento reducido
 
 Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [x] **Hero** con la frase elegida, tu texto y las fortalezas como chips. El titular es más largo que el anterior: el tamaño está ajustado y la primera pantalla sigue entrando completa (verificado en 1280×720, 1366×768, 1440×900, 1920×1080 y 500 px de ancho). La imagen para compartir usa el titular nuevo y entra bien
 - [x] **Recorrido** con cinco tramos: Mecantronic, NovoGas (nuevo), freelance, SoyHenry (con Teaching Assistant) y Profesorado. El primer párrafo de "Sobre mí" ahora también nombra a NovoGas
 - [x] **Stack** actualizado en `site.ts`: sale Sequelize; se suman TypeScript, Redux Toolkit, TanStack Query, Python, FastAPI, SQL Server, SQLite, TypeORM, Firebase, Electron, Docker y GitHub Actions; un grupo nuevo, "Herramientas". La columna de rótulos de "Sobre mí" pasó a 124 px, porque "Herramientas" no entraba
 - [x] **Idiomas** del hero: "Español nativo, inglés A2", igual que en el CV (era B1; corregido el 2026-10-23, con los seis CVs regenerados y el general copiado al sitio)
-- [x] **Lugar para la foto**: `site.photo` (hoy `null`). Probado con una foto de prueba: se ve arriba de la columna derecha de "Sobre mí", sin salto de layout
+- [x] **Lugar para la foto**: `site.photo`. Al principio se probó en "Sobre mí"; desde el 2026-10-26 la foto está cargada y va en el hero
 - [x] **CV por idioma**: `site.cv.es` y `site.cv.en`; `/en` descarga `cv-guido-dealbera-en.pdf`
 - [x] Meta description con el stack actual
 
