@@ -58,7 +58,9 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   // Se saltea _next, api, los íconos generados (/icon y /apple-icon, que no tienen extensión),
-  // _vercel (Analytics y Speed Insights envían a /_vercel/... sin extensión: redirigido a /es/_vercel
-  // se perdería) y cualquier ruta con extensión (cv .pdf, imágenes, sitemap.xml, robots.txt…).
+  // _vercel (las rutas por defecto de Analytics y Speed Insights, sin extensión: redirigidas a /es/_vercel
+  // se perderían) y cualquier ruta con extensión (cv .pdf, imágenes, sitemap.xml, robots.txt…).
+  // En producción, Vercel les pone un prefijo propio (/<hash>/view, /<hash>/vitals) y las atiende antes
+  // de que llegue este proxy: verificado el 2026-10-27, los envíos responden 200 y no se redirigen.
   matcher: ["/((?!_next|_vercel|api|icon|apple-icon|.*\\..*).*)"],
 };
