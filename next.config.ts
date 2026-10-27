@@ -4,12 +4,18 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   // Corre antes que el proxy: sin esto, el proxy vería un slug que no existe y respondería 404.
-  // El slug viejo sólo se publicó en es y en en; `:path*` cubre también su imagen para compartir.
+  // El slug viejo sólo se publicó en es y en en. Son dos reglas porque, en Vercel, un `:path*` vacío deja
+  // una barra final en el destino y suma un segundo salto; `:path+` cubre la imagen para compartir.
   async redirects() {
     return [
       {
-        source: "/:lang(es|en)/projects/plantuvieji/:path*",
-        destination: "/:lang/projects/licitaciones-de-compras/:path*",
+        source: "/:lang(es|en)/projects/plantuvieji",
+        destination: "/:lang/projects/licitaciones-de-compras",
+        permanent: true,
+      },
+      {
+        source: "/:lang(es|en)/projects/plantuvieji/:path+",
+        destination: "/:lang/projects/licitaciones-de-compras/:path+",
         permanent: true,
       },
     ];
