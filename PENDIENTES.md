@@ -14,7 +14,7 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] **MD de proyectos** (2026-10-21): es `~/Proyectos/INVENTARIO_PORTFOLIO.md`, fuera del repo, con tu rol medido con git en cada proyecto. Los casos y su orden están en la sección 4 de este archivo
 - [x] **CV actualizado** (2026-10-21). Sale de `~/Proyectos/CV` (fuente única, compatible con ATS, tres variantes en ES y EN). El general en español reemplaza a `public/cv-guido-dealbera.pdf`, que ya enlaza el botón; el inglés queda en `public/cv-guido-dealbera-en.pdf` y el botón por idioma se conecta en la fase de textos
 - [x] **Qué hacés en Mecantronic y en tus proyectos freelance**: los textos están aprobados (plan, sección 7) y se cargan en la fase de textos. Suman un tramo nuevo: NovoGas, empleador aparte (ago. 2023 – abr. 2025)
-- [ ] **Revisar la redacción de los textos.** Son borrador y sólo afirman lo que me confirmaste. Mirá en especial el título de Sobre mí ("casi profesor de matemáticas"), el subtítulo del hero y todo el inglés (`src/dictionaries/`)
+- [x] **Revisar la redacción de los textos** (2026-10-27: los diste por buenos; si hace falta, los ajustás vos más adelante). Son borrador y sólo afirman lo que me confirmaste. Mirá en especial el título de Sobre mí ("casi profesor de matemáticas"), el subtítulo del hero y todo el inglés (`src/dictionaries/`)
 - [x] **Frase del hero** (2026-10-21): "No se trata de escribir código. Se trata de construir lo que realmente importa.", con tu texto, tus cuatro fortalezas y "Construyamos algo que valga la pena" como botón principal
 - [x] Foto (2026-10-26): va en el hero, recortada y con el fondo del sitio. El original y el recorte transparente están en `~/Proyectos/capturas-portfolio/`; las versiones con el fondo del portfolio, para usar afuera, en `~/Proyectos/Guido/fotos/`
 - [x] Cifra de "proyectos entregados": no va
@@ -44,7 +44,7 @@ Lo que bloquea o mejora secciones. Los datos confirmados ya están cargados en `
 - [x] Diccionarios tipados: `en.ts` no compila si le falta una clave de `es.ts`
 - [x] `hreflang`, canonical y `og:locale` por idioma
 - [x] Selector de idioma que conserva la página y recuerda la elección
-- [ ] Revisión del inglés por vos (lo escribí yo)
+- [x] Revisión del inglés por vos (lo escribí yo; aprobado el 2026-10-27)
 - [x] Traducir los casos de estudio (2026-10-21). Falta tu revisión del inglés
 
 ## 3. Secciones de la home
@@ -99,7 +99,7 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
   6. `grupo-oeste-seguros`: Freelance · En producción (publicidad de la agencia) · repo público `seguros-front` · el backend lo hizo otro desarrollador
   7. `portfolio`: Personal
 - [x] Etiquetas de **contexto** (Mecantronic / Freelance / Personal) y **estado** (En producción, En producción · piloto, En desarrollo, Prueba de concepto) en el tipo `Project`, la tarjeta y la página del caso. Son campos obligatorios: un caso nuevo no compila sin ellos. En la página del caso, el rol pasó a un bloque "Mi rol / Estado" debajo del resumen
-- [ ] **Revisar los siete casos**, en español y en inglés (`src/content/projects/*.ts`). Solo afirman lo que está en el inventario o lo que confirmaste
+- [x] **Revisar los casos** (aprobados el 2026-10-27), en español y en inglés (`src/content/projects/*.ts`). Solo afirman lo que está en el inventario o lo que confirmaste
 - [x] **Capturas** (2026-10-22): 27 en `public/projects/<slug>/`, en WebP.
   - **Cómo se muestran:** la primera de cada caso es la portada de la tarjeta y del caso; las demás van en una galería al final, y cualquiera se amplía en un visor a pantalla completa (teclado, flechas, deslizar en celular, Escape).
   - **Datos personales:** se revisaron una por una. Todas usan datos de prueba (confirmado el 2026-10-22). Lo único difuminado son los links de la sala y el QR del Templo, porque el juego no lleva enlace público.
@@ -108,7 +108,7 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
   - **Originales:** siguen intactos en `~/Proyectos/capturas-portfolio/`.
 - [x] **Caso Plantuvieji** (2026-10-23): Mecantronic · En desarrollo. Cuenta sólo tus seis PRs mergeados en `develop` (#133, #143, #149, #150, #151, #152). No nombra al cliente, igual que el repo. Va después de Grupo Oeste. Con ocho casos, la grilla queda de a dos y ya no hay tarjeta a ancho completo
 - [x] **Capturas de Plantuvieji** (2026-10-23): licitaciones, detalle, proveedores y comunicaciones. Son datos locales, pero los emails y algunos nombres son reales, así que van difuminados: los emails, el usuario logueado, los nombres de los proveedores y el del adjudicado. "comunicaciones-2" quedó afuera porque sólo muestra casilleros vacíos
-- [ ] Capturas de ESConecta (hoy usa la portada generada)
+- [ ] Capturas de ESConecta (hoy usa la portada generada). Sin apuro: las mandás cuando las tengas (2026-10-27)
 - [x] **Capturas de los portales del suscriptor** de Plan Mi Casa y de Tu Casa en Cuotas (2026-10-23), con usuarios de demo. El portal de Plan Mi Casa pasa a ser la portada del caso; las del panel llevan "Panel" en la leyenda
 - [x] Qué hacer con `public/legacy/`: se reutiliza la captura de Grupo Oeste Seguros si sigue siendo representativa; el resto se borra. Carpeta borrada antes del lanzamiento. La captura de 2024 quedó fuera del repo, en `~/Proyectos/capturas-portfolio/grupo-oeste-seguros-2024.png`, esperando tu confirmación; lo demás se recupera del historial (`git show 342e2e9:public/legacy/<ruta>`)
 - [ ] `global-not-found` es una opción **experimental** de Next. Está fijada en 16.4.2; si se actualiza Next, revisar que el 404 siga funcionando
@@ -144,17 +144,17 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [x] Cargar las 3 variables en Vercel (Project Settings → Environment Variables) antes de publicar: `.env.local` no viaja. Verificado el 2026-10-21 con un envío real desde producción
 - [ ] Opcional: verificar un dominio en Resend para enviar desde un remitente propio. Hoy se envía desde `onboarding@resend.dev` hacia tu propio email, que alcanza para un formulario de contacto
 - [ ] Límite de envíos por visitante: necesita un almacén compartido (por ejemplo Upstash), porque la memoria del servidor no sirve en Vercel. Hoy el tope lo pone el plan de Resend
-- [ ] Cuando `main` pase al sitio nuevo, desactivar o regenerar las claves de EmailJS: el id del servicio, el de la plantilla y la public key están en el historial público del repo
+- [x] Cuando `main` pase al sitio nuevo, desactivar o regenerar las claves de EmailJS: el id del servicio, el de la plantilla y la public key están en el historial público del repo. Las eliminaste vos (confirmado el 2026-10-27)
 
 ## 6. SEO y compartir
 
 - [x] Imagen Open Graph por idioma, generada en el build con la estética Chalk (los colores salen de `globals.css`, no están duplicados)
 - [x] `sitemap.xml` con las dos versiones de idioma y sus `hreflang`, y `robots.txt`
-- [x] Datos estructurados JSON-LD de tipo `Person`
+- [x] Datos estructurados JSON-LD de tipo `Person`. Desde el 2026-10-27 llevan tu foto (`image`): una versión cuadrada en JPG con el fondo del sitio, `public/guido-dealbera-perfil.jpg`
 - [x] Favicon (32 px) y `apple-icon` (180 px) propios con el monograma GD; se eliminó el de Next
-- [ ] Probar cómo se ve el link al compartirlo en LinkedIn y WhatsApp una vez publicado (cachean la imagen: se refresca con sus depuradores de links)
+- [x] Probar cómo se ve el link al compartirlo en LinkedIn y WhatsApp una vez publicado (cachean la imagen: se refresca con sus depuradores de links). Probado por vos (2026-10-27)
 - [x] `logo.svg` y `logo.png` del sitio viejo: borrados (nada los usaba). El monograma GD de los íconos queda como marca
-- [ ] `lastModified` en el sitemap: hoy se omite porque `new Date()` no corre en el prerender; se puede sumar con una fecha fija por proyecto cuando existan
+- [x] `lastModified` en el sitemap (2026-10-27): cada caso lleva `updatedAt`, obligatorio en el tipo, y la home toma la fecha más reciente entre `site.updatedAt` y la de los casos. **Cuando cambies un caso, actualizá su fecha** (está explicado en `src/content/projects/README.md`)
 
 ## 7. Calidad
 
@@ -164,18 +164,20 @@ Fase de textos (plan, Fase 2), hecha el 2026-10-21:
 - [x] Menú móvil, selector de idioma, `prefers-reduced-motion` y sin JavaScript verificados en navegador real (Edge y Chrome), y navegación por toque en celular emulado
 - [x] La primera pantalla se ve completa al cargar, sin scrollear, en 720, 768, 900 y 1080 px de alto y en celular
 - [x] Lighthouse: Accesibilidad 100, Buenas prácticas 100 y SEO 100 en las cuatro páginas; rendimiento 100 en escritorio
-- [ ] **Lighthouse en celular simulado: rendimiento 93–94 (la meta era ≥ 95) con un LCP simulado de 3,1 s**, constante entre corridas. El LCP que mide el navegador sin simulación es de 0,2 s. No pude determinar qué fija el número simulado; probé quitar la dependencia de la hidratación en la entrada del hero y optimizar el canvas, y no lo movieron. **Decidido (2026-10-21): se acepta para lanzar y se mejora después**
-- [ ] **Escuchar el sitio con un lector de pantalla real** (NVDA o VoiceOver): lo automático detecta reglas, no si resulta entendible
-- [ ] **Probar en un teléfono real**: cómo se siente el canvas y por qué, en la emulación de celular, el navegador deja tres precargas duplicadas que nunca cierran (y se cancelan con `ERR_ABORTED` al volver al tope). La navegación funciona igual y no hay errores del servidor, pero no pude fijar la causa
+- [x] **Lighthouse en celular simulado** (revisado el 2026-10-27): mediana de 95 en `/es` y `/en` (cinco corridas por idioma, build de producción local), con corridas sueltas de 91 a 93. Se cumple la meta, pero justo.
+  - **La causa del LCP simulado de 2,9 s quedó identificada.** El LCP observado ocurre junto con el primer pintado (unos 0,13 s), y la simulación de Lighthouse suma todo el JavaScript que empezó a bajar antes de ese momento: los once archivos del sitio (unos 260 KB) se piden en los primeros 60 ms. La animación del titular **no** influye: se probó acelerarla de 1,9 a 1,5 s y el número no se movió, así que quedó como estaba.
+  - **Próximo paso posible, si se quiere más margen:** cargar `motion` con `LazyMotion` y `m.*` en lugar de `motion.*`, para que unos 30 de sus 39 KB lleguen después. Toca unos quince componentes animados, y se estima en alrededor de un punto
+- [x] **Escuchar el sitio con un lector de pantalla real** (NVDA o VoiceOver): lo automático detecta reglas, no si resulta entendible. Probado por vos (2026-10-27)
+- [x] **Probar en un teléfono real** (probado por vos el 2026-10-27): cómo se siente el canvas y por qué, en la emulación de celular, el navegador deja tres precargas duplicadas que nunca cierran (y se cancelan con `ERR_ABORTED` al volver al tope). La navegación funciona igual y no hay errores del servidor, pero no pude fijar la causa
 - [ ] El contraste de texto lo midió axe con el canvas y la cuadrícula del fondo ocultos (son decorativos, de opacidad ≤ 20%), porque con ellos axe no puede calcular el fondo. Los pares de colores de la paleta sí están calculados a mano
-- [ ] Vercel Analytics + Speed Insights (después del lanzamiento)
+- [x] Vercel Analytics + Speed Insights (2026-10-27). No usan cookies ni muestran nada en la página. El proxy de idiomas saltea `/_vercel`. **Para que junten datos hay que activarlos en el panel del proyecto en Vercel** (pestañas Analytics y Speed Insights)
 - [x] README nuevo: cómo correrlo, variables de entorno, dónde está cada cosa, decisiones y despliegue
 - [ ] Revisar `npm audit` cuando salga una versión nueva de `eslint-config-next` (hoy hay 5 alertas, todas en herramientas de desarrollo; ninguna llega al sitio)
 
 ## 8. Lanzamiento
 
 - [x] Preview deploy de `rediseno` en Vercel: anda desde `0cb0a2a`. Fallaba porque el proyecto de Vercel se creó con el sitio en Vite; lo resolvieron `vercel.json` y `engines.node`
-- [ ] Revisión final juntos: se lanzó con tu OK antes de cerrarla. Quedan las capturas, el lector de pantalla y el teléfono real
+- [x] Revisión final juntos: se lanzó con tu OK antes de cerrarla. El lector de pantalla y el teléfono real los probaste vos (2026-10-27); de las capturas sólo faltan las de ESConecta (sección 4)
 - [x] Merge a `main` (2026-10-21)
 - [ ] Dominio nuevo + redirección desde el `vercel.app` (si se compra)
 - [x] Borrar de `public/legacy` todo lo que no se haya usado
