@@ -166,6 +166,14 @@
     mask-image: radial-gradient(ellipse 120% 80% at 50% 30%, #000 30%, transparent 78%);
   }
 
+  /* La misma grilla, encendida en dorado: es la que aparece bajo la luz del mouse (graph-paper.tsx). */
+  .graph-paper-lit {
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--color-accent) 30%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--color-accent) 30%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
   .fade-edges {
     mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
   }

@@ -2,7 +2,11 @@
 
 import { useEffect, useRef } from "react";
 
-type Mote = { x: number; y: number; r: number; vx: number; vy: number; a: number; phase: number };
+/** `kx` y `ky` son el empujón del mouse: se suma a la deriva y se apaga solo. */
+type Mote = { x: number; y: number; r: number; vx: number; vy: number; a: number; phase: number; kx: number; ky: number };
+
+/** Polvo que suelta el mouse: vive `ttl` cuadros, cae despacio y se desvanece. */
+type Speck = { x: number; y: number; r: number; vx: number; vy: number; life: number; ttl: number };
 
 type Curve = {
   drawn: number;
@@ -22,6 +26,12 @@ const DRAW_SPEED = 3.2; // segmentos por frame
 const FADE_START = 560; // frame en que la curva empieza a borrarse
 const LIFESPAN = 790; // frame en que se reemplaza por otra
 const HEAD = 90; // segmentos de la punta, que brillan y tiemblan en cada cuadro
+const REPEL_RADIUS = 130; // px alrededor del mouse en los que el polvo se aparta
+const REPEL_FORCE = 0.45; // empujón por cuadro en el centro; baja hasta 0 en el borde del radio
+const REPEL_DAMPING = 0.93; // cuánto del empujón queda en el cuadro siguiente
+const MAX_SPECKS = 140; // tope del polvo del mouse, para que un movimiento largo no lo acumule
+const SPECK_EVERY = 9; // px de recorrido del mouse por cada partícula que suelta
+const IDLE_SPECK_CHANCE = 0.22; // probabilidad por cuadro de que aparezca una partícula flotando en la luz
 
 function hexToRgb(hex: string): [number, number, number] {
   let h = hex.replace("#", "").trim();
@@ -32,7 +42,8 @@ function hexToRgb(hex: string): [number, number, number] {
 /**
  * Fondo de pizarrón: polvo de tiza a la deriva y una curva de Lissajous que se
  * dibuja sola, se borra y vuelve con otros parámetros. El trazo lleva jitter por
- * segmento para que parezca tiza y no un vector limpio.
+ * segmento para que parezca tiza y no un vector limpio. Con mouse, el polvo cercano al cursor se aparta y el
+ * cursor suelta su propio polvo, que cae y se desvanece; quieto, deja flotando algunas partículas en la luz.
  * Se pausa con la pestaña oculta y no corre con reduced motion.
  *
  * Costo: el rastro ya dibujado no cambia, así que se acumula una sola vez en un lienzo auxiliar y cada
@@ -73,7 +84,31 @@ export function Chalkboard() {
       vy: -(Math.random() * 0.22 + 0.06),
       a: Math.random() * 0.3 + 0.07,
       phase: Math.random() * Math.PI * 2,
+      kx: 0,
+      ky: 0,
     });
+
+    // Posición del mouse. Lejos de la pantalla cuando no hay mouse, así nada reacciona en táctil.
+    let pointerX = -9999;
+    let pointerY = -9999;
+    let specks: Speck[] = [];
+
+    /** Una partícula cerca del cursor. `spread` es cuán lejos puede nacer y `speed`, con qué fuerza sale. */
+    const addSpeck = (spread: number, speed: number) => {
+      if (specks.length >= MAX_SPECKS) return;
+      const angle = Math.random() * Math.PI * 2;
+      const distance = Math.random() * spread;
+      const velocity = (Math.random() * 0.8 + 0.2) * speed;
+      specks.push({
+        x: pointerX + Math.cos(angle) * distance,
+        y: pointerY + Math.sin(angle) * distance,
+        r: Math.random() * 1.1 + 0.35,
+        vx: Math.cos(angle) * velocity,
+        vy: Math.sin(angle) * velocity,
+        life: 0,
+        ttl: 45 + Math.random() * 70,
+      });
+    };
 
     const newCurve = (): Curve => {
       const sx = Math.min(width, height) * (0.17 + Math.random() * 0.12);
@@ -165,12 +200,43 @@ export function Chalkboard() {
       for (let i = 0; i < dust.length; i++) {
         const m = dust[i];
         m.phase += 0.01;
-        m.y += m.vy;
-        m.x += m.vx + Math.sin(m.phase) * 0.18;
+
+        const dx = m.x - pointerX;
+        const dy = m.y - pointerY;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < REPEL_RADIUS * REPEL_RADIUS && d2 > 0.01) {
+          const d = Math.sqrt(d2);
+          const force = (1 - d / REPEL_RADIUS) * REPEL_FORCE;
+          m.kx += (dx / d) * force;
+          m.ky += (dy / d) * force;
+        }
+        m.kx *= REPEL_DAMPING;
+        m.ky *= REPEL_DAMPING;
+
+        m.y += m.vy + m.ky;
+        m.x += m.vx + Math.sin(m.phase) * 0.18 + m.kx;
+        // Si el mouse la saca por un costado, vuelve a entrar por el otro.
+        if (m.x < -12) m.x = width + 12;
+        else if (m.x > width + 12) m.x = -12;
         if (m.y < -12) dust[i] = mote(false);
         ctx.beginPath();
         ctx.fillStyle = chalk(m.a);
         ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Con el mouse quieto también hay polvo: partículas lentas que flotan dentro de la luz.
+      if (pointerX > -9999 && Math.random() < IDLE_SPECK_CHANCE) addSpeck(70, 0.25);
+      specks = specks.filter((s) => s.life < s.ttl);
+      for (const s of specks) {
+        s.life++;
+        s.vx *= 0.97;
+        s.vy = s.vy * 0.97 + 0.012; // el polvo de tiza cae
+        s.x += s.vx;
+        s.y += s.vy;
+        ctx.beginPath();
+        ctx.fillStyle = chalk(0.55 * (1 - s.life / s.ttl));
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -183,16 +249,31 @@ export function Chalkboard() {
     const onVisibility = () => {
       running = !document.hidden;
     };
+    const onPointerMove = (event: PointerEvent) => {
+      if (event.pointerType !== "mouse") return;
+      // Suelta polvo según cuánto se movió: más rápido, más polvo. Al entrar no hay recorrido previo.
+      const moved = pointerX > -9999 ? Math.hypot(event.clientX - pointerX, event.clientY - pointerY) : 0;
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      for (let i = 0; i < Math.min(3, Math.floor(moved / SPECK_EVERY)); i++) addSpeck(14, 0.6);
+    };
+    const onPointerLeave = () => {
+      pointerX = pointerY = -9999;
+    };
 
     resize();
     tick();
     window.addEventListener("resize", resize, { passive: true });
     document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    document.documentElement.addEventListener("mouseleave", onPointerLeave);
 
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("resize", resize);
       document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("pointermove", onPointerMove);
+      document.documentElement.removeEventListener("mouseleave", onPointerLeave);
     };
   }, []);
 
