@@ -5,10 +5,14 @@ import type { Project } from "./types";
  * seis primeros PRs (#133, #143, #149, #150, #151 y #152) están mergeados en `develop`. Sólo se cuenta lo
  * que hacen esos commits. El proyecto está en la etapa de demo (docs/planes/E1-demo.md), camino a
  * producción. El repo no nombra al cliente: el caso tampoco.
+ *
+ * "Plantuvieji" es el nombre interno del repo, no el del producto, que no tiene nombre oficial: lo que se
+ * publica (título y slug) describe lo que hace. El archivo, la exportación y la carpeta de capturas quedan
+ * con el nombre interno. El slug viejo estuvo publicado: redirige al nuevo desde next.config.ts.
  */
 export const plantuvieji: Project = {
-  slug: "plantuvieji",
-  updatedAt: "2026-10-23",
+  slug: "licitaciones-de-compras",
+  updatedAt: "2026-10-27",
   year: 2026,
   context: "mecantronic",
   status: "inProgress",
@@ -60,7 +64,7 @@ export const plantuvieji: Project = {
   ],
   copy: {
     es: {
-      title: "Plantuvieji",
+      title: "Licitaciones de compras con IA",
       summary:
         "Módulo de compras con IA: pide cotizaciones a proveedores por email, lee los presupuestos que mandan, arma la comparativa y deja elegir al ganador, siempre con aprobación humana. Me sumé al equipo en octubre de 2026.",
       role: "Desarrollo full stack dentro del equipo: seguridad del servicio de IA, reglas de envío de comunicaciones, fechas y zonas horarias, e interfaz de la licitación.",
@@ -80,7 +84,7 @@ export const plantuvieji: Project = {
       ],
     },
     en: {
-      title: "Plantuvieji",
+      title: "AI-assisted purchase tenders",
       summary:
         "An AI-powered purchasing module: it requests quotes from suppliers by email, reads the quotes they send back, builds the comparison and lets a person pick the winner, always with human approval. I joined the team in October 2026.",
       role: "Full stack development within the team: securing the AI service, rules for sending communications, dates and time zones, and the tender interface.",

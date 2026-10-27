@@ -3,6 +3,17 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
+  // Corre antes que el proxy: sin esto, el proxy vería un slug que no existe y respondería 404.
+  // El slug viejo sólo se publicó en es y en en; `:path*` cubre también su imagen para compartir.
+  async redirects() {
+    return [
+      {
+        source: "/:lang(es|en)/projects/plantuvieji/:path*",
+        destination: "/:lang/projects/licitaciones-de-compras/:path*",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     // 75 es la calidad por defecto (capturas). 90 es para la foto del hero: a 75 se notaba en la barba y el pelo.
     qualities: [75, 90],
