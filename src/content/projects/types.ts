@@ -44,6 +44,11 @@ export type ProjectShot = {
 export type Project = {
   /** Va en la URL: /es/projects/<slug>. Minúsculas y guiones. */
   slug: string;
+  /**
+   * Último cambio del caso (texto o capturas), como AAAA-MM-DD. Va en el sitemap para que los buscadores
+   * sepan qué volver a leer: actualizala cada vez que cambies el caso.
+   */
+  updatedAt: `${number}-${number}-${number}`;
   year: number;
   context: ProjectContext;
   status: ProjectStatus;

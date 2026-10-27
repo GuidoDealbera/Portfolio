@@ -20,6 +20,9 @@ type SitePhoto = {
 export const site = {
   // El sitio sigue en el subdominio gratuito hasta tener guidodealbera.dev.
   url: "https://guidodealbera-dev.vercel.app",
+  // Último cambio de la home, como AAAA-MM-DD, para el sitemap: actualizala cuando cambie su contenido.
+  // Los casos llevan la suya (`updatedAt` de cada proyecto); la home toma la más reciente de todas.
+  updatedAt: "2026-10-27",
   name: "Guido Dealbera",
   fullName: "Guido José Dealbera",
   initials: { first: "G", second: "D" },

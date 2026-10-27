@@ -8,6 +8,7 @@ import type { Project } from "./types";
  */
 export const plantuvieji: Project = {
   slug: "plantuvieji",
+  updatedAt: "2026-10-23",
   year: 2026,
   context: "mecantronic",
   status: "inProgress",

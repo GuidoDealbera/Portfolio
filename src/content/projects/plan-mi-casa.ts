@@ -11,6 +11,7 @@ import type { Project } from "./types";
  */
 export const planMiCasa: Project = {
   slug: "plan-mi-casa",
+  updatedAt: "2026-10-23",
   year: 2025,
   context: "mecantronic",
   status: "live",

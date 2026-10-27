@@ -9,6 +9,7 @@ import type { Project } from "./types";
  */
 export const grupoOesteSeguros: Project = {
   slug: "grupo-oeste-seguros",
+  updatedAt: "2026-10-22",
   year: 2024,
   context: "freelance",
   status: "live",

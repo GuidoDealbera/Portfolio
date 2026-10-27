@@ -7,6 +7,7 @@ import type { Project } from "./types";
  */
 export const portfolio: Project = {
   slug: "portfolio",
+  updatedAt: "2026-10-22",
   year: 2026,
   context: "personal",
   status: "live",

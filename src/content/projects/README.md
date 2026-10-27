@@ -7,7 +7,8 @@ página (tarjeta, página del caso, imagen para compartir, sitemap) sale solo.
    (en `types.ts`) te marca qué falta: `copy` pide **los dos idiomas**, y si
    falta uno el proyecto no compila. También pide `context` (Mecantronic,
    freelance o personal) y `status` (en producción, piloto, en desarrollo o
-   prueba de concepto), que se muestran como etiquetas en la tarjeta y en el caso.
+   prueba de concepto), que se muestran como etiquetas en la tarjeta y en el caso,
+   y `updatedAt`, la fecha del último cambio como `"AAAA-MM-DD"`, que va al sitemap.
 2. En `index.ts`, importalo y sumalo al arreglo `projects`. El orden del
    arreglo es el orden en la página.
 3. Si tiene capturas, ponelas en `public/projects/<slug>/` (en WebP, sin datos
@@ -20,6 +21,11 @@ página (tarjeta, página del caso, imagen para compartir, sitemap) sale solo.
 
 Un proyecto sin `links.repo` se muestra como privado, y no hace falta aclarar
 nada más.
+
+**Cuando cambies un caso** (texto o capturas), actualizá su `updatedAt`. Los
+buscadores leen esa fecha en el sitemap para saber qué páginas volver a leer.
+La home toma sola la más reciente entre la suya (`site.updatedAt`) y la de los
+casos.
 
 ## Por qué archivos TypeScript y no Markdown
 
