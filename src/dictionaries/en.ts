@@ -127,7 +127,7 @@ export const en: Dictionary = {
         id: "bootcamp",
         when: "Jan — May 2023",
         title: "SoyHenry",
-        body: "Full Stack Developer bootcamp (800 hours). From January to May I was also a Teaching Assistant, guiding a group of students through their onboarding.",
+        body: "Full Stack Developer bootcamp (800 hours). From March to May I was also a Teaching Assistant, guiding a group of students through their onboarding.",
       },
       {
         id: "degree",
