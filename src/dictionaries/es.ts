@@ -141,7 +141,7 @@ export const es = {
         id: "bootcamp",
         when: "ene. — may. 2023",
         title: "SoyHenry",
-        body: "Bootcamp Full Stack Developer (800 horas). De marzo a mayo, también Teaching Assistant: acompañé a un grupo de estudiantes en su adaptación al programa.",
+        body: "Bootcamp Full Stack Developer (800 horas). De enero a mayo, también Teaching Assistant: acompañé a un grupo de estudiantes en su adaptación al programa.",
       },
       {
         id: "degree",
