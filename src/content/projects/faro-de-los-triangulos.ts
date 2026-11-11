@@ -6,8 +6,9 @@ import type { Project } from "./types";
  * (sala en vivo, panel docente, reglas de Firebase) y cambia el contenido, la estética y suma el quiz final. Las
  * 2.075 pruebas son las de Vitest, contadas ese día; las del emulador corren aparte y no se suman.
  *
- * Según el README, falta publicarlo en Vercel y estrenarlo en clase: por eso es prueba de concepto, como el Templo.
- * Sin enlace "Ver online" por lo mismo que el Templo (sólo el docente crea salas).
+ * Guido confirmó el 2026-11-11 que está publicado en Vercel (https://escape-coseno-room.vercel.app). Falta estrenarlo
+ * en clase: por eso es prueba de concepto, como el Templo. Sin enlace "Ver online" por lo mismo que el Templo: sólo el
+ * docente crea salas, así que un visitante se quedaría en la pantalla del código.
  */
 export const faroDeLosTriangulos: Project = {
   slug: "faro-de-los-triangulos",
@@ -90,7 +91,7 @@ export const faroDeLosTriangulos: Project = {
         "Las reglas de Firebase suman el quiz y el checkpoint y se siguen probando contra el emulador: por ejemplo, las respuestas del quiz sólo pueden crecer de a una, sin cambiar las anteriores.",
       ],
       result: [
-        "Está terminado y probado, como prueba de concepto: tiene más de 2.000 pruebas automáticas y una partida completa revisada en el navegador, en computadora y en celular. Falta publicarlo y estrenarlo en clase.",
+        "Está publicado y listo para usar en clase, como prueba de concepto: falta estrenarlo con alumnos. Tiene más de 2.000 pruebas automáticas y una partida completa revisada en el navegador, en computadora y en celular.",
         "Al Templo le suma un quiz final, una pantalla para proyectar y una estética nueva, «Cuaderno cuadriculado»: la app es la hoja cuadriculada donde los alumnos resuelven de verdad, con birome, resaltador y post-its.",
       ],
     },
@@ -112,7 +113,7 @@ export const faroDeLosTriangulos: Project = {
         "The Firebase rules add the quiz and the checkpoint and are still tested against the emulator: for example, quiz answers can only grow one at a time, without changing the previous ones.",
       ],
       result: [
-        "It's finished and tested as a proof of concept: it has over 2,000 automated tests and a full game checked in the browser, on a computer and on a phone. It still has to be published and used in class.",
+        "It's live and ready for the classroom as a proof of concept: it hasn't been used with students yet. It has over 2,000 automated tests and a full game checked in the browser, on a computer and on a phone.",
         "On top of the Templo, it adds a final quiz, a projector screen and a new graph-paper notebook look: the app is the sheet of graph paper where students actually work things out, with ballpoint pen, highlighter and sticky notes.",
       ],
     },
