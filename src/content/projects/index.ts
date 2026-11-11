@@ -1,5 +1,6 @@
 import { durrieu } from "./durrieu";
 import { esconecta } from "./esconecta";
+import { faroDeLosTriangulos } from "./faro-de-los-triangulos";
 import { grupoOesteSeguros } from "./grupo-oeste-seguros";
 import { mecanicaDealbera } from "./mecanica-dealbera";
 import { planMiCasa } from "./plan-mi-casa";
@@ -19,6 +20,9 @@ export const projects: readonly Project[] = [
   temploDeLasAsintotas,
   planMiCasa,
   esconecta,
+  // Sumado el 2026-11-11. Va lejos del Templo, del que deriva, para que no queden lado a lado en la grilla, y
+  // corta la seguidilla de casos de Mecantronic.
+  faroDeLosTriangulos,
   grupoOesteSeguros,
   // Sumado el 2026-10-23, después de Grupo Oeste para no juntar tres casos de Mecantronic seguidos.
   plantuvieji,
